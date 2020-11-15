@@ -5,10 +5,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Role;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,8 +22,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.users.index');
+        $users = User::all();
+        return view('admin.users.index')->with('users',$users);
     }
 
 
@@ -29,7 +35,15 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        //
+       //dd($user);
+       if(Gate::denies('edit-users')) {
+           return redirect()->route('admin.users.index');
+       }
+        $roles = Role::all();
+        return view('admin.users.edit')->with([
+            'user' => $user,
+            'roles' => $roles,
+        ]);
     }
 
     /**
@@ -41,7 +55,19 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        // dd($request);
+        $user->roles()->sync($request->roles);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if($user->save()){
+            $request->session()->flash('success', $user->name . ' has been updated');
+        } else {
+            $request->session()->flash('error', 'There was an error updating the user');
+        }
+
+        
+
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -52,6 +78,12 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        if(Gate::denies('delete-users')) {
+            return redirect()->route('admin.users.index');
+        }
+         //dd($user);
+         $user->roles()->detach();
+         $user->delete();
+         return redirect()->route('admin.users.index');
     }
 }
