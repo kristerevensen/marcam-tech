@@ -31,6 +31,7 @@ Route::get('/chat', [App\Http\Controllers\ChatController::class, 'index'])->name
 Route::get('/campaigns', [App\Http\Controllers\CampaignsController::class, 'index'])->name('campaigns');
 Route::get('/experiments', [App\Http\Controllers\ExperimentsController::class, 'index'])->name('experiments');
 Route::get('/projects/new', [App\Http\Controllers\HomeController::class, 'new'])->name('projects.new');
+Route::get('/projects/save', [App\Http\Controllers\HomeController::class, 'save'])->name('projects.save');
 
 
 
