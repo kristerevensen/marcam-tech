@@ -17,6 +17,7 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('project_name');
+            $table->string('project_url');
             $table->text('description');
             $table->string('location');
             $table->string('language');

@@ -13,29 +13,29 @@
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title">{{ __('List of projects') }}</h6>
-                        <p class="card-description">{{ __('description projects') }}</p>
+                            <h6 class="card-title">{{ __('Your Projects') }}</h6>
+                        <p class="card-description">{{ __('') }}</p>
                             <div class="table-responsive">
                                 <table id="dataTableExample" class="table">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th class="wd-30p">Name</th>
+                                            <th class="wd-30p">URL</th>
+                                            <th class="wd-15p">Location</th>
+                                            <th class="wd-15p">Language</th>
+                                            <th class="wd-10p">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
+                                            @foreach($projects as $project)
+                                            <tr>
+                                            <td>{{ $project['project_name'] }}</td>
+                                                <td>{{ $project['project_url'] }}</td>
+                                                <td>{{ $project['location'] }}</td>
+                                                <td>{{ $project['language'] }}</td>
+                                                <td>{{ __('action') }}</td>
+                                            </tr>
+                                            @endforeach
                                     </tbody>
                                 </table>
                             </div>

@@ -7,18 +7,37 @@
                     <span class="menu-title">Projects</span>
                 </a>
             </li>
+      
+
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('keywords') }}">
+                <a href="#" class="nav-link">
                     <i class="link-icon" data-feather="key"></i>
                     <span class="menu-title">Keywords</span>
+                    <i class="link-arrow"></i>
                 </a>
+                <div class="submenu">
+                    <ul class="submenu-item">
+                        <li class="category-heading">Managing</li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('keywords') }}">Explorer</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pages/email/read.html">Lists</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pages/email/compose.html">Groups</a></li>
+                        <li class="category-heading">Analysis<li>
+                        <li class="nav-item"><a class="nav-link" href="pages/apps/chat.html">Ranking</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pages/apps/calendar.html">Domain vs domain</a></li>
+                    </ul>
+                </div>
             </li>
+
+
             <li class="nav-item">
             <a class="nav-link" href="{{ route('analytics') }}">
                     <i class="link-icon" data-feather="bar-chart"></i>
                     <span class="menu-title">Analytics</span>
                 </a>
             </li>
+
+          
+
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('competitors') }}">
                     <i class="link-icon" data-feather="box"></i>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LinkController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,5 @@ Route::get('/keywords/{id?}', function($id = null){
 Route::get('/projects',function(){
     return "hi users";
 });
+
+Route::get('/data',[\App\Http\Controllers\GanttController::class,'get']);

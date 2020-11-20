@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Projects;
 use function Ramsey\Uuid\v1;
 
 class HomeController extends Controller
@@ -25,7 +25,8 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        return view('home');
+        $data['projects'] = Projects::all();
+        return view('home',$data);
     }
 
     /**
@@ -36,5 +37,10 @@ class HomeController extends Controller
     public function new(Request $request)
     {
         return view('projects.new');
+    }
+
+    public function projects(Request $request)
+    {
+        
     }
 }

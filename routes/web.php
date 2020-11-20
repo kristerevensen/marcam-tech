@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\ApiController;
+use App\Http\Controllers\GanttController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -31,8 +33,10 @@ Route::get('/chat', [App\Http\Controllers\ChatController::class, 'index'])->name
 Route::get('/campaigns', [App\Http\Controllers\CampaignsController::class, 'index'])->name('campaigns');
 Route::get('/experiments', [App\Http\Controllers\ExperimentsController::class, 'index'])->name('experiments');
 Route::get('/projects/new', [App\Http\Controllers\HomeController::class, 'new'])->name('projects.new');
-Route::get('/projects/save', [App\Http\Controllers\HomeController::class, 'save'])->name('projects.save');
-
+Route::post('/projects/save', [App\Http\Controllers\HomeController::class, 'save'])->name('projects.save');
+Route::get('/dfs', [App\Http\Controllers\TestController::class, 'index'])->name('index');
+Route::get('/gantt', [App\Http\Controllers\GanttController::class, 'gantt'])->name('gantt.gantt');
+Route::get('/tester', [ApiController::class,'common_search_engines'])->name('tester');
 
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
