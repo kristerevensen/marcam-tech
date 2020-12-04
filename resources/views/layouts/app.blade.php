@@ -15,19 +15,21 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>
-    <link rel="stylesheet" href="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.css">
-
-
     <!-- core:css -->
 	<link rel="stylesheet" href="../../../assets/vendors/core/core.css">    
 	<link rel="stylesheet" href="../../../assets/fonts/feather-font/css/iconfont.css">
 	<link rel="stylesheet" href="../../../assets/vendors/flag-icon-css/css/flag-icon.min.css">
-	<link rel="stylesheet" href="../../../assets/css/demo_5/style.css">
     <link rel="shortcut icon" href="../../../assets/images/favicon.png" />
     <link rel="stylesheet" href="../../../assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-  
+    <link rel="stylesheet" href="../../../assets/vendors/jquery-steps/jquery.steps.css">
+    <link rel="stylesheet" href="../../../assets/vendors/jquery-tags-input/jquery.tagsinput.min.css">
+	<link rel="stylesheet" href="../../../assets/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="../../../assets/css/demo_5/style.css">
 
+
+    <style>
+        .ui-datepicker-trigger{cursor:pointer}
+    </style>
 </head>
 <body>
     <div class="main-wrapper">
@@ -55,25 +57,85 @@
 	<script src="../../../assets/vendors/core/core.js"></script>
 
 	<script src="../../../assets/vendors/feather-icons/feather.min.js"></script>
-	<script src="../../../assets/js/template.js"></script>
+    <script src="../../../assets/js/template.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<!-- endinject -->
 
     <!-- plugin js for this page -->
     <script src="../assets/vendors/chartjs/Chart.min.js"></script>
-    <script src="../assets/vendors/jquery.flot/jquery.flot.js"></script>
-    <script src="../assets/vendors/jquery.flot/jquery.flot.resize.js"></script>
     <script src="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     <script src="../assets/vendors/apexcharts/apexcharts.min.js"></script>
-    <script src="../assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="../../../assets/vendors/jquery-validation/jquery.validate.min.js"></script>
       <!-- end plugin js for this page -->
 
     <!-- custom js for this page -->
     <script src="../assets/js/dashboard.js"></script>
-    <script src="../assets/js/datepicker.js"></script>
+    <script src="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     <script src="../../../assets/js/data-table.js"></script>
     <script src="../../../assets/vendors/datatables.net/jquery.dataTables.js"></script>
     <script src="../../../assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-      <!-- end custom js for this page -->
-   
+    <script src="../../../assets/js/wizard.js"></script>
+    <script src="../../../assets/vendors/jquery-steps/jquery.steps.min.js"></script>
+    <script src="../../../assets/vendors/select2/select2.min.js"></script>
+
+    <script>
+        $(function() {
+  'use strict'
+
+  if ($(".select2").length) {
+    $(".select2").select2();
+  }
+
+});
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            minDate:new Date(),
+            todayHighlight: true,
+            autoclose: true
+        });
+        
+
+        $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                
+
+                $("#saveCategory").click(function(e){
+                   
+                    var name = $("#campaigncategory_name").val();
+                   
+                    
+                    $.ajax({
+                    type:'POST',
+                    url:"{{ route('campaignscategory.post') }}",
+                    data:{name:name},
+                    success:function(response){
+                        var status = response.status;
+                       if(status == 'success'){
+                            var option = new Option(response.name,response.id);
+                            $(option).html(response.name);
+                           // $('#CampaignCategories').append(option);
+                            $("#CampaignCategories").prepend("<option value='"+response.id+"' selected='selected'>"+response.name+"</option>");
+                            $('#addCategoryForm').hide();
+                            $('#addCategoryFormMessage').append('Campaign <span style="color:#fc2403;">'+response.name+'</span> was added to selection. <i data-feather="check-circle"></i>');
+                        } else if(status == 'error') {
+                            var errors = data.responseJSON;
+                            console.log(errors);
+                            alert(errors);
+                        }
+
+                    },
+                    error: function(data) {
+                        var errors = data.responseJSON;
+                        console.log(errors);
+                        alert(errors);
+                    }
+            
+                });
+            });
+            $(".validate").validate();
+    </script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Keywords;
 use Illuminate\Http\Request;
 
 class KeywordsController extends Controller
@@ -17,6 +18,7 @@ class KeywordsController extends Controller
     }
 
     public function index(request $request) {
-        return view('keywords.index');
+        $data['keywords'] = Keywords::all();
+        return view('keywords.index',$data);
     }
 }

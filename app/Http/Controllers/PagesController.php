@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AnalyticsController extends Controller
+class PagesController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -17,7 +17,7 @@ class AnalyticsController extends Controller
     }
 
     public function index(request $request) {
-        return view('analytics.index');
+        return view('pages.index');
     }
 }
 

@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Campaign;
 use App\Models\Link;
 use Illuminate\Http\Request;
 
 class LinkController extends Controller
 {
+    public function index()
+    {
+        $project_id = session('selected_project');
+        $data = new Link();
+        $data->get_project_links($project_id);
+        
+        return view('campaigns.links',$data);
+    }
     public function store(Request $request)
     {
         $link = new Link();

@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use Carbon\Traits\Timestamp;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ProjectsTableSeeder extends Seeder
 {
@@ -13,6 +15,26 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('projects')->insert([
+            'project_name' => 'OneCall',
+            'project_token' => 'ABC123',
+            'url' => 'https://onecall.no',
+            'language' => 'NO',
+            'location' => 'Norway',
+            'description' => 'Onecall.no website with webshop.',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        DB::table('projects')->insert([
+            'project_name' => 'MyCall',
+            'project_token' => 'DEF456',
+            'url' => 'https://mycall.no',
+            'language' => 'NO',
+            'location' => 'Norway',
+            'description' => 'MyCall.no website with webshop.',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
     }
 }

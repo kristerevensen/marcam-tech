@@ -17,7 +17,7 @@
                     </li>
                 @endif
             @else
-                
+                @include('partials.projectSelector')
                 @include('partials.messages')
                 @include('partials.notifications')
                 @include('partials.profile')

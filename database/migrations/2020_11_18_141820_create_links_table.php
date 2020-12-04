@@ -16,10 +16,20 @@ class CreateLinksTable extends Migration
         Schema::create('links', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type');
-            $table->integer('source');
-            $table->integer('target');
-            $table->integer('created_by'); //setting userID
-            $table->integer('assigned_to');
+            $table->text('landing_page');
+            $table->string('language');
+            $table->string('location');
+            $table->string('source');
+            $table->string('medium');
+            $table->string('term');
+            $table->string('content');
+            $table->string('target');
+            $table->string('campaign_id');
+            $table->foreign('campaign_id')
+                    ->references('id')
+                    ->on('campaigns')
+                    ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

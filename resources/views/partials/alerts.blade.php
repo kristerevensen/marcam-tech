@@ -1,29 +1,36 @@
-@if(session('success'))
-    <div class="alert alert-success" role="alert">
-        {{ session('success') }}
-    </div>
+
+
+@if ($message = Session::get('success'))
+<div class="alert alert-success alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>{{ session()->pull($message) }}</strong>
+</div>
 @endif
 
-@if(session('info'))
-    <div class="alert alert-info" role="alert">
-        {{ session('info') }}
-    </div>
+@if ($message = Session::get('error'))
+<div class="alert alert-danger alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>{{ $message }}</strong>
+</div>
 @endif
 
-@if(session('warning'))
-    <div class="alert alert-warning" role="alert">
-        {{ session('warning') }}
-    </div>
+@if ($message = Session::get('warning'))
+<div class="alert alert-warning alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>{{ $message }}</strong>
+</div>
 @endif
 
-@if(session('danger'))
-    <div class="alert alert-danger" role="alert">
-        {{ session('danger') }}
-    </div>
+@if ($message = Session::get('info'))
+<div class="alert alert-info alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>{{ session()->pull($message) }}</strong>
+</div>
 @endif
 
-@if(session('error'))
-    <div class="alert alert-danger" role="alert">
-        {{ session('error') }}
-    </div>
+@if ($errors->any())
+<div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    Check the following errors :(
+</div>
 @endif
