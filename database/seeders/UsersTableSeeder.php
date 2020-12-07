@@ -28,25 +28,25 @@ class UsersTableSeeder extends Seeder
         $admin = User::create([
             'name' => 'Admin User',
             'email' => 'admin@admin.com',
-            'password' => Hash::make('password')
+            'password' => Hash::make('ro3266ss')
         ]);
 
         $service = User::create([
             'name' => 'Service User',
             'email' => 'service@service.com',
-            'password' => Hash::make('password')
+            'password' => Hash::make('ro3266ss')
         ]);
 
         $user = User::create([
             'name' => 'Regular User',
             'email' => 'user@user.com',
-            'password' => Hash::make('password')
+            'password' => Hash::make('ro3266ss')
         ]);
 
         $krister = User::create([
             'name' => 'Krister M. Ross',
             'email' => 'krister.ross.evensen@gmail.com',
-            'password' => Hash::make('qwas33ZX')
+            'password' => Hash::make('Eo(70BerL<')
         ]);
 
         $admin->roles()->attach($adminRole);

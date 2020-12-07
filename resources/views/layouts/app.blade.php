@@ -120,6 +120,7 @@
                             $("#CampaignCategories").prepend("<option value='"+response.id+"' selected='selected'>"+response.name+"</option>");
                             $('#addCategoryForm').hide();
                             $('#addCategoryFormMessage').append('Campaign <span style="color:#fc2403;">'+response.name+'</span> was added to selection. <i data-feather="check-circle"></i>');
+                            $("#addCategoryFormMessage").show();
                         } else if(status == 'error') {
                             var errors = data.responseJSON;
                             console.log(errors);
@@ -136,6 +137,11 @@
                 });
             });
             $(".validate").validate();
+            $('.addCategoryModal').on('click', function() {
+                $('#addCategoryForm').show();
+                $('#addCategoryFormMessage').text('');
+            });
+            
     </script>
 </body>
 </html>

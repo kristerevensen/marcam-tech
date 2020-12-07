@@ -15,7 +15,7 @@ class CreateCampaignCatgoryTable extends Migration
     {
         Schema::create('campaigns_category', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('project_token')->unique();
+            $table->string('project_token')->key();
             $table->string('name');
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ class CreateCampaignCatgoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campaign_catgory');
+        Schema::dropIfExists('campaigns_category');
     }
 }

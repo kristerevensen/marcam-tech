@@ -66,7 +66,7 @@
                         </div>
                         <div class="grid-margin mg-l-20 stretch-card col-md-3">
                             <div class="form-group col-md-12">
-                                <label>{{ __('Category') }} <a href="#" data-toggle="modal" data-target="#addCategory">Add Category</a></label>
+                                <label>{{ __('Category') }} <a href="#" data-toggle="modal" data-target="#addCategory" class="addCategoryModal">Add Category</a></label>
                                 <select aria-placeholder="Choose.." class="select2 w-100 form-control" data-width="100%" id="CampaignCategories">
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -102,7 +102,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <input type="submit" name="campaign_save" id="savethecampaign" class="btn btn-sm btn-block btn-primary">
+                            <input type="submit" name="savethecampaign" id="savethecampaign" class="btn btn-sm btn-block btn-primary">
                         </div>
                     </div>
                 </div>

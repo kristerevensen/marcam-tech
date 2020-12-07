@@ -27,9 +27,14 @@ class CampaignsController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-    
+        
     }
- 
+    public function access(Request $req = null)
+    {
+        if(!session('selected_project')) {
+            redirect('home')->flash('info','You need to select a project first.')->send();
+        }
+    }
 
     public function index(request $request) {
         $data['campaigns'] = Campaign::all();
@@ -46,6 +51,7 @@ class CampaignsController extends Controller
     public function save(Request $request)
     {
         dd($request);
+        
         $camp = new Campaign();
         $camp->campaign_name = $request->campaign_name;
         $camp->campaign_spend = $request->campaign_spend;
