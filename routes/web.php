@@ -35,37 +35,53 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home'); //Projects list
-Route::get('/keywords', [KeywordsController::class, 'index'])->name('keywords');
-Route::get('/pages', [PagesController::class, 'index'])->name('pages');
-Route::get('/competitors', [CompetitorsController::class, 'index'])->name('competitors');
-Route::get('/ranking', [RankingController::class, 'index'])->name('ranking');
-Route::get('/audits', [AuditsController::class, 'index'])->name('audits');
-Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+Route::get('/projects.html', [HomeController::class, 'index'])->name('home'); //Projects list
+Route::get('/keywords.html', [KeywordsController::class, 'index'])->name('keywords');
+Route::get('/pages.html', [PagesController::class, 'index'])->name('pages');
+Route::get('/competitors.html', [CompetitorsController::class, 'index'])->name('competitors');
+Route::get('/ranking.html', [RankingController::class, 'index'])->name('ranking');
+Route::get('/audits.html', [AuditsController::class, 'index'])->name('audits');
+Route::get('/chat.html', [ChatController::class, 'index'])->name('chat');
 
 Route::get('/experiments', [ExperimentsController::class, 'index'])->name('experiments');
-Route::get('/gantt', [GanttController::class, 'gantt'])->name('gantt.gantt');
-Route::get('/tester', [ApiController::class,'common_search_engines'])->name('tester');
-
 
 Route::get('/projects/delete/{id}',[HomeController::class,'delete'])->name('project.delete');
-Route::get('/projects/new', [HomeController::class, 'new'])->name('projects.new');
-Route::get('/projects/create', [HomeController::class, 'create'])->name('projects.create');
+Route::get('/projects/new.html', [HomeController::class, 'new'])->name('projects.new');
+Route::get('/projects/create.html', [HomeController::class, 'create'])->name('projects.create');
 Route::get('/projects/edit/{id}', [HomeController::class, 'edit'])->name('projects.edit');
-Route::get('/projects/select/{id}', [HomeController::class, 'select']);
-Route::get('/projects/deselect', [HomeController::class, 'deselect'])->name('projects.deselect');
-Route::post('/projects/save', [HomeController::class, 'save'])->name('projects.save');
-Route::put('/projects/update', [HomeController::class, 'update'])->name('projects.update');
+Route::get('/projects/select/{id}', [HomeController::class, 'select'])->name('projects.select');
+Route::get('/projects/deselect.html', [HomeController::class, 'deselect'])->name('projects.deselect');
+Route::post('/projects/save.html', [HomeController::class, 'save'])->name('projects.save');
+Route::put('/projects/update.html', [HomeController::class, 'update'])->name('projects.update');
 
-Route::get('/campaigns', [CampaignsController::class, 'index'])->name('campaigns');
-Route::get('/campaigns/new', [CampaignsController::class, 'new'])->name('campaigns.new');
-Route::post('/campaigns/save', [CampaignsController::class, 'save'])->name('campaigns.save');
-Route::post('/campaigns/category/save', [CampaignsController::class,'savecategory'])->name('campaignscategory.post');
-Route::post('/campaigns/category/store', [CampaignsController::class,'storecategory'])->name('campaignscategory.store');
+Route::get('/campaigns.html', [CampaignsController::class, 'index'])->name('campaigns');
+Route::get('/campaigns/sources.html', [CampaignsController::class, 'sources'])->name('campaigns.sources');
+Route::get('/campaigns/sources/new.html', [CampaignsController::class, 'new_source'])->name('campaigns.new_source');
+Route::post('/campaigns/sources/save.html', [CampaignsController::class, 'save_source'])->name('campaigns.save_source');
+Route::get('/campaigns/sources/delete/{id}', [CampaignsController::class, 'source_delete'])->name('campaigns.source_delete');
+
+Route::get('/campaigns/mediums.html', [CampaignsController::class, 'mediums'])->name('campaigns.mediums');
+Route::get('/campaigns/mediums/new.html', [CampaignsController::class, 'new_medium'])->name('campaigns.new_medium');
+Route::post('/campaigns/mediums/save.html', [CampaignsController::class, 'save_medium'])->name('campaigns.save_medium');
+Route::get('/campaigns/mediums/delete/{id}', [CampaignsController::class, 'medium_delete'])->name('campaigns.medium_delete');
+
+Route::get('/campaigns/terms.html', [CampaignsController::class, 'terms'])->name('campaigns.terms');
+Route::get('/campaigns/terms/new.html', [CampaignsController::class, 'new_term'])->name('campaigns.new_term');
+Route::post('/campaigns/terms/save.html', [CampaignsController::class, 'save_term'])->name('campaigns.save_term');
+Route::get('/campaigns/terms/delete/{id}', [CampaignsController::class, 'term_delete'])->name('campaigns.term_delete');
+
+Route::get('/campaigns/contents.html', [CampaignsController::class, 'contents'])->name('campaigns.contents');
+Route::get('/campaigns/contents/new.html', [CampaignsController::class, 'new_content'])->name('campaigns.new_content');
+Route::post('/campaigns/contents/save.html', [CampaignsController::class, 'save_content'])->name('campaigns.save_content');
+Route::get('/campaigns/contents/delete/{id}', [CampaignsController::class, 'content_delete'])->name('campaigns.content_delete');
+
+Route::get('/campaigns/new.html', [CampaignsController::class, 'new'])->name('campaigns.new');
+Route::post('/campaigns/save.html', [CampaignsController::class, 'save'])->name('campaigns.save');
+Route::post('/campaigns/category/save.html', [CampaignsController::class,'savecategory'])->name('campaignscategory.post');
+Route::post('/campaigns/category/store.html', [CampaignsController::class,'storecategory'])->name('campaignscategory.store');
 Route::get('/campaigns/category/delete/{id}', [CampaignsController::class,'deletecategory'])->name('campaignscategory.delete');
-Route::get('/campaigns/categories',[CampaignsController::class,'categories'])->name('campaigns.categories');
-Route::get('/campaigns/links',[LinkController::class,'index'])->name('campaigns.links');
-Route::get('/campaigns/gantt',[CampaignsController::class,'gantt'])->name('campaigns.gantt');
+Route::get('/campaigns/categories.html',[CampaignsController::class,'categories'])->name('campaigns.categories');
+Route::get('/campaigns/links.html',[LinkController::class,'index'])->name('campaigns.links');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);

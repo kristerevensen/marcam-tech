@@ -5,7 +5,7 @@
         {{ session('selected_project_name') }}
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="{{ ('/projects/deselect') }}">Deselect</a>
+            <a class="dropdown-item" href="{{ route('projects.deselect') }}">Deselect</a>
 
         </div>
     </div>

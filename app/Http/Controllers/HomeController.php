@@ -120,13 +120,13 @@ class HomeController extends Controller
 
         return back();
     }
-    public function deselect($var = null)
+    public function deselect()
     {
         
         session()->forget('selected_project');
         session()->forget('selected_project_name');
         session('selected_project', null);
         session('selected_project_name', null);
-        return redirect('home');
+        return redirect()->route('home');
     }
 }

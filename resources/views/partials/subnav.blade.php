@@ -74,11 +74,11 @@
                         <li class="nav-item"><a class="nav-link" href="links">All Links</a></li>
                         <li class="nav-item"><a class="nav-link" href="templates">Templates</a></li>
                         <li class="category-heading">Campaign Settings<li>
-                        <li class="nav-item"><a class="nav-link" href="{{ ('/campaigns/categories') }}">Categories</a></li>
-                        <li class="nav-item"><a class="nav-link" href="sources">Sources</a></li>
-                        <li class="nav-item"><a class="nav-link" href="mediums">Mediums</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contents">Contents</a></li>
-                        <li class="nav-item"><a class="nav-link" href="terms">Terms</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('campaigns.categories') }}">Categories</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('campaigns.sources') }}">Sources</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('campaigns.mediums') }}">Mediums</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('campaigns.contents') }}">Contents</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('campaigns.terms') }}">Terms</a></li>
                         <li class="nav-item"><a class="nav-link" href="custome">Custom Parameters</a></li>
                     </ul>
                 </div>

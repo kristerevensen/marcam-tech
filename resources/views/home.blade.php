@@ -41,12 +41,12 @@
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                         @if($project->project_token == session('selected_project'))
-                                                        <a class="dropdown-item" href="{{ ('projects/deselect') }}">{{ __('Deselect') }}</a>
+                                                        <a class="dropdown-item" href="{{ route('projects.deselect') }}">{{ __('Deselect') }}</a>
                                                         @else
-                                                        <a class="dropdown-item" href="{{ ('projects/select/'.$project->project_token) }}">{{ __('Select') }}</a>
+                                                        <a class="dropdown-item" href="{{ route('projects.select',$project->project_token) }}">{{ __('Select') }}</a>
                                                         @endif
-                                                        <a class="dropdown-item" href="{{ ('projects/edit/'.$project->project_token) }}">{{ __('Edit') }}</a>
-                                                        <a class="dropdown-item" href="{{ 'projects/delete/'.$project->project_token }}" onclick="javascript: return confirm('{{ __('Are you sure?') }}')">Delete</a>
+                                                        <a class="dropdown-item" href="{{ route('projects.edit',$project->project_token) }}">{{ __('Edit') }}</a>
+                                                        <a class="dropdown-item" href="{{ route('project.delete',$project->project_token) }}" onclick="javascript: return confirm('{{ __('Are you sure?') }}')">Delete</a>
                                                         </div>
                                                     </div>    
                                                 </td>
