@@ -70,3 +70,7 @@ Route::get('/campaigns/gantt',[CampaignsController::class,'gantt'])->name('campa
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
 });
+
+Route::get('file-import-export', [ImportExportController::class, 'fileImportExport']);
+Route::post('file-import', [ImportExportController::class, 'fileImport'])->name('file-import');
+Route::get('file-export', [ImportExportController::class, 'fileExport'])->name('file-export');

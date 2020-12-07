@@ -27,15 +27,8 @@ class CampaignsController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        
     }
-    public function access(Request $req = null)
-    {
-        if(!session('selected_project')) {
-            redirect('home')->flash('info','You need to select a project first.')->send();
-        }
-    }
-
+  
     public function index(request $request) {
         $data['campaigns'] = Campaign::all();
         return view('campaigns.index',$data);
@@ -50,20 +43,25 @@ class CampaignsController extends Controller
     }
     public function save(Request $request)
     {
-        dd($request);
-        
+        //dd($request->start);
+
         $camp = new Campaign();
         $camp->campaign_name = $request->campaign_name;
         $camp->campaign_spend = $request->campaign_spend;
         $camp->start = $request->start;
         $camp->end = $request->end;
+        $camp->status = $request->campaign_status;
+        $camp->category = $request->campaign_category;
+        $camp->template = $request->campaign_template;
+        $camp->model = $request->model;
+        $camp->reporting = $request->campaign_reportings;
         $camp->created_by = Auth::id();
         $camp->project_token = session('selected_project');
         $res = $camp->save();
         if($res){
-            redirect('campaigns')->with('success', 'The campaign was successfully registered.');
+            redirect('campaigns')->with('success', 'The campaign was successfully registered.')->send();
         } else {
-            redirect('campaigns')->with('error', 'Error! The campaign could not be saved.');
+            redirect('campaigns')->with('error', 'Error! The campaign could not be saved.')->send();
         }
     }
 

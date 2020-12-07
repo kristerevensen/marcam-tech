@@ -26,6 +26,7 @@ class CreateCampaignsTable extends Migration
             $table->timestamp('start')->nullable();
             $table->timestamp('end')->nullable();
             $table->enum('status',array('1','0'))->default('1');
+            $table->enum('reporting',array('1','0'))->default('0');
             $table->foreign('project_token')
                     ->references('project_token')
                     ->on('projects')
