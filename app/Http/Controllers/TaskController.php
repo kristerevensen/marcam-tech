@@ -5,8 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
+
 class TaskController extends Controller
 {
+    public function index()
+    {
+        $tasks = auth()->user()->statuses()->with('tasks')->get();
+
+        return view('tasks.index', compact('tasks'));
+    }
+
     public function store(Request $request)
     {
         $task = new Task();
@@ -14,7 +22,7 @@ class TaskController extends Controller
         $task->text = $request->text;
         $task->start_date = $request->start_date;
         $task->duration = $request->duration;
-        $task->progress = $request-has('progress') ? $request->progress : 0;
+        $task->progress = $request->has('progress') ? $request->progress : 0;
         $task->parent = $request->parent;
 
         $task->save();

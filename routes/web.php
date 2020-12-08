@@ -17,6 +17,8 @@ use App\Http\Controllers\CampaignsController;
 use App\Http\Controllers\ExperimentsController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\StatusController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,10 +85,20 @@ Route::get('/campaigns/category/delete/{id}', [CampaignsController::class,'delet
 Route::get('/campaigns/categories.html',[CampaignsController::class,'categories'])->name('campaigns.categories');
 Route::get('/campaigns/links.html',[LinkController::class,'index'])->name('campaigns.links');
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/tasks.html', [TaskController::class, 'index'])->name('tasks.index');
+    Route::post('/tasks/store.html', [TaskController::class, 'store'])->name('tasks.store');
+    Route::put('/tasks/{task}',[TaskController::class, 'update'])->name('tasks.update');
+    Route::put('tasks/sync', [TaskController::class, 'sync'])->name('tasks.sync');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('statuses', [StatusController::class,'store'])->name('statuses.store');
+    Route::put('statuses',[StatusController::class,'update'])->name('statuses.update');
+});
+
+
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
 });
 
-Route::get('file-import-export', [ImportExportController::class, 'fileImportExport']);
-Route::post('file-import', [ImportExportController::class, 'fileImport'])->name('file-import');
-Route::get('file-export', [ImportExportController::class, 'fileExport'])->name('file-export');

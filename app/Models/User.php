@@ -59,4 +59,23 @@ class User extends Authenticatable
         } 
         return false;
     }
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
+    public function statuses()
+    {
+        return $this->hasMany(Status::class)->orderBy('order');
+    }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
+    public function campaigns()
+    {
+        return $this->hasMany(Campaign::class);
+    }
 }
