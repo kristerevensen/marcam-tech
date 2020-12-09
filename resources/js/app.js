@@ -11,18 +11,3 @@ require('./bootstrap');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-require('./components/Example');
-
-window.Vue = require("vue");
-
-// Register our components (in the next step)
-
-const app = new Vue({
-    el: "#app"
-});
-
-// resources/js/app.js
-
-// Register our components
-Vue.component("kanban-board", require("./components/KanbanBoard.vue").default); 

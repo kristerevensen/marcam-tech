@@ -58,6 +58,7 @@ Route::post('/projects/save.html', [HomeController::class, 'save'])->name('proje
 Route::put('/projects/update.html', [HomeController::class, 'update'])->name('projects.update');
 
 Route::get('/campaigns.html', [CampaignsController::class, 'index'])->name('campaigns');
+Route::get('/campaigns/delete/{id}.html', [CampaignsController::class, 'delete'])->name('campaigns.delete');
 Route::get('/campaigns/sources.html', [CampaignsController::class, 'sources'])->name('campaigns.sources');
 Route::get('/campaigns/sources/new.html', [CampaignsController::class, 'new_source'])->name('campaigns.new_source');
 Route::post('/campaigns/sources/save.html', [CampaignsController::class, 'save_source'])->name('campaigns.save_source');
@@ -78,13 +79,30 @@ Route::get('/campaigns/contents/new.html', [CampaignsController::class, 'new_con
 Route::post('/campaigns/contents/save.html', [CampaignsController::class, 'save_content'])->name('campaigns.save_content');
 Route::get('/campaigns/contents/delete/{id}', [CampaignsController::class, 'content_delete'])->name('campaigns.content_delete');
 
+Route::get('/campaigns/custom_parameters.html', [CampaignsController::class, 'custom_parameters'])->name('campaigns.custom_parameters');
+Route::get('/campaigns/custom_parameters/new.html', [CampaignsController::class, 'new_custom_parameter'])->name('campaigns.new_custom_parameter');
+Route::post('/campaigns/custom_parameters/save.html', [CampaignsController::class, 'save_custom_parameter'])->name('campaigns.save_custom_parameter');
+Route::get('/campaigns/custom_parameters/delete/{id}', [CampaignsController::class, 'delete_custom_parameter'])->name('campaigns.delete_custom_parameter');
+
+Route::get('/campaigns/links.html', [CampaignsController::class, 'links'])->name('campaigns.links');
+Route::get('/campaigns/links/new/{id?}', [CampaignsController::class, 'new_link'])->name('campaigns.new_link');
+Route::get('/campaigns/links/bulk.html', [CampaignsController::class, 'new_bulk'])->name('campaigns.new_bulk_links');
+Route::post('/campaigns/links/save.html', [CampaignsController::class, 'save_link'])->name('campaigns.save_link');
+Route::get('/campaigns/links/delete/{id}', [CampaignsController::class, 'delete_link'])->name('campaigns.delete_link');
+
+Route::get('/campaigns/templates.html', [CampaignsController::class, 'templates'])->name('campaigns.templates');
+Route::get('/campaigns/templates/new.html', [CampaignsController::class, 'new_template'])->name('campaigns.new_template');
+Route::post('/campaigns/templates/save.html', [CampaignsController::class, 'save_template'])->name('campaigns.save_template');
+Route::get('/campaigns/templates/delete/{id}', [CampaignsController::class, 'delete_template'])->name('campaigns.delete_template');
+
+
 Route::get('/campaigns/new.html', [CampaignsController::class, 'new'])->name('campaigns.new');
 Route::post('/campaigns/save.html', [CampaignsController::class, 'save'])->name('campaigns.save');
 Route::post('/campaigns/category/save.html', [CampaignsController::class,'savecategory'])->name('campaignscategory.post');
 Route::post('/campaigns/category/store.html', [CampaignsController::class,'storecategory'])->name('campaignscategory.store');
 Route::get('/campaigns/category/delete/{id}', [CampaignsController::class,'deletecategory'])->name('campaignscategory.delete');
 Route::get('/campaigns/categories.html',[CampaignsController::class,'categories'])->name('campaigns.categories');
-Route::get('/campaigns/links.html',[LinkController::class,'index'])->name('campaigns.links');
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/tasks.html', [TaskController::class, 'index'])->name('tasks.index');

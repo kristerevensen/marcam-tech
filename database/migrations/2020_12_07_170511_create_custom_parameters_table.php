@@ -13,7 +13,7 @@ class CreateCustomParametersTable extends Migration
      */
     public function up()
     {
-        Schema::create('custom_parameters', function (Blueprint $table) {
+        Schema::create('campaigns_custom_parameters', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('custom_parameter');
@@ -32,6 +32,6 @@ class CreateCustomParametersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('custom_parameters');
+        Schema::dropIfExists('campaigns_custom_parameters');
     }
 }

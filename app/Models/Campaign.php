@@ -27,4 +27,20 @@ class Campaign extends Model
             return false;
         }
     }
+
+    public function getCampaigns($id)
+    {
+        return DB::table('campaigns')
+                ->where('project_token',$id)
+                ->get();
+    }
+    
+    public function get_campaign_name($id)
+    {
+        return DB::table('campaigns')
+                ->distinct('campaign_name')
+                ->where('project_token',session('selected_project'))
+                ->where('id',$id)
+                ->get();
+    }
 }

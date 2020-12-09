@@ -44,10 +44,10 @@
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                         <a class="dropdown-item" href="">{{ __('View') }}</a>
-                                                        <a class="dropdown-item" href="">{{ __('New link') }}</a>
+                                                        <a class="dropdown-item" href="{{ route('campaigns.new_link',$campaign->id) }}">{{ __('New link') }}</a>
                                                         <a class="dropdown-item" href="">{{ __('Multiple Links') }}</a>
                                                         <a class="dropdown-item" href="{">{{ __('Edit') }}</a>
-                                                        <a class="dropdown-item" href="" onclick="javascript: return confirm('{{ __('Are you sure?') }}')">Delete</a>
+                                                        <a class="dropdown-item" href="{{ route('campaigns.delete',$campaign->id)}}" onclick="javascript: return confirm('{{ __('Are you sure?') }}')">Delete</a>
                                                         </div>
                                                     </div>    
                                                 </td>
