@@ -26,7 +26,10 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
-        "dhtmlx-gantt": "^7.0.11",
-        "mdbootstrap": "^4.19.2"
+        "mdbootstrap": "^4.19.2",
+        "vue": "^2.6.12",
+        "vue-loader": "^15.5.1",
+        "vue-template-compiler": "^2.5.21",
+        "vuedraggable": "^2.24.3"
     }
 }

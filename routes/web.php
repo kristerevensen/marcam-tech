@@ -36,6 +36,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::redirect('/home', '/projects.html', 301);
 
 Route::get('/projects.html', [HomeController::class, 'index'])->name('home'); //Projects list
 Route::get('/keywords.html', [KeywordsController::class, 'index'])->name('keywords');

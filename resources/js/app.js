@@ -13,3 +13,16 @@ require('./bootstrap');
  */
 
 require('./components/Example');
+
+window.Vue = require("vue");
+
+// Register our components (in the next step)
+
+const app = new Vue({
+    el: "#app"
+});
+
+// resources/js/app.js
+
+// Register our components
+Vue.component("kanban-board", require("./components/KanbanBoard.vue").default); 
