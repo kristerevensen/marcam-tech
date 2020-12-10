@@ -13,10 +13,10 @@ class CreateAnalyticsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Analytics', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+      //  Schema::create('Analytics', function (Blueprint $table) {
+       //     $table->id();
+      //      $table->timestamps();
+       // });
     }
 
     /**

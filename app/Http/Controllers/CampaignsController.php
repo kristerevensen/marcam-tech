@@ -49,6 +49,30 @@ class CampaignsController extends Controller
     /*
     * Listing methods
     */
+    public function testing(Request $request)
+    {
+        $url = trim($request->url);
+
+        $domain = "";
+        $query ="";
+        $fragment = "";
+
+        if(strpos($url,'#')) {
+            $exploded = explode('#',$url);
+            $url = $exploded[0];
+            $fragment = $exploded[1];
+        }
+        if(strpos($url,'?')) {
+            $exploded2 = explode('?',$url);
+            $domain = $exploded2[0];
+            $query = $exploded2[1];
+        }
+        $data['domain'] = $domain;
+        $data['query'] = $query;
+        $data['fragment'] = $fragment;
+
+        return view('campaigns.testing',$data);
+    }
     public function view($id = null)
     {
         $data['data'] = Campaign::findOrFail($id);
@@ -278,7 +302,7 @@ class CampaignsController extends Controller
         $campaign  =new Campaign();
         $data = new CampaignsLinks();
         $data->link_token = $this->token();
-        $data->landing_page = $request->landing_page;
+        $data->landing_page = trim($request->landing_page);
         $data->project_token = session('selected_project');
         $campaign_name = preg_replace('/\s+/', '_', $campaign->get_campaign_name($request->id));
         $data->campaign_name = $campaign_name;
@@ -289,6 +313,29 @@ class CampaignsController extends Controller
         $data->target = $request->target;
         $data->campaign_id = $request->set_campaign_id ?: $request->campaign ;
         $data->custom_parameters = serialize($request->parameters);
+
+        $url = trim($request->landing_page);
+
+        $domain = "";
+        $query ="";
+        $fragment = "";
+        $exploded = "";
+        $exploded2 = "";
+
+        if(strpos($url,'#')) {
+            $exploded = explode('#',$url);
+            $url = $exploded[0];
+            $fragment = $exploded[1];
+        }
+        if(strpos($url,'?')) {
+            $exploded2 = explode('?',$url);
+            $domain = $exploded2[0];
+            $query = $exploded2[1];
+        }
+        $data['domain'] = $domain;
+        $data['query'] = $query;
+        $data['fragment'] = $fragment;
+
         if($data->save()) {
             return redirect()->route('campaigns.links')->with('success','The Link was successfully added');
         } else {

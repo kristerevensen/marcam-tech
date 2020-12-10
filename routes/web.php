@@ -74,6 +74,8 @@ Route::get('/campaigns/terms/new.html', [CampaignsController::class, 'new_term']
 Route::post('/campaigns/terms/save.html', [CampaignsController::class, 'save_term'])->name('campaigns.save_term');
 Route::get('/campaigns/terms/delete/{id}', [CampaignsController::class, 'term_delete'])->name('campaigns.term_delete');
 
+Route::get('/campaigns/testing.html', [CampaignsController::class, 'testing'])->name('campaigns.testing');
+
 Route::get('/campaigns/contents.html', [CampaignsController::class, 'contents'])->name('campaigns.contents');
 Route::get('/campaigns/contents/new.html', [CampaignsController::class, 'new_content'])->name('campaigns.new_content');
 Route::post('/campaigns/contents/save.html', [CampaignsController::class, 'save_content'])->name('campaigns.save_content');

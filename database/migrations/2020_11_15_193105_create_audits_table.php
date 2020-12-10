@@ -13,10 +13,10 @@ class CreateAuditsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Audits', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+      //  Schema::create('Audits', function (Blueprint $table) {
+       //     $table->id();
+      //      $table->timestamps();
+      //  });
     }
 
     /**

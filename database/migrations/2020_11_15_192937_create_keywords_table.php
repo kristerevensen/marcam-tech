@@ -13,10 +13,10 @@ class CreateKeywordsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Keywords', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        //Schema::create('Keywords', function (Blueprint $table) {
+         //   $table->id();
+         //   $table->timestamps();
+       // });
     }
 
     /**

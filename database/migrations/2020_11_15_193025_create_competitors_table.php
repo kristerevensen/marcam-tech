@@ -13,10 +13,10 @@ class CreateCompetitorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Competitors', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+       // Schema::create('Competitors', function (Blueprint $table) {
+       //     $table->id();
+       //     $table->timestamps();
+       // });
     }
 
     /**

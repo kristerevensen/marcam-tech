@@ -13,10 +13,10 @@ class CreateExperimentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Experiments', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+     //   Schema::create('Experiments', function (Blueprint $table) {
+      //      $table->id();
+     //       $table->timestamps();
+     //   });
     }
 
     /**

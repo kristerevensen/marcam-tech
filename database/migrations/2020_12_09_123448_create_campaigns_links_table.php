@@ -13,6 +13,7 @@ class CreateCampaignsLinksTable extends Migration
      */
     public function up()
     {
+        
         Schema::create('campaigns_links', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
@@ -25,6 +26,7 @@ class CreateCampaignsLinksTable extends Migration
             $table->string('term')->nullable();
             $table->string('content')->nullable();
             $table->string('target')->nullable();
+            $table->text('tagged_url');
             $table->string('campaign_id');
             $table->text('custom_parameters')->nullable();
             $table->foreign('campaign_id')
@@ -43,5 +45,6 @@ class CreateCampaignsLinksTable extends Migration
     public function down()
     {
         Schema::dropIfExists('campaigns_links');
+        Schema::dropIfExists('links');
     }
 }

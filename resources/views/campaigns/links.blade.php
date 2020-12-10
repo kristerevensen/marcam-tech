@@ -35,11 +35,7 @@
                                             <th class="wd-10p">{{ __('Created') }}</th>
                                             <th class="wd-20p">{{ __('URL') }}</th>
                                             <th class="wd-20p">{{ __('Campaign') }}</th>
-                                            <th class="wd-20p">{{ __('Source') }}</th>
-                                            <th class="wd-20p">{{ __('Medium') }}</th>
-                                            <th class="wd-20p">{{ __('Term') }}</th>
-                                            <th class="wd-20p">{{ __('Content') }}</th>
-                                            <th class="wd-20p">{{ __('Parameters') }}</th>
+                                            <th class="wd-20p">{{ __('Tagged URL')}}</th>
                                             <th class="wd-10p">{{ __('Action') }}</th>
                                         </tr>
                                         </thead>
@@ -49,15 +45,7 @@
                                             <td>{{ date_format (new DateTime($link->created_at), 'jS M Y') }}</td>
                                             <td>{{ $link->landing_page }}</td>
                                             <td>{{ $link->campaign_name }}</td>
-                                            <td>{{ $link->source }}</td>
-                                            <td>{{ $link->medium }}</td>
-                                            <td>{{ $link->term }}</td>
-                                            <td>{{ $link->content }}</td>
-                                            <td>
-                                                @foreach (unserialize($link->custom_parameters) as $key => $value)
-                                                    <span class="badge badge-light">{{ $key  }}</span>
-                                                @endforeach
-                                            </td>
+                                            <td>{{ }}</td>
                                             
                                                 <td>
                                                     <a class="dropdown-item" onclick="javascript: return confirm('Are you sure?');" href="{{ ('/campaigns/links/delete/'.$link->id) }}" ><i data-feather="x-circle"></i></a>  
