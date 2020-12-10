@@ -1,128 +1,312 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="./assets/media/favicon.ico" type="image/x-icon">
 
-        <title>Laravel</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./marcam-front/assets/bootstrap/css/bootstrap.min.css" crossorigin="use-credentials">
+    <link rel="stylesheet" href="./marcam-front/assets/css/style.css" crossorigin="use-credentials">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>About - Sap</title>
+</head>
+<body class="position-relative">
 
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
-        </style>
+<nav class="navbar navbar-expand-lg navbar-dark position-absolute w-100 bg-transparent navbar-style-1 justify-content-end justify-content-end">
+    <a class="navbar-brand mr-auto text-white font-cabin fw-700 fz-36 lh-1 text-nowrap" href="index.html">
+        <img src="./assets/media/logo-icon.png" alt="" class="mr-10px">
+        <span class="d-inline-flex">Sap</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <style>
-            body {
-                font-family: 'Nunito';
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                        @endif
-                    @endif
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav navbar-nav-style-1 text-uppercase mr-auto">
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Home
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown-1">
+                    <a class="dropdown-item" href="index.html">Home 1</a>
+                    <a class="dropdown-item" href="index-2.html">Home 2</a>
+                    <a class="dropdown-item" href="index-3.html">Home 3</a>
+                    <a class="dropdown-item" href="index-4.html">Home 4</a>
+                    <a class="dropdown-item" href="index-5.html">Home 5</a>
                 </div>
-            @endif
-
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-24 sm:justify-start sm:pt-0">
-                   Macster
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="features.html">Features</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Page
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown-2">
+                    <a class="dropdown-item" href="testimonial.html">Testimonial</a>
+                    <a class="dropdown-item" href="team.html">Team</a>
+                    <a class="dropdown-item" href="case-studies.html">Case Studies</a>
+                    <a class="dropdown-item" href="pricing.html">Pricing</a>
+                    <a class="dropdown-item" href="404.html">404</a>
                 </div>
-
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Portfolio
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown-3">
+                    <a class="dropdown-item" href="portfolio.html">Portfolio V1</a>
+                    <a class="dropdown-item" href="portfolio-v2.html">Portfolio V2</a>
+                    <a class="dropdown-item" href="portfolio-v3.html">Portfolio V3</a>
+                    <a class="dropdown-item" href="portfolio-v4.html">Portfolio V4</a>
+                    <a class="dropdown-item" href="single-portfolio.html">Single Portfolio V1</a>
+                    <a class="dropdown-item" href="single-portfolio-v2.html">Single Portfolio V2</a>
                 </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Blog
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown-4">
+                    <a class="dropdown-item" href="blog-grid.html">Blog Grid</a>
+                    <a class="dropdown-item" href="blog-classic.html">Blog Classic</a>
+                    <a class="dropdown-item" href="single-blog.html">Single Blog</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <div class="auth-and-extra-style-1 d-inline-flex justify-content-end align-items-center">
+        <a class="btn btn-light btn-signup border-0 font-rubik fz-16" href="#">Sign up</a>
+        <a href="#" class="navbar-style-1-cart fz-16 text-white position-relative">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="badge badge-light position-absolute fz-14 font-awesome bgcolor-blue-theme text-white">0</span>
+        </a>
+        <a href="#" class="navbar-style-1-search fz-16 text-white">
+            <i class="fas fa-search"></i>
+        </a>
+    </div>
+</nav>
 
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
+<section class="row mx-0 home-about-banner align-items-center position-relative pt-230px pt-lg-130px pt-xs-100px mb-60px">
+    <div class="container">
+        <h2 class="fz-56 fz-lg-40 fz-md-30 fw-600 font-cabin text-white lh-1-17 mb-20px">The story of Sap</h2>
+        <p class="home-about-banner-texts text-white font-rubik fz-20 fz-lg-18 fz-md-16 lh-1-5 mb-0">Once upon a time, an entrepreneur witnessed a major problem: as companies scaled rapidly, they struggled to keep employees engaged, productive, and happy. An effective, transparent management tool was desperately needed.</p>
+        <img src="./marcam-front/assets/media/banners/home-about/banner-ai.png" alt="" class="img-fluid">
+    </div>
+</section>
 
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
-                                Shop
-                            </a>
+<section class="row mx-0">
+    <div class="container">
+        <h2 class="font-cabin fw-600 fz-32 fz-md-24 mb-95px mb-md-50px mb-sm-30px lh-1-17 color-dark-blue-theme maw-810px text-center mx-auto">Creating a workplace environment of transparency,
+            ownership, and accountability, to vision of making the world
+            more productive</h2>
 
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
+        <div class="row align-items-center flex-md-row-reverse mb-lg-30px">
+            <div class="col-md-6 text-center pb-sm-20px">
+                <img src="./marcam-front/assets/media/about/ai-1.png" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h2 class="font-poppins fz-24 fz-md-20 lh-1-17 color-dark-blue-theme mb-20px">Our mission</h2>
+                <p class="mb-25px mb-md-15px font-rubik fz-16 fz-md-14 lh-1-5 color-dark-blue-theme-80">The platform provides continuous protection of customer data with features and capabilities like access controls, data encryption at rest and in-transit as well as security development, security testing</p>
+                <p class="mb-25px mb-md-15px font-rubik fz-16 fz-md-14 lh-1-5 color-dark-blue-theme-80">The program also maintains a regular cadence of SOC2 attestations that establish an independent assessment of the SaaS based security controls.</p>
+                <p class="mb-0 font-rubik fz-16 fz-md-14 lh-1-5 color-dark-blue-theme-80">The platform is also GDPR-ready, enabling customers to meet enhanced data protection guidelines.</p>
+            </div>
+        </div>
 
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
-                            </a>
-                        </div>
-                    </div>
+        <div class="row align-items-center mb-lg-30px">
+            <div class="col-md-6 text-center pb-sm-20px">
+                <img src="./marcam-front/assets/media/about/ai-2.png" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h2 class="font-poppins fz-24 fz-md-20 lh-1-17 color-dark-blue-theme mb-20px">Our vision</h2>
+                <p class="mb-25px mb-md-15px font-rubik fz-16 fz-md-14 lh-1-5 color-dark-blue-theme-80">For a long time, we have felt that enabling frictionless transactions is a major problem and nobody seems to be doing it right, data encryption at rest and in-transit as well as security development, security testing</p>
+                <p class="mb-25px mb-md-15px font-rubik fz-16 fz-md-14 lh-1-5 color-dark-blue-theme-80">The platform provides continuous protection of customer data with features and capabilities like access controls, data encryption at rest and in-transit as well as security development, security testing</p>
+                <p class="mb-25px mb-md-15px font-rubik fz-16 fz-md-14 lh-1-5 color-dark-blue-theme-80">The program also maintains a regular cadence of SOC2 attestations that establish an independent assessment of the SaaS based security controls.</p>
+                <p class="mb-0 font-rubik fz-16 fz-md-14 lh-1-5 color-dark-blue-theme-80">The platform is also GDPR-ready, enabling customers to meet enhanced data protection guidelines.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Build v{{ Illuminate\Foundation\Application::VERSION }}
-                    </div>
+<section class="row mx-0 how-it-works-1">
+    <div class="container">
+        <h2 class="how-it-works-title-1 font-cabin fz-40 fz-md-30 text-center">How We Work</h2>
+        <div class="row">
+            <div class="col-md-4 how-it-work-1 text-center">
+                <div class="row mx-0 px-2 d-block">
+                    <img src="./marcam-front/assets/media/how-it-works/circle-1.png" alt="Secure Customer Data">
+                    <h2 class="how-it-work-1-title font-rubik fz-24 fz-md-18">Secure Customer Data</h2>
+                    <p class="fz-16 fz-md-14 font-rubik mb-0 color-dark-theme-80">Secure customer data across all domains with one-click, fully managed HTTPS.</p>
+                </div>
+            </div>
+            <div class="col-md-4 how-it-work-1 text-center">
+                <div class="row mx-0 px-2 d-block">
+                    <img src="./marcam-front/assets/media/how-it-works/circle-2.png" alt="Improved Application Performance">
+                    <h2 class="how-it-work-1-title font-rubik fz-24 fz-md-18">Improved Application Performance</h2>
+                    <p class="fz-16 fz-md-14 font-rubik mb-0 color-dark-theme-80">Can decrease loading times by 2x with Cloudflare’s web optimizations and content delivery network (CDN).</p>
+                </div>
+            </div>
+            <div class="col-md-4 how-it-work-1 text-center">
+                <div class="row mx-0 px-2 d-block">
+                    <img src="./marcam-front/assets/media/how-it-works/circle-3.png" alt="High Availability at Global Scale">
+                    <h2 class="how-it-work-1-title font-rubik fz-24 fz-md-18">High Availability at Global Scale</h2>
+                    <p class="fz-16 fz-md-14 font-rubik mb-0 color-dark-theme-80">Cloudflare’s network of 193 data centers across 90 countries ensures enterprise-grade availability.</p>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</section>
+
+<section class="row mx-0 get-in-touch-1">
+    <div class="container text-center">
+        <p class="font-rubik fz-24 fz-lg-17 text-white">Ready to optimize the performance and security of your SaaS offering?</p>
+        <a href="#" class="btn btn-primary-gradient btn-primary-gradient-style border-0">Get Started</a>
+    </div>
+</section>
+
+<section class="row mx-0 pt-105px pb-80px py-md-50px">
+    <div class="container">
+        <h2 class="mb-25px fz-40 fz-md-30 lh-1 font-cabin fw-700 color-dark-blue-theme text-center">Sap Team</h2>
+        <div class="row">
+            <div class="col-sm-6 col-md-3 p-15px text-center">
+                <img src="./marcam-front/assets/media/about/team-1.png" alt="" class="img-fluid bdrs-10px mb-20px">
+                <h2 class="font-rubik fz-16 lh-1-17 fw-500 color-dark-blue-theme mb-10px">Savia Monta</h2>
+                <p class="font-rubik fz-16 lh-1-17 color-dark-blue-theme-80 mb-0">Senior UI Designer</p>
+            </div>
+            <div class="col-sm-6 col-md-3 p-15px text-center">
+                <img src="./marcam-front/assets/media/about/team-2.png" alt="" class="img-fluid bdrs-10px mb-20px">
+                <h2 class="font-rubik fz-16 lh-1-17 fw-500 color-dark-blue-theme mb-10px">Anjum Tamim</h2>
+                <p class="font-rubik fz-16 lh-1-17 color-dark-blue-theme-80 mb-0">Software designer</p>
+            </div>
+            <div class="col-sm-6 col-md-3 p-15px text-center">
+                <img src="./marcam-front/assets/media/about/team-3.png" alt="" class="img-fluid bdrs-10px mb-20px">
+                <h2 class="font-rubik fz-16 lh-1-17 fw-500 color-dark-blue-theme mb-10px">Megh Momo</h2>
+                <p class="font-rubik fz-16 lh-1-17 color-dark-blue-theme-80 mb-0">Ux designer</p>
+            </div>
+            <div class="col-sm-6 col-md-3 p-15px text-center">
+                <img src="./marcam-front/assets/media/about/team-4.png" alt="" class="img-fluid bdrs-10px mb-20px">
+                <h2 class="font-rubik fz-16 lh-1-17 fw-500 color-dark-blue-theme mb-10px">Mahfuz Riad</h2>
+                <p class="font-rubik fz-16 lh-1-17 color-dark-blue-theme-80 mb-0">CEO &amp; ui/ux designer</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="row mx-0">
+    <div class="container">
+        <div class="row mx-0 bg-white review-block-media-1 align-items-center">
+            <div class="col-md-6">
+                <div class="position-relative">
+                    <img src="./marcam-front/assets/media/review/home-1.png" alt="" class="img-fluid">
+                    <a href="#" class="review-block-media-1-play-btn icon-bottom-right position-absolute d-flex align-items-center justify-content-center text-white rounded-circle bgcolor-blue-theme">
+                        <i class="fas fa-caret-right fz-30" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p class="review-block-media-1-quote-sign mb-20px mt-sm-20px"><img src="./assets/media/right-quote.png" alt=""></p>
+                <p class="review-block-media-1-stars fz-20 fz-md-16 mb-30px mb-md-15px lh-1"><i class="fas fa-star" aria-hidden="true"></i> <i class="fas fa-star" aria-hidden="true"></i> <i class="fas fa-star" aria-hidden="true"></i> <i class="fas fa-star" aria-hidden="true"></i> <i class="fas fa-star-half-alt" aria-hidden="true"></i></p>
+                <p class="font-rubik fz-22 fz-md-16 review-block-media-1-texts color-dark-theme-80 mb-25px mb-md-15px">We use Monitis to monitor the performance and availability of our websites from different
+                    locations. Monitis is easy to set up and the
+                    Monitis team provides great customer
+                    support I like to call it</p>
+                <a href="#" class="fz-20 fz-md-15 font-rubik review-block-media-1-link color-dark-theme d-inline-flex hover-color-blue-theme hover-text-dec-none transition-default">Read the Case Study &gt;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="row mx-0 trusted-by-1 pt-65px pb-55px">
+    <div class="container">
+        <h2 class="maw-900px mx-auto font-cabin fw-700 color-dark-theme mb-20px lh-1-17 fz-40 fz-md-30 text-center">Trusted by</h2>
+        <p class="maw-900px mx-auto fz-20 fz-md-16 font-rubik text-center color-dark-theme-80 mb-30px lh-1-5 mb-0">2000+ customers trust & love Sap</p>
+        <div class="row justify-content-lg-between justify-content-center text-center align-items-center trusted-by-1-logos">
+            <div class="col-4 col-sm py-10px text-left"><img src="./marcam-front/assets/media/trusted-by/trusted-by-1.png" alt="" class="img-fluid"></div>
+            <div class="col-4 col-sm py-10px"><img src="./marcam-front/assets/media/trusted-by/trusted-by-2.png" alt="" class="img-fluid"></div>
+            <div class="col-4 col-sm py-10px"><img src="./marcam-front/assets/media/trusted-by/trusted-by-3.png" alt="" class="img-fluid"></div>
+            <div class="col-4 col-sm py-10px"><img src="./marcam-front/assets/media/trusted-by/trusted-by-4.png" alt="" class="img-fluid"></div>
+            <div class="col-4 col-sm py-10px text-right"><img src="./marcam-front/assets/media/trusted-by/trusted-by-5.png" alt="" class="img-fluid"></div>
+        </div>
+    </div>
+</section>
+
+<footer class="row mx-0 footer-style-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-lg-3 col-xl-4 p-15px">
+                <ul class="footer-style-1-social nav-pills nav">
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fab fa-dribbble"></i></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fab fa-twitter"></i></a></li>
+                </ul>
+                <p class="text-white font-rubik fz-16 lh-1-5 mb-30px fw-400">2nd Floor, No.21, 80-feet Road, Cadarso 19
+                    <br class="d-none d-xl-block"> bis, loft 2 28008 Madrid (Spain)</p>
+                <a href="tel:08801912704287" class="text-white fz-16 lh-1-5 d-inline-flex font-rubik fw-400">+088 01912704287</a><br>
+                <a href="mailto:sap@gmail.com" class="text-white fz-16 lh-1-5 d-inline-flex font-rubik fw-400">sap@gmail.com</a><br>
+            </div>
+            <div class="col-sm-6 col-lg-3 col-xl-2 p-15px">
+                <h3 class="widget-title font-cabin fw-500 lh-1 text-white mb-35px fz-20">Products</h3>
+
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="#" class="text-white lh-1-875 font-rubik fw-400">SaaS</a></li>
+                    <li class="nav-item"><a href="#" class="text-white lh-1-875 font-rubik fw-400">Network Monitoring</a></li>
+                    <li class="nav-item"><a href="#" class="text-white lh-1-875 font-rubik fw-400">End User Experience</a></li>
+                    <li class="nav-item"><a href="#" class="text-white lh-1-875 font-rubik fw-400">SaaS Experience</a></li>
+                    <li class="nav-item"><a href="#" class="text-white lh-1-875 font-rubik fw-400">Cloud base</a></li>
+                </ul>
+            </div>
+            <div class="col-xl-1 d-none d-xl-block"></div>
+            <div class="col-sm-6 col-lg-3 col-xl-2 p-15px">
+                <h3 class="widget-title font-cabin fw-500 lh-1 text-white mb-35px fz-20">Company</h3>
+
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="#" class="text-white lh-1-875 font-rubik fw-400">About us</a></li>
+                    <li class="nav-item"><a href="#" class="text-white lh-1-875 font-rubik fw-400">News &amp; Events</a></li>
+                    <li class="nav-item"><a href="#" class="text-white lh-1-875 font-rubik fw-400">Careers</a></li>
+                    <li class="nav-item"><a href="#" class="text-white lh-1-875 font-rubik fw-400">Trust</a></li>
+                    <li class="nav-item"><a href="#" class="text-white lh-1-875 font-rubik fw-400">Contact us</a></li>
+                    <li class="nav-item"><a href="#" class="text-white lh-1-875 font-rubik fw-400">Support</a></li>
+                </ul>
+            </div>
+            <div class="col-xl-1 d-none d-xl-block"></div>
+            <div class="col-sm-6 col-lg-3 col-xl-2 p-15px">
+                <h3 class="widget-title font-cabin fw-500 lh-1 text-white mb-35px fz-20">Network</h3>
+
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="#" class="text-white lh-1-875 font-rubik fw-400">Synthetic Monitoring</a></li>
+                    <li class="nav-item"><a href="#" class="text-white lh-1-875 font-rubik fw-400">Real User Monitoring</a></li>
+                    <li class="nav-item"><a href="#" class="text-white lh-1-875 font-rubik fw-400">Internet Intelligence</a></li>
+                    <li class="nav-item"><a href="#" class="text-white lh-1-875 font-rubik fw-400">DEX Sonar</a></li>
+                    <li class="nav-item"><a href="#" class="text-white lh-1-875 font-rubik fw-400">Managed Monitoring</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row mx-0 justify-content-between flex-column flex-md-row copyright-footer-1 align-items-center fz-16 font-rubik text-white fw-400 mt-15px">
+            <a class="d-inline-flex hover-text-dec-none text-white font-cabin fw-700 fz-36 lh-1 text-nowrap" href="index.html">
+                <img src="./marcam-front/assets/media/logo-icon.png" alt="" class="mr-10px">
+                <span class="d-inline-flex">Sap</span>
+            </a>
+            <div class="d-inline-flex footer-style-1-mobile-apps my-sm-10px">
+                Mobile Apps:
+                <a href="#" class="text-white fz-18"><i class="fab fa-apple"></i></a>
+                <a href="#" class="text-white fz-18"><i class="fab fa-google-play"></i></a>
+            </div>
+            <div>Copyrights 2019 Template_mr </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://kit.fontawesome.com/799dc280ec.js" crossorigin="anonymous"></script>
+<script src="./marcam-front/assets/js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<script src="./marcam-front/assets/js/popper.min.js" crossorigin="anonymous"></script>
+<script src="./marcam-front/assets/bootstrap/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</body>
 </html>
