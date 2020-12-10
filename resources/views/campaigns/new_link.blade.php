@@ -20,8 +20,10 @@
             </div>
         <form action="{{ route('campaigns.save_link')}}" method="post" id="link_new" class="validate">
                 @csrf
+        <div class="card card-body">
+            <p class="card-description">{{ __('Standard URL Builder') }}</p>
             <div class="row">
-                <div class="grid-margin stretch-card col-md-12">  
+                <div class="grid-margin stretch-card col-md-8">  
                     <input type="hidden" name="project_token" id="" value="{{ session('selected_project')}}">
                     <input type="hidden" name="created_by" id="{{ Auth::id() }}">
                     <input type="hidden" name="set_campaign_id" value="{{ $campaign_id}}">
@@ -30,6 +32,7 @@
                         <input type="text" name="landing_page" id="landing_page" placeholder="Https://..."  class="form-control" required>
                     </div>   
                 </div>
+               
                 <div class="grid-margin stretch-card col-md-4">
                     <div class="form-group col-12">
                         <label for="campaign">{{ __('Campaign')}}</label>
@@ -41,7 +44,7 @@
                     </div>
                 </div>
 
-                <div class="grid-margin stretch-card col-md-4">
+                <div class="grid-margin stretch-card col-md-3">
                     <div class="form-group col-12">
                         <label for="source">{{ __('Sources')}}</label>
                         <select name="source" id="">
@@ -52,7 +55,7 @@
                     </div>
                 </div>
 
-                <div class="grid-margin stretch-card col-md-4">
+                <div class="grid-margin stretch-card col-md-3">
                     <div class="form-group col-12">
                         <label for="medium">{{ __('Medium')}}</label>
                         <select name="medium" id="">
@@ -62,7 +65,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="grid-margin stretch-card col-md-4">
+                <div class="grid-margin stretch-card col-md-3">
                     <div class="form-group col-12">
                         <label for="content">{{ __('Content')}}</label>
                         <select name="content" id="">
@@ -73,7 +76,7 @@
                     </div>
                 </div>
 
-                <div class="grid-margin stretch-card col-md-4">
+                <div class="grid-margin stretch-card col-md-3">
                     <div class="form-group col-12">
                         <label for="term">{{ __('Terms')}}</label>
                         <select name="term" id="term">
@@ -83,6 +86,13 @@
                         </select>
                     </div>
                 </div>
+            </div>
+        </div>
+            <div class="row" style="margin-top:20px">
+                <div class="grid-margin stretch-card col-md-12">
+                    <h5 class="form-group" style="padding-left:10px; margin-bottom:0px; padding-bottom:0px;">{{ __('Custom Parameters to be added to URL builder') }}</h5>
+                </div>
+                @if(count($parameters)>0) 
                 @foreach($parameters as $parameter)
                     <div class="grid-margin stretch-card col-md-4">
                         <div class="form-group col-12">
@@ -91,6 +101,15 @@
                         </div>
                     </div>
                 @endforeach
+                @else
+                <div class="grid-margin stretch-card col-md-12">
+                    <div class="form-group col-12">
+                        <p>No custom parameters added. <a href="{{ route('campaigns.new_custom_parameter')}}">Go here to add custom parameters</a></p>
+                    </div>
+                </div>
+                  
+                @endif
+               
 
             </div>
             <div class="row">

@@ -7,7 +7,6 @@
                     <h4 class="mb-3 mb-md-0">{{ __('Links') }}</h4>
                 </div>
                 <div>
-                 
                     <a href="{{ route('campaigns.new_bulk_links') }}" class="btn btn-sm btn-secondary  btn-icon-text">
                         <i class="btn-icon-prepend" data-feather="plus"></i>
                         {{ __('Bulk Link Creator') }}

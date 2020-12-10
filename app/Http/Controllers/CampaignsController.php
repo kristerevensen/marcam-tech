@@ -58,7 +58,7 @@ class CampaignsController extends Controller
     {
         $templates = new Templates();
         $data['templates'] = $templates->get_templates(session('selected_project'));
-        return view('campaing.templates');
+        return view('campaigns.templates',$data);
     }
     public function links($id = null)
     {
@@ -264,7 +264,7 @@ class CampaignsController extends Controller
         $data->medium = $request->medium;
         $data->term = $request->term;
         $data->content = $request->content;
-        $data->custom_parameters = serialize($request->parameters);
+        $data->parameters = serialize($request->parameters);
         if($data->save()) {
             return redirect()->route('campaigns.templates')->with('success','The Template was successfully added');
         } else {

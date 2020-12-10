@@ -72,7 +72,7 @@
                         <li class="category-heading">Campaign Management</li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('campaigns') }}">All Campaigns</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('campaigns.links') }}">All Links</a></li>
-                        <li class="nav-item"><a class="nav-link" href="templates">Templates</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('campaigns.templates')}}">Templates</a></li>
                         <li class="category-heading">Campaign Settings<li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('campaigns.categories') }}">Categories</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('campaigns.sources') }}">Sources</a></li>

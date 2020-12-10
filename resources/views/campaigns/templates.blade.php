@@ -4,7 +4,7 @@
 
             <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
                 <div>
-                    <h4 class="mb-3 mb-md-0">{{ __('Links') }}</h4>
+                    <h4 class="mb-3 mb-md-0">{{ __('Templates') }}</h4>
                 </div>
                 <div>
                  
@@ -27,14 +27,14 @@
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title">{{ __('Your Links') }}</h6>
+                            <h6 class="card-title">{{ __('Your Templates') }}</h6>
                         <p class="card-description">{{ __('') }}</p>
                             <div class="table-responsive">
                                 <table id="dataTableExample" class="table">
                                     <thead>
                                         <tr>
                                             <th class="wd-10p">{{ __('Created') }}</th>
-                                            <th class="wd-20p">{{ __('Campaign') }}</th>
+                                            <th class="wd-20p">{{ __('Name') }}</th>
                                             <th class="wd-20p">{{ __('Source') }}</th>
                                             <th class="wd-20p">{{ __('Medium') }}</th>
                                             <th class="wd-20p">{{ __('Term') }}</th>
@@ -44,22 +44,22 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($links as $link)
+                                            @foreach($templates as $template)
                                             <tr>
-                                            <td>{{ date_format (new DateTime($link->created_at), 'jS M Y') }}</td>
-                                            <td>{{ $link->template_name }}</td>
-                                            <td>{{ $link->source }}</td>
-                                            <td>{{ $link->medium }}</td>
-                                            <td>{{ $link->term }}</td>
-                                            <td>{{ $link->content }}</td>
+                                            <td>{{ date_format (new DateTime($template->created_at), 'jS M Y') }}</td>
+                                            <td>{{ $template->template_name }}</td>
+                                            <td>{{ $template->source }}</td>
+                                            <td>{{ $template->medium }}</td>
+                                            <td>{{ $template->term }}</td>
+                                            <td>{{ $template->content }}</td>
                                             <td>
-                                                @foreach (unserialize($link->custom_parameters) as $key => $value)
+                                                @foreach (unserialize($template->parameters) as $key => $value)
                                                     <span class="badge badge-light">{{ $key  }}</span>
                                                 @endforeach
                                             </td>
                                             
                                                 <td>
-                                                    <a class="dropdown-item" onclick="javascript: return confirm('Are you sure?');" href="{{ ('/campaigns/links/delete/'.$link->id) }}" ><i data-feather="x-circle"></i></a>  
+                                                    <a class="dropdown-item" onclick="javascript: return confirm('Are you sure?');" href="{{ ('/campaigns/links/delete/'.$template->id) }}" ><i data-feather="x-circle"></i></a>  
                                                 </td>
                                             </tr>
                                             @endforeach

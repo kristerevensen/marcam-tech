@@ -35,13 +35,13 @@
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <input type="checkbox" name="campaign_reportings" checked="1" value="1" class="form-check-input">
+                                        <input type="checkbox" name="campaign_reportings"  value="1" class="form-check-input">
                                         Campaign Reportings
                                     <i class="input-frame"></i></label>
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <input type="checkbox" name="campaign_template" value="" class="form-check-input">
+                                        <input type="checkbox" name="campaign_template" value="1" class="form-check-input">
                                         Use Template
                                     <i class="input-frame"></i></label>
                                 </div>

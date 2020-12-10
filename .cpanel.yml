@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/mcminn/marcam-tech.mcminn.no/
+    - /bin/cp -R * $DEPLOYPATH
+    
