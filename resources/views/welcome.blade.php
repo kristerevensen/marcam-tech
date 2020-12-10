@@ -7,8 +7,8 @@
     <link rel="shortcut icon" href="./assets/media/favicon.ico" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./marcam-front/assets/bootstrap/css/bootstrap.min.css" crossorigin="use-credentials">
-    <link rel="stylesheet" href="./marcam-front/assets/css/style.css" crossorigin="use-credentials">
+    <link rel="stylesheet" href="../../marcam-front/assets/bootstrap/css/bootstrap.min.css" crossorigin="use-credentials">
+    <link rel="stylesheet" href="../../marcam-front/assets/css/style.css" crossorigin="use-credentials">
 
     <title>About - Sap</title>
 </head>
@@ -96,7 +96,7 @@
     <div class="container">
         <h2 class="fz-56 fz-lg-40 fz-md-30 fw-600 font-cabin text-white lh-1-17 mb-20px">The story of Sap</h2>
         <p class="home-about-banner-texts text-white font-rubik fz-20 fz-lg-18 fz-md-16 lh-1-5 mb-0">Once upon a time, an entrepreneur witnessed a major problem: as companies scaled rapidly, they struggled to keep employees engaged, productive, and happy. An effective, transparent management tool was desperately needed.</p>
-        <img src="./marcam-front/assets/media/banners/home-about/banner-ai.png" alt="" class="img-fluid">
+        <img src="../../marcam-front/assets/media/banners/home-about/banner-ai.png" alt="" class="img-fluid">
     </div>
 </section>
 
@@ -108,7 +108,7 @@
 
         <div class="row align-items-center flex-md-row-reverse mb-lg-30px">
             <div class="col-md-6 text-center pb-sm-20px">
-                <img src="./marcam-front/assets/media/about/ai-1.png" alt="" class="img-fluid">
+                <img src="../../marcam-front/assets/media/about/ai-1.png" alt="" class="img-fluid">
             </div>
             <div class="col-md-6">
                 <h2 class="font-poppins fz-24 fz-md-20 lh-1-17 color-dark-blue-theme mb-20px">Our mission</h2>
@@ -120,7 +120,7 @@
 
         <div class="row align-items-center mb-lg-30px">
             <div class="col-md-6 text-center pb-sm-20px">
-                <img src="./marcam-front/assets/media/about/ai-2.png" alt="" class="img-fluid">
+                <img src="../../marcam-front/assets/media/about/ai-2.png" alt="" class="img-fluid">
             </div>
             <div class="col-md-6">
                 <h2 class="font-poppins fz-24 fz-md-20 lh-1-17 color-dark-blue-theme mb-20px">Our vision</h2>
@@ -139,21 +139,21 @@
         <div class="row">
             <div class="col-md-4 how-it-work-1 text-center">
                 <div class="row mx-0 px-2 d-block">
-                    <img src="./marcam-front/assets/media/how-it-works/circle-1.png" alt="Secure Customer Data">
+                    <img src="../../marcam-front/assets/media/how-it-works/circle-1.png" alt="Secure Customer Data">
                     <h2 class="how-it-work-1-title font-rubik fz-24 fz-md-18">Secure Customer Data</h2>
                     <p class="fz-16 fz-md-14 font-rubik mb-0 color-dark-theme-80">Secure customer data across all domains with one-click, fully managed HTTPS.</p>
                 </div>
             </div>
             <div class="col-md-4 how-it-work-1 text-center">
                 <div class="row mx-0 px-2 d-block">
-                    <img src="./marcam-front/assets/media/how-it-works/circle-2.png" alt="Improved Application Performance">
+                    <img src="../../marcam-front/assets/media/how-it-works/circle-2.png" alt="Improved Application Performance">
                     <h2 class="how-it-work-1-title font-rubik fz-24 fz-md-18">Improved Application Performance</h2>
                     <p class="fz-16 fz-md-14 font-rubik mb-0 color-dark-theme-80">Can decrease loading times by 2x with Cloudflare’s web optimizations and content delivery network (CDN).</p>
                 </div>
             </div>
             <div class="col-md-4 how-it-work-1 text-center">
                 <div class="row mx-0 px-2 d-block">
-                    <img src="./marcam-front/assets/media/how-it-works/circle-3.png" alt="High Availability at Global Scale">
+                    <img src="../../marcam-front/assets/media/how-it-works/circle-3.png" alt="High Availability at Global Scale">
                     <h2 class="how-it-work-1-title font-rubik fz-24 fz-md-18">High Availability at Global Scale</h2>
                     <p class="fz-16 fz-md-14 font-rubik mb-0 color-dark-theme-80">Cloudflare’s network of 193 data centers across 90 countries ensures enterprise-grade availability.</p>
                 </div>
@@ -174,22 +174,22 @@
         <h2 class="mb-25px fz-40 fz-md-30 lh-1 font-cabin fw-700 color-dark-blue-theme text-center">Sap Team</h2>
         <div class="row">
             <div class="col-sm-6 col-md-3 p-15px text-center">
-                <img src="./marcam-front/assets/media/about/team-1.png" alt="" class="img-fluid bdrs-10px mb-20px">
+                <img src="../../marcam-front/assets/media/about/team-1.png" alt="" class="img-fluid bdrs-10px mb-20px">
                 <h2 class="font-rubik fz-16 lh-1-17 fw-500 color-dark-blue-theme mb-10px">Savia Monta</h2>
                 <p class="font-rubik fz-16 lh-1-17 color-dark-blue-theme-80 mb-0">Senior UI Designer</p>
             </div>
             <div class="col-sm-6 col-md-3 p-15px text-center">
-                <img src="./marcam-front/assets/media/about/team-2.png" alt="" class="img-fluid bdrs-10px mb-20px">
+                <img src="../../marcam-front/assets/media/about/team-2.png" alt="" class="img-fluid bdrs-10px mb-20px">
                 <h2 class="font-rubik fz-16 lh-1-17 fw-500 color-dark-blue-theme mb-10px">Anjum Tamim</h2>
                 <p class="font-rubik fz-16 lh-1-17 color-dark-blue-theme-80 mb-0">Software designer</p>
             </div>
             <div class="col-sm-6 col-md-3 p-15px text-center">
-                <img src="./marcam-front/assets/media/about/team-3.png" alt="" class="img-fluid bdrs-10px mb-20px">
+                <img src="../../marcam-front/assets/media/about/team-3.png" alt="" class="img-fluid bdrs-10px mb-20px">
                 <h2 class="font-rubik fz-16 lh-1-17 fw-500 color-dark-blue-theme mb-10px">Megh Momo</h2>
                 <p class="font-rubik fz-16 lh-1-17 color-dark-blue-theme-80 mb-0">Ux designer</p>
             </div>
             <div class="col-sm-6 col-md-3 p-15px text-center">
-                <img src="./marcam-front/assets/media/about/team-4.png" alt="" class="img-fluid bdrs-10px mb-20px">
+                <img src="../../marcam-front/assets/media/about/team-4.png" alt="" class="img-fluid bdrs-10px mb-20px">
                 <h2 class="font-rubik fz-16 lh-1-17 fw-500 color-dark-blue-theme mb-10px">Mahfuz Riad</h2>
                 <p class="font-rubik fz-16 lh-1-17 color-dark-blue-theme-80 mb-0">CEO &amp; ui/ux designer</p>
             </div>
@@ -202,7 +202,7 @@
         <div class="row mx-0 bg-white review-block-media-1 align-items-center">
             <div class="col-md-6">
                 <div class="position-relative">
-                    <img src="./marcam-front/assets/media/review/home-1.png" alt="" class="img-fluid">
+                    <img src="../../marcam-front/assets/media/review/home-1.png" alt="" class="img-fluid">
                     <a href="#" class="review-block-media-1-play-btn icon-bottom-right position-absolute d-flex align-items-center justify-content-center text-white rounded-circle bgcolor-blue-theme">
                         <i class="fas fa-caret-right fz-30" aria-hidden="true"></i>
                     </a>
@@ -226,11 +226,11 @@
         <h2 class="maw-900px mx-auto font-cabin fw-700 color-dark-theme mb-20px lh-1-17 fz-40 fz-md-30 text-center">Trusted by</h2>
         <p class="maw-900px mx-auto fz-20 fz-md-16 font-rubik text-center color-dark-theme-80 mb-30px lh-1-5 mb-0">2000+ customers trust & love Sap</p>
         <div class="row justify-content-lg-between justify-content-center text-center align-items-center trusted-by-1-logos">
-            <div class="col-4 col-sm py-10px text-left"><img src="./marcam-front/assets/media/trusted-by/trusted-by-1.png" alt="" class="img-fluid"></div>
-            <div class="col-4 col-sm py-10px"><img src="./marcam-front/assets/media/trusted-by/trusted-by-2.png" alt="" class="img-fluid"></div>
-            <div class="col-4 col-sm py-10px"><img src="./marcam-front/assets/media/trusted-by/trusted-by-3.png" alt="" class="img-fluid"></div>
-            <div class="col-4 col-sm py-10px"><img src="./marcam-front/assets/media/trusted-by/trusted-by-4.png" alt="" class="img-fluid"></div>
-            <div class="col-4 col-sm py-10px text-right"><img src="./marcam-front/assets/media/trusted-by/trusted-by-5.png" alt="" class="img-fluid"></div>
+            <div class="col-4 col-sm py-10px text-left"><img src="../../marcam-front/assets/media/trusted-by/trusted-by-1.png" alt="" class="img-fluid"></div>
+            <div class="col-4 col-sm py-10px"><img src="../../marcam-front/assets/media/trusted-by/trusted-by-2.png" alt="" class="img-fluid"></div>
+            <div class="col-4 col-sm py-10px"><img src="../../marcam-front/assets/media/trusted-by/trusted-by-3.png" alt="" class="img-fluid"></div>
+            <div class="col-4 col-sm py-10px"><img src="../../marcam-front/assets/media/trusted-by/trusted-by-4.png" alt="" class="img-fluid"></div>
+            <div class="col-4 col-sm py-10px text-right"><img src="../../marcam-front/assets/media/trusted-by/trusted-by-5.png" alt="" class="img-fluid"></div>
         </div>
     </div>
 </section>
@@ -289,7 +289,7 @@
         </div>
         <div class="row mx-0 justify-content-between flex-column flex-md-row copyright-footer-1 align-items-center fz-16 font-rubik text-white fw-400 mt-15px">
             <a class="d-inline-flex hover-text-dec-none text-white font-cabin fw-700 fz-36 lh-1 text-nowrap" href="index.html">
-                <img src="./marcam-front/assets/media/logo-icon.png" alt="" class="mr-10px">
+                <img src="../../marcam-front/assets/media/logo-icon.png" alt="" class="mr-10px">
                 <span class="d-inline-flex">Sap</span>
             </a>
             <div class="d-inline-flex footer-style-1-mobile-apps my-sm-10px">
@@ -305,8 +305,8 @@
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://kit.fontawesome.com/799dc280ec.js" crossorigin="anonymous"></script>
-<script src="./marcam-front/assets/js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-<script src="./marcam-front/assets/js/popper.min.js" crossorigin="anonymous"></script>
-<script src="./marcam-front/assets/bootstrap/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="../../marcam-front/assets/js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<script src="../../marcam-front/assets/js/popper.min.js" crossorigin="anonymous"></script>
+<script src="../../marcam-front/assets/bootstrap/js/bootstrap.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
