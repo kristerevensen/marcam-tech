@@ -7,8 +7,8 @@
     <link rel="shortcut icon" href="./assets/media/favicon.ico" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../../marcam-front/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../marcam-front/assets/css/style.css">
+    <link rel="stylesheet" href="http://marcam.tech/marcam-front/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://marcam.tech/marcam-front/assets/css/style.css">
 
     <title>About - Sap</title>
 </head>
