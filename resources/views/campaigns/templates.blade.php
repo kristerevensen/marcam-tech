@@ -34,7 +34,6 @@
                                     <thead>
                                         <tr>
                                             <th class="wd-10p">{{ __('Created') }}</th>
-                                            <th class="wd-20p">{{ __('URL') }}</th>
                                             <th class="wd-20p">{{ __('Campaign') }}</th>
                                             <th class="wd-20p">{{ __('Source') }}</th>
                                             <th class="wd-20p">{{ __('Medium') }}</th>
@@ -48,8 +47,7 @@
                                             @foreach($links as $link)
                                             <tr>
                                             <td>{{ date_format (new DateTime($link->created_at), 'jS M Y') }}</td>
-                                            <td>{{ $link->landing_page }}</td>
-                                            <td>{{ $link->campaign_name }}</td>
+                                            <td>{{ $link->template_name }}</td>
                                             <td>{{ $link->source }}</td>
                                             <td>{{ $link->medium }}</td>
                                             <td>{{ $link->term }}</td>

@@ -14,6 +14,7 @@ use App\Models\Term;
 use App\Models\CampaignsCustomParameter;
 use App\Models\CampaignsLinks;
 use App\Models\Link;
+use App\Models\Template;
 use App\Models\Templates;
 use Mockery\Generator\Parameter;
 
@@ -111,6 +112,23 @@ class CampaignsController extends Controller
     public function new_source()
     {
         return view('campaigns.new_source');
+    }
+    public function new_template($id=null)
+    {
+        $pro = session('selected_project');
+        $content = new Content();
+        $sources = new Source();
+        $mediums = new Medium();
+        $terms = new Term();
+        $parameters = new CampaignsCustomParameter();
+
+        $data['sources'] = $sources->getSources($pro);
+        $data['mediums'] = $mediums->getMediums($pro);
+        $data['terms'] = $terms->getTerms($pro);
+        $data['contents'] = $content->getContents($pro);
+        $data['parameters'] = $parameters->get_custom_parameters($pro);
+
+        return view('campaigns.new_template',$data);
     }
     public function new_link($id=null)
     {
@@ -236,6 +254,24 @@ class CampaignsController extends Controller
         $token = $generator->generate($tokenlength);
         return $token;
     }
+    public function save_template(Request $request)
+    {
+        //dd($request);
+        $data = new Template();
+        $data->template_name = $request->template_name;
+        $data->project_token = session('selected_project');
+        $data->source = $request->source;
+        $data->medium = $request->medium;
+        $data->term = $request->term;
+        $data->content = $request->content;
+        $data->custom_parameters = serialize($request->parameters);
+        if($data->save()) {
+            return redirect()->route('campaigns.templates')->with('success','The Template was successfully added');
+        } else {
+            return redirect()->route('campaigns.templates')->with('error','Error! The Template was not added');
+        }
+    }
+ 
     public function save_link(Request $request)
     {
         //dd($request);
@@ -437,6 +473,17 @@ class CampaignsController extends Controller
             return redirect()->route('campaigns.links')->with('success','The Link was successfully deleted.')->send();
         } else {
             return redirect()->route('campaigns.links')->with('success','Error. Could not delete the link')->send();
+        } 
+    }
+    public function delete_template($id)
+    {
+        // dd($request);
+        $data = Template::findOrFail($id);
+        $res = $data->delete();
+        if($res){
+            return redirect()->route('campaigns.templates')->with('success','The Template was successfully deleted.')->send();
+        } else {
+            return redirect()->route('campaigns.templates')->with('success','Error. Could not delete the template')->send();
         } 
     }
     public function source_delete($id)

@@ -18,17 +18,12 @@ class CreateTemplatesTable extends Migration
             $table->timestamps();
             $table->string('template_name');
             $table->string('project_token');
-            $table->string('campaign_name')->nullable();
-            $table->string('campaign_id')->nullable();
             $table->string('source')->nullable();
             $table->string('medium')->nullable();
             $table->string('term')->nullable();
             $table->string('content')->nullable();
             $table->text('parameters')->nullable();
-            $table->foreign('campaign_id')
-                    ->references('id')
-                    ->on('campaigns')
-                    ->onDelete('cascade');
+
             $table->foreign('project_token')
                     ->references('project_token')
                     ->on('projects')
