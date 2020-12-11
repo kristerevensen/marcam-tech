@@ -36,7 +36,7 @@
                                         <tbody>
                                             @foreach($terms as $term)
                                             <tr>
-                                            <td>{{ $term->created_at }}</td>
+                                            <td>{{ date_format(new DateTime($term->created_at), 'jS M Y') }}</td>
                                             <td>{{ $term->term }}</td>
                                           
                                                 <td>

@@ -36,7 +36,7 @@
                                         <tbody>
                                             @foreach($sources as $source)
                                             <tr>
-                                            <td>{{ $source->created_at }}</td>
+                                            <td>{{ date_format(new DateTime($source->created_at), 'jS M Y') }}</td>
                                             <td>{{ $source->source }}</td>
                                           
                                                 <td>

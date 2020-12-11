@@ -38,9 +38,8 @@ class Campaign extends Model
     public function get_campaign_name($id)
     {
         return DB::table('campaigns')
-                ->distinct('campaign_name')
                 ->where('project_token',session('selected_project'))
                 ->where('id',$id)
-                ->get();
+                ->pluck('campaign_name');
     }
 }

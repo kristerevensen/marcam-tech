@@ -38,7 +38,7 @@
                                         <tbody>
                                             @foreach($mediums as $medium)
                                             <tr>
-                                            <td>{{ $medium->created_at }}</td>
+                                            <td>{{  date_format(new DateTime($medium->created_at), 'jS M Y')  }}</td>
                                             <td>{{ $medium->medium }}</td>
                                                 <td>
                                                     <a class="dropdown-item" href="{{ ('/campaigns/mediums/delete/'.$medium->id) }}" ><i data-feather="x-circle"></i></a>  

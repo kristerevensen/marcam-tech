@@ -38,7 +38,8 @@ class CampaignsController extends Controller
      * Index Method
      **/
     public function index(request $request) {
-        $data['campaigns'] = Campaign::all();
+        $campaign = new Campaign();
+        $data['campaigns'] = $campaign->getCampaigns(session('selected_project'));
         return view('campaigns.index',$data);
     }
 
@@ -299,19 +300,25 @@ class CampaignsController extends Controller
     public function save_link(Request $request)
     {
         //dd($request);
-        $campaign  =new Campaign();
+        $campaign  = new Campaign();
         $data = new CampaignsLinks();
         $data->link_token = $this->token();
         $data->landing_page = trim($request->landing_page);
         $data->project_token = session('selected_project');
-        $campaign_name = preg_replace('/\s+/', '_', $campaign->get_campaign_name($request->id));
-        $data->campaign_name = $campaign_name;
-        $data->source = $request->source;
-        $data->medium = $request->medium;
-        $data->term = $request->term;
-        $data->content = $request->content;
-        $data->target = $request->target;
-        $data->campaign_id = $request->set_campaign_id ?: $request->campaign ;
+        $campaignID = $request->set_campaign_id ?: $request->campaign;
+       
+        $campaign_name = $campaign->get_campaign_name($campaignID);
+        $campaign_name = $campaign_name[0];
+        $campaign_name = str_replace( "-", " ", $campaign_name);
+        $campaign_name = preg_replace('/\s+/', '_', $campaign_name);
+
+        $data->campaign_name = strtolower($campaign_name);
+        $data->source = strtolower($request->source);
+        $data->medium = strtolower($request->medium);
+        $data->term = strtolower($request->term);
+        $data->content = strtolower($request->content);
+        $data->target = strtolower($request->target);
+        $data->campaign_id = strtolower($campaignID);
         $data->custom_parameters = serialize($request->parameters);
 
         $url = trim($request->landing_page);
@@ -321,20 +328,53 @@ class CampaignsController extends Controller
         $fragment = "";
         $exploded = "";
         $exploded2 = "";
+        $question = false;
+        $utm = "";
+        $fragments = false;
 
         if(strpos($url,'#')) {
             $exploded = explode('#',$url);
             $url = $exploded[0];
+            $fragments = true;
             $fragment = $exploded[1];
         }
         if(strpos($url,'?')) {
             $exploded2 = explode('?',$url);
             $domain = $exploded2[0];
             $query = $exploded2[1];
+            $question = true;
+        } else {
+            $domain = $url;
         }
-        $data['domain'] = $domain;
-        $data['query'] = $query;
-        $data['fragment'] = $fragment;
+        if($question) {
+            $utm = strtolower($domain).strtolower($query).'&utm_campaign='.$data->campaign_name;
+        } else {
+            $utm = strtolower($domain).strtolower($question).'?utm_campaign='.strtolower($data->campaign_name);
+        }
+        if($data->source != null) {
+            $utm= $utm.'&utm_source='.strtolower($data->source);
+        }
+        if($data->medium != null) {
+            $utm = $utm.'&utm_medium='.strtolower($data->medium);
+        }
+        if($data->term != null) {
+            $utm = $utm.'&utm_term='.strtolower($data->term);
+        }
+        if($data->content != null) {
+            $utm = $utm.'&utm_content='.strtolower($data->content);
+        }
+        if(count($request->parameters) >0) {
+            foreach($request->parameters as $key => $value) {
+                if(!empty($value)) {
+                    $utm = strtolower($utm).'&'.strtolower($key).'='.strtolower($value);
+                }
+            }
+        }
+        if($fragments) {
+            $utm = $utm.'#'.$fragment;
+        }
+        $data->tagged_url = $utm;
+        $data->marcam = "https://marc.am/".$data->link_token;
 
         if($data->save()) {
             return redirect()->route('campaigns.links')->with('success','The Link was successfully added');

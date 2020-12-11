@@ -35,7 +35,7 @@
                                             <th class="wd-10p">{{ __('Created') }}</th>
                                             <th class="wd-20p">{{ __('URL') }}</th>
                                             <th class="wd-20p">{{ __('Campaign') }}</th>
-                                            <th class="wd-20p">{{ __('Tagged URL')}}</th>
+                                            <th class="wd-20p">{{ __('Marcam URL')}}</th>
                                             <th class="wd-10p">{{ __('Action') }}</th>
                                         </tr>
                                         </thead>
@@ -45,7 +45,7 @@
                                             <td>{{ date_format (new DateTime($link->created_at), 'jS M Y') }}</td>
                                             <td>{{ $link->landing_page }}</td>
                                             <td>{{ $link->campaign_name }}</td>
-                                            <td>{{ }}</td>
+                                            <td>{{ $link->marcam }}</td>
                                             
                                                 <td>
                                                     <a class="dropdown-item" onclick="javascript: return confirm('Are you sure?');" href="{{ ('/campaigns/links/delete/'.$link->id) }}" ><i data-feather="x-circle"></i></a>  

@@ -31,7 +31,7 @@
                                         <tbody>
                                             @foreach($campaigns as $campaign)
                                             <tr>
-                                            <td>{{ date_format($campaign->created_at, 'jS M Y') }}</td>
+                                            <td>{{ date_format(new DateTime($campaign->created_at), 'jS M Y') }}</td>
                                             <td>{{ $campaign->campaign_name }}</td>
                                             <td>{{ number_format($campaign->campaign_spend) }}</td>
                                             <td>{{ date_format (new DateTime($campaign->start), 'jS M Y') }}</td>
