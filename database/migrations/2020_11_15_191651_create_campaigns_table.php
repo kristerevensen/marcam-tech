@@ -25,11 +25,11 @@ class CreateCampaignsTable extends Migration
             $table->string('model')->nullable(); 
             $table->timestamp('start')->nullable();
             $table->timestamp('end')->nullable();
-            $table->enum('status',array('1','0'))->default('1');
-            $table->enum('reporting',array('1','0'))->default('0');
-            $table->enum('force_lowercase',array('1','0'))->default('1');
-            $table->enum('utm_activated',array('1','0'))->default('1');
-            $table->enum('monitor_urls',array('1','0'))->default('1');
+            $table->enum('status',array('1','0'))->default('1')->nullable();
+            $table->enum('reporting',array('1','0'))->default('0')->nullable();
+            $table->enum('force_lowercase',array('1','0'))->default('1')->nullable();
+            $table->enum('utm_activated',array('1','0'))->default('1')->nullable();
+            $table->enum('monitor_urls',array('1','0'))->default('1')->nullable();
             $table->text('description')->nullable();
             $table->foreign('project_token')
                     ->references('project_token')

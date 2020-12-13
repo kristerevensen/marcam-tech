@@ -30,14 +30,23 @@
                 @endif
             </li>
             
-
-
             <li class="nav-item">
                 @if(session('selected_project'))
-                <a class="nav-link" href="{{ route('pages') }}">
+                <a href="{{ route('analysis') }}" class="nav-link">
                     <i class="link-icon" data-feather="bar-chart"></i>
-                    <span class="menu-title">Pages</span>
+                    <span class="menu-title">Analysis</span>
+                    <i class="link-arrow"></i>
                 </a>
+                <div class="submenu">
+                    <ul class="submenu-item">
+                        <li class="category-heading">Analysis</li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('analysis.pages') }}">Pages</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('analysis.channels') }}">Channels</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('analysis.segments') }}">Segments</a></li>
+                        <li class="category-heading">Managing<li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('analysis.upload') }}">Upload</a></li>
+                    </ul>
+                </div>
                 @endif
             </li>
 

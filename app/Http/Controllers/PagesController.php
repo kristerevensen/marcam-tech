@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\PagesImport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PagesController extends Controller
 {
@@ -16,8 +18,7 @@ class PagesController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(request $request) {
-        return view('pages.index');
-    }
+   
+
 }
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\AnalysisController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\GanttController;
 use App\Http\Controllers\HomeController;
@@ -56,6 +57,16 @@ Route::get('/projects/select/{id}', [HomeController::class, 'select'])->name('pr
 Route::get('/projects/deselect.html', [HomeController::class, 'deselect'])->name('projects.deselect');
 Route::post('/projects/save.html', [HomeController::class, 'save'])->name('projects.save');
 Route::put('/projects/update.html', [HomeController::class, 'update'])->name('projects.update');
+
+Route::get('/analysis.html', [AnalysisController::class, 'index'])->name('analysis');
+Route::get('/analysis/trends/{id}.html', [AnalysisController::class, 'channel_trends'])->name('analysis.channel.trends');
+Route::get('/analysis/year/{year}.html', [AnalysisController::class, 'channels_year'])->name('analysis.channel.year');
+Route::get('/analysis/pages.html', [AnalysisController::class, 'pages'])->name('analysis.pages');
+Route::get('/analysis/channels.html', [AnalysisController::class, 'channels'])->name('analysis.channels');
+Route::get('/analysis/segments.html', [AnalysisController::class, 'segments'])->name('analysis.segments');
+Route::get('/analysis/upload.html', [AnalysisController::class, 'upload'])->name('analysis.upload');
+Route::post('/analysis/import.html', [AnalysisController::class, 'import'])->name('analysis.import');
+
 
 Route::get('/campaigns.html', [CampaignsController::class, 'index'])->name('campaigns');
 Route::get('/campaigns/delete/{id}.html', [CampaignsController::class, 'delete'])->name('campaigns.delete');
@@ -123,3 +134,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
 });
 
+Route::get('importExportView', [MyController::class, 'importExportView']);
+Route::get('export', [MyController::class, 'export'])->name('export');
+Route::post('import', [MyController::class, 'import'])->name('import');

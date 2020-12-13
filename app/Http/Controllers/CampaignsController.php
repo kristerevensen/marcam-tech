@@ -45,7 +45,15 @@ class CampaignsController extends Controller
 
 
 
-   
+   /**
+    * If not selected project->redirect 
+    **/
+    public function selected()
+    {
+        if(!session('selected_project')) {
+            redirect()->route('home')->with('info', 'You need to select a project')->send();
+        }
+    }
 
     /*
     * Listing methods
@@ -201,9 +209,7 @@ class CampaignsController extends Controller
     }
     public function new($id=null) //set session project ID
     {
-        if(!session('selected_project')) {
-            back();
-        }
+    
         $data['categories'] = CampaignsCategory::all();
         $data['selected_project'] = session('selected_project');
         return view('campaigns.new',$data);
