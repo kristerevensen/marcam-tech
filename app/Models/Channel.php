@@ -23,7 +23,7 @@ class Channel extends Model
         return DB::table('channels')
                 ->groupBy('channel','year',)
                 ->having('project_token',$id)
-                ->orderBy('year','asc')
+                ->orderBy('year','desc')
                 ->orderBy('sessions','desc')
                 ->get();
     }

@@ -30,14 +30,13 @@
                             <th>Bounce%</th>
                             <th>Exit%</th>
                             <th>PageValue</th>
-                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($channels as $row)
                         <tr>
                             <td><a href="{{ route('analysis.channel.year',$row->year) }}">{{ $row->year }}</a></td>
-                            <td><a href="{{ route('analysis.channel.trends',[$row->channel_token]) }}">{{ $row->channel }}</a></td>
+                            <td><a href="{{ route('analysis.channel.trends',[$row->year,$row->channel_token]) }}">{{ $row->channel }}</a></td>
                             <td>{{ $row->sessions }}</td>
                             <td>{{ $row->pageviews }}</td>
                             <td>{{ $row->avgorder }}</td>
@@ -46,14 +45,7 @@
                             <td>{{ $row->bouncerate }}</td>
                             <td>{{ $row->exitrate }}</td>
                             <td>{{ $row->pagevalue }}</td>
-                            <td><!-- Small button groups (default and split) -->
-                              <div class="btn-group">
-                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                </button>
-                                <div class="dropdown-menu">
-                                  ...
-                                </div>
-                              </div></td>
+                            
                         </tr>
                         @endforeach
                     </tbody>
@@ -76,11 +68,8 @@ $(function() {
 
   $(function() {
     $('#datatable').DataTable({
-      "iDisplayLength": 20,
+      "iDisplayLength": 10,
       "dom":'frtip',
-      "language": {
-        search: "Search"
-      }
     });
   
   });

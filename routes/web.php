@@ -59,7 +59,7 @@ Route::post('/projects/save.html', [HomeController::class, 'save'])->name('proje
 Route::put('/projects/update.html', [HomeController::class, 'update'])->name('projects.update');
 
 Route::get('/analysis.html', [AnalysisController::class, 'index'])->name('analysis');
-Route::get('/analysis/trends/{id}.html', [AnalysisController::class, 'channel_trends'])->name('analysis.channel.trends');
+Route::get('/analysis/trends/{year}/{id}.html', [AnalysisController::class, 'channel_trends'])->name('analysis.channel.trends');
 Route::get('/analysis/year/{year}.html', [AnalysisController::class, 'channels_year'])->name('analysis.channel.year');
 Route::get('/analysis/pages.html', [AnalysisController::class, 'pages'])->name('analysis.pages');
 Route::get('/analysis/channels.html', [AnalysisController::class, 'channels'])->name('analysis.channels');
