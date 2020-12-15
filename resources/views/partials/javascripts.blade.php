@@ -52,7 +52,6 @@ $(".select2").select2();
             $("#saveCategory").click(function(e){
                
                 var name = $("#campaigncategory_name").val();
-               
                 
                 $.ajax({
                 type:'POST',

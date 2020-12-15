@@ -15,7 +15,7 @@
     @yield('custom_head')
 
 </head>
-<body>
+<body id="app">
     <div class="main-wrapper">
 		<div class="horizontal-menu">
            @include('partials.topnav')

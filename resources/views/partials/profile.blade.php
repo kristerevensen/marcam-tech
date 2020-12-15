@@ -15,23 +15,24 @@
         <div class="dropdown-body">
             <ul class="profile-nav p-0 pt-3">
                 <li class="nav-item">
-                    <a href="../../pages/general/profile.html" class="nav-link">
+                    <a href="{{ route('account.profile') }}" class="nav-link">
                         <i data-feather="user"></i>
-                        <span>Profile</span>
+                        <span>{{ __('Profile')}}</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="javascript:;" class="nav-link">
+                    <a href="{{ route('account.editprofile') }}" class="nav-link">
                         <i data-feather="edit"></i>
-                        <span>Edit Profile</span>
+                        <span>{{ __('Edit Profile')}}</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="javascript:;" class="nav-link">
-                        <i data-feather="repeat"></i>
-                        <span>Switch User</span>
+                    <a href="{{ route('account.editpassword') }}" class="nav-link">
+                        <i data-feather="edit"></i>
+                        <span>{{ __('Edit Password')}}</span>
                     </a>
                 </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}"
                     onclick="event.preventDefault();

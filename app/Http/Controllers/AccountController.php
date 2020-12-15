@@ -14,7 +14,24 @@ class AccountController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
+    }
+
+    public function profile()
+    {
+        $data = array();
+        return view('account.profile', $data);
+    }
+
+    public function editprofile()
+    {
+        $data = array();
+       // return view('account.profile', $data);
+    }
+    public function editpassword()
+    {
+        $data = array();
+       // return view('account.profile', $data);
     }
 
 }

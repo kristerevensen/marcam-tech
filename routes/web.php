@@ -1,6 +1,7 @@
 <?php
 
 use App\Events\WebsocketEvent;
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\AnalysisController;
@@ -49,6 +50,10 @@ Route::get('/ranking.html', [RankingController::class, 'index'])->name('ranking'
 Route::get('/audits.html', [AuditsController::class, 'index'])->name('audits');
 Route::get('/chat.html', [ChatController::class, 'index'])->name('chat');
 
+Route::get('/account/profile.html', [AccountController::class, 'profile'])->name('account.profile');
+Route::get('/account/editprofile.html', [AccountController::class, 'editprofile'])->name('account.editprofile');
+Route::get('/account/editpassword.html', [AccountController::class, 'editpassword'])->name('account.editpassword');
+
 Route::get('/experiments', [ExperimentsController::class, 'index'])->name('experiments');
 
 Route::get('/projects/delete/{id}',[HomeController::class,'delete'])->name('project.delete');
@@ -76,6 +81,7 @@ Route::get('/campaigns/delete/{id}.html', [CampaignsController::class, 'delete']
 Route::get('/campaigns/sources.html', [CampaignsController::class, 'sources'])->name('campaigns.sources');
 Route::get('/campaigns/sources/new.html', [CampaignsController::class, 'new_source'])->name('campaigns.new_source');
 Route::post('/campaigns/sources/save.html', [CampaignsController::class, 'save_source'])->name('campaigns.save_source');
+Route::post('/campaigns/source/save/ajax.html',[CampaignsController::class, 'source_save_ajax'])->name('campaigns.save_source_ajax');
 Route::get('/campaigns/sources/delete/{id}', [CampaignsController::class, 'source_delete'])->name('campaigns.source_delete');
 
 Route::get('/campaigns/mediums.html', [CampaignsController::class, 'mediums'])->name('campaigns.mediums');

@@ -45,7 +45,7 @@
                                             <td>{{ date_format (new DateTime($link->created_at), 'jS M Y') }}</td>
                                             <td>{{ $link->landing_page }}</td>
                                             <td>{{ $link->campaign_name }}</td>
-                                            <td>{{ $link->marcam }}</td>
+                                            <td><a href="{{ $link->marcam}}" target="_blank">{{ $link->marcam }}</a></td>
                                             
                                                 <td>
                                                     <a class="dropdown-item" onclick="javascript: return confirm('Are you sure?');" href="{{ ('/campaigns/links/delete/'.$link->id) }}" ><i data-feather="x-circle"></i></a>  

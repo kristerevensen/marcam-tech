@@ -427,6 +427,18 @@ class CampaignsController extends Controller
             return redirect()->route('campaigns.mediums')->with('error','Error! The Medium was not added');
         }
     }
+    public function save_source_ajax(Request $request)
+    {
+        // dd($request);
+        $data = new Source();
+        $data->source = $request->source_name;
+        $data->project_token = session('selected_project');
+        if($data->save()) {
+            return redirect()->route('campaigns.sources')->with('success','The Source was successfully added');
+        } else {
+            return redirect()->route('campaigns.sources')->with('error','Error! The Source was not added');
+        }
+    }
     public function save_source(Request $request)
     {
         // dd($request);

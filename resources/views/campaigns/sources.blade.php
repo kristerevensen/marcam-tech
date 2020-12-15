@@ -7,7 +7,7 @@
                     <h4 class="mb-3 mb-md-0">{{ __('Sources') }}</h4>
                 </div>
                 <div>
-                    <a href="{{ route('campaigns.new_source') }}" class="btn btn-sm btn-success  btn-icon-text">
+                    <a href="#" data-target="#addSource" data-toggle="modal" class="btn btn-sm btn-success  btn-icon-text">
                             <i class="btn-icon-prepend" data-feather="plus"></i>
                             {{ __('New Source') }}
                         </a>
@@ -51,5 +51,6 @@
                     </div>
                 </div>
             </div>
+            @include('campaigns.sources.new')
 
 @endsection
