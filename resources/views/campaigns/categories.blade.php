@@ -42,5 +42,5 @@
                     </div>
                 </div>
             </div>
-            @include('campaigns.addcategoryform')
+            @include('campaigns.addcategory')
 @endsection
