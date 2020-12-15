@@ -8,7 +8,7 @@
                 </a>
             </li>
          
-            
+            @can('manage-users')
             <li class="nav-item">
                 @if(session('selected_project'))
                 <a href="{{ route('keywords') }}" class="nav-link">
@@ -29,6 +29,7 @@
                 </div>
                 @endif
             </li>
+            @endcan
             
             <li class="nav-item">
                 @if(session('selected_project'))
@@ -40,16 +41,20 @@
                 <div class="submenu">
                     <ul class="submenu-item">
                         <li class="category-heading">Analysis</li>
+                        @can('manage-users')
                         <li class="nav-item"><a class="nav-link" href="{{ route('analysis.pages') }}">Pages</a></li>
+                        @endcan
                         <li class="nav-item"><a class="nav-link" href="{{ route('analysis.channels') }}">Channels</a></li>
+                        @can('manage-users')
                         <li class="nav-item"><a class="nav-link" href="{{ route('analysis.segments') }}">Segments</a></li>
+                        @endcan
                         <li class="category-heading">Managing<li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('analysis.upload') }}">Upload</a></li>
                     </ul>
                 </div>
                 @endif
             </li>
-
+            @can('manage-users')
             <li class="nav-item">
                 @if(session('selected_project'))
                 <a class="nav-link" href="{{ route('audits') }}">
@@ -58,7 +63,9 @@
                 </a>
                 @endif
             </li>
+            @endcan
 
+            @can('manage-users')
             <li class="nav-item">
                 @if(session('selected_project'))
                 <a class="nav-link" href="{{ route('competitors') }}">
@@ -67,6 +74,7 @@
                 </a>
                 @endif
             </li>
+            @endcan
            
             
             <li class="nav-item">
@@ -94,6 +102,7 @@
                 @endif
             </li>
 
+            @can('manage-users')
             <li class="nav-item">
                 @if(session('selected_project'))
                 <a class="nav-link" href="{{ route('experiments') }}">
@@ -102,8 +111,10 @@
                 </a>
                 @endif
             </li>
+            @endcan
          
 
+            @can('manage-users')
             <li class="nav-item">
                 @if(session('selected_project'))
                 <a href="#" class="nav-link">
@@ -123,7 +134,7 @@
                 </div>
                 @endif
             </li>
-
+            @endcan
          
 
 
