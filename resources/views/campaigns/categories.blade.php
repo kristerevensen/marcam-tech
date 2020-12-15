@@ -42,5 +42,5 @@
                     </div>
                 </div>
             </div>
-            @include('partials.campaigns.addcategoryform')
+            
 @endsection
