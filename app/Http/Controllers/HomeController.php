@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\LinkTokenController as CampaignsLinkTokenController;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Campaigns\LinkTokenController;
 
 class HomeController extends Controller
 {
@@ -66,7 +66,7 @@ class HomeController extends Controller
     protected function token($var = null)
     {
         $customAlphabet = '0123456789ABCDEFGHIJKLMNOP';
-        $generator = new LinkTokenController($customAlphabet);
+        $generator = new CampaignsLinkTokenController($customAlphabet);
         $tokenlength = '6';
         $token = $generator->generate($tokenlength);
         return $token;

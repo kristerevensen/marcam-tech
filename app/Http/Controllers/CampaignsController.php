@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Campaign;
-use App\Http\Controllers\campaigns\linkTokenController;
+use App\Http\Controllers\LinkTokenController;
 use Illuminate\Support\Facades\Auth;
 use App\Models\CampaignsCategory;
 use App\Models\Content;
