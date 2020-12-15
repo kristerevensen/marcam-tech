@@ -8,12 +8,12 @@
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            <form class="validate" action="{{ route('campaignscategory.post')}}" method="post">
+            <form class="validate" action="{{ route('campaignscategory.store')}}" method="post">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group" id="addCategoryForm">
                         <label for="campaigncategory_name">Category name</label>
-                        <input type="text" name="name" id="campaigncategory_name" class="form-controller " required>
+                        <input type="text" name="campaigncategory_name" id="campaigncategory_name" class="form-controller " required>
                     </div>
                     <div class="col-12" id="addCategoryFormMessage"></div>
                 </div>
