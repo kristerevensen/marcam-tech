@@ -35,7 +35,6 @@ use App\Http\Controllers\TaskController;
 */
 
 Route::get('/', function () {
-    broadcast(new WebsocketEvent('data'));
     return view('welcome');
 });
 

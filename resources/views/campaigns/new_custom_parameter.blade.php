@@ -2,18 +2,21 @@
 
 @section('content')
 
-            <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
-                <div>
-                    <h4 class="mb-3 mb-md-0">{{ __('New Custom Parameter') }}</h4>
-                </div>
-            </div>
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('campaigns')}}">{{ __('Campaigns')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('campaigns.custom_parameters')}}">{{ __('Parameters')}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">New Custom Parameter</li>
+    </ol>
+</nav>
+            
             <form action="{{ route('campaigns.save_custom_parameter')}}" method="post" id="sourc_new" class="validate">
                 @csrf
             <div class="row">
-                        <div class="grid-margin stretch-card col-md-8">
+                        <div class="grid-margin stretch-card col-md-12">
                             <div class="card">
                                 <div class="card-body">
-                                    
+                                    <h6 class="card-title">{{ __('New Custom Parameter') }}</h6>
                                     <input type="hidden" name="project_token" id="" value="{{ session('selected_project')}}">
                                     <input type="hidden" name="created_by" id="{{ Auth::id() }}">
                                         @csrf

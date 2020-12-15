@@ -16,7 +16,7 @@
                                     
                                     <input type="hidden" name="project_token" id="" value="{{ session('selected_project')}}">
                                     <input type="hidden" name="created_by" id="{{ Auth::id() }}">
-                                        @csrf
+                                     
                                         
                                         <div class="form-group">
                                             <label for="campaign_name">{{ __('Source name')}}</label>
@@ -24,7 +24,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="submit" name="savethecampaign" id="savethecampaign" class="btn btn-sm btn-block btn-primary">
+                                            <button type="submit" name="saveCampaignSource" id="saveCampaignSource" class="btn btn-sm btn-block btn-primary"></button>
                                         </div>
                                 </div>
                             </div>
@@ -37,5 +37,5 @@
                 </div>
             </div>
         </form>
-        @include('campaigns.addcategory')
+        
 @endsection

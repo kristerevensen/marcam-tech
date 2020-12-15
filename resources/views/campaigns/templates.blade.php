@@ -2,32 +2,34 @@
 
 @section('content')
 
-            <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
-                <div>
-                    <h4 class="mb-3 mb-md-0">{{ __('Templates') }}</h4>
-                </div>
-                <div>
-                 
-                    <a href="{{ route('campaigns.new_bulk_links') }}" class="btn btn-sm btn-secondary  btn-icon-text">
-                        <i class="btn-icon-prepend" data-feather="plus"></i>
-                        {{ __('Bulk Link Creator') }}
-                    </a>
-                    <a href="{{ route('campaigns.new_template') }}" class="btn btn-sm btn-secondary  btn-icon-text">
-                        <i class="btn-icon-prepend" data-feather="plus"></i>
-                        {{ __('New Template') }}
-                    </a>
-                    <a href="{{ route('campaigns.new_link') }}" class="btn btn-sm btn-success  btn-icon-text">
-                        <i class="btn-icon-prepend" data-feather="plus"></i>
-                        {{ __('New Link') }}
-                    </a>
-                </div>
-            </div>
-
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('campaigns')}}">{{ __('Campaigns')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('campaigns.templates')}}">{{ __('Templates')}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">All </li>
+    </ol>
+</nav>
             <div class="row">
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title">{{ __('Your Templates') }}</h6>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+                                <h6 class="card-title">{{ __('Your Templates') }}</h6>
+                                <div>
+                                    <a href="{{ route('campaigns.new_bulk_links') }}" class="btn btn-sm btn-secondary  btn-icon-text">
+                                        <i class="btn-icon-prepend" data-feather="plus"></i>
+                                        {{ __('Bulk Link Creator') }}
+                                    </a>
+                                    <a href="{{ route('campaigns.new_link') }}" class="btn btn-sm btn-secondary  btn-icon-text">
+                                        <i class="btn-icon-prepend" data-feather="plus"></i>
+                                        {{ __('New Link') }}
+                                    </a>
+                                    <a href="{{ route('campaigns.new_template') }}" class="btn btn-sm btn-success  btn-icon-text">
+                                        <i class="btn-icon-prepend" data-feather="plus"></i>
+                                        {{ __('New Template') }}
+                                    </a>
+                                </div>
+                            </div>
                         <p class="card-description">{{ __('') }}</p>
                             <div class="table-responsive">
                                 <table id="dataTableExample" class="table">

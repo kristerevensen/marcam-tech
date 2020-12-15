@@ -2,30 +2,31 @@
 
 @section('content')
 
-            <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
-                <div>
-                    <h4 class="mb-3 mb-md-0">{{ __('Mediums') }}</h4>
-                </div>
-                <div>
-                    <a href="{{ route('campaigns.new_medium') }}" class="btn btn-sm btn-success  btn-icon-text">
-                            <i class="btn-icon-prepend" data-feather="plus"></i>
-                            {{ __('New Medium') }}
-                        </a>
-                        <div class="row">
-                            
-                            <div class="col-md-6 grid-margin stretch-card">
-                    
-                            </div>
-                        </div>
-                </div>
-            </div>
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('campaigns')}}">{{ __('Campaigns')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('campaigns.mediums')}}">{{ __('Mediums')}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">All </li>
+    </ol>
+</nav>          
 
             <div class="row">
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title">{{ __('Your Mediums') }}</h6>
-                        <p class="card-description">{{ __('The medium is by which manner you acquire your traffic. Eg. Banner, Email etc.') }}</p>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+                                <div>
+                                    <h6 class="card-title">{{ __('Mediums') }}</h6><p class="card-description">{{ __('The medium is by which manner you acquire your traffic. Eg. Banner, Email etc.') }}</p>
+                                </div>
+                                
+                                <div>
+                                    <a href="{{ route('campaigns.new_medium') }}" class="btn btn-sm btn-success  btn-icon-text">
+                                        <i class="btn-icon-prepend" data-feather="plus"></i>
+                                        {{ __('New Medium') }}
+                                    </a>
+                                </div>
+                            </div>
+                            
                             <div class="table-responsive">
                                 <table id="dataTableExample" class="table">
                                     <thead>
