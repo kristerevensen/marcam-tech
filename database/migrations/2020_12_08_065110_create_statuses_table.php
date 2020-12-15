@@ -13,19 +13,19 @@ class CreateStatusesTable extends Migration
      */
     public function up()
     {
-     //   Schema::create('statuses', function (Blueprint $table) {
-     //       $table->increments('id');
-     //       $table->string('project_token'); //token
-      //      $table->string('title');
-     //       $table->string('slug');
-     //       $table->smallInteger('order')->default(0);
-     //       $table->unsignedInteger('user_id');
-     //       $table->timestamps();
-     //       $table->foreign('project_token')
-      //              ->references('project_token')
-      //              ->on('projects')
-     //               ->onDelete('cascade');
-     //   });
+        Schema::create('statuses', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('project_token'); //token
+            $table->string('title');
+            $table->string('slug');
+            $table->smallInteger('order')->default(0);
+            $table->unsignedInteger('user_id');
+            $table->timestamps();
+            $table->foreign('project_token')
+                    ->references('project_token')
+                    ->on('projects')
+                    ->onDelete('cascade');
+        });
     }
 
     /**
