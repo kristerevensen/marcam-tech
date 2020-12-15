@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\campaigns;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
 
 class LinkTokenController extends Controller
 {
