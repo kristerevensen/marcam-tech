@@ -1,5 +1,5 @@
 <div>
-    <a href="#" class="btn btn-sm btn-success  btn-icon-text" data-toggle="modal" data-target="#addCategoryForm">
+    <a href="#" class="btn btn-sm btn-success  btn-icon-text" data-toggle="modal" data-target="#addCategory">
             <i class="btn-icon-prepend" data-feather="plus"></i>
             {{ __('New Category') }}
         </a>
