@@ -17,11 +17,11 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('project_name');
-            $table->string('project_token')->unique();
-            $table->text('url');
+            $table->string('project_token')->key()->unique();
+            $table->text('url')->nullable();
             $table->text('description')->nullable();
-            $table->string('location');
-            $table->string('language');
+            $table->string('location')->nullable();
+            $table->string('language')->nullable();
         });
     }
 
