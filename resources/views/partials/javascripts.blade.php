@@ -12,7 +12,7 @@
   <script src="../assets/vendors/apexcharts/apexcharts.min.js"></script>
   <script src="../../../assets/vendors/jquery-validation/jquery.validate.min.js"></script>
     <!-- end plugin js for this page -->
-
+  
   <!-- custom js for this page -->
   <script src="../assets/js/dashboard.js"></script>
   <script src="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>

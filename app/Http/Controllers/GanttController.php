@@ -31,7 +31,4 @@ class GanttController extends Controller
         ]);
     }
 
-    public function gantt(){
-        return view('gantt.gantt');
-    }
 }

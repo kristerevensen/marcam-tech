@@ -3,6 +3,10 @@
 use App\Http\Controllers\LinkController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\GanttController;
+use App\Http\Controllers\TaskController;
+use App\Models\Link;
+use App\Models\Task;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +34,15 @@ Route::get('/keywords/{id?}', function($id = null){
 Route::get('/projects',function(){
     return "hi users";
 });
+Route::get('/data', function(){
+    $tasks = new Task();
+    $links = new Link();
 
-Route::get('/data',[\App\Http\Controllers\GanttController::class,'get']);
+    return response()->json([
+        'data' => $tasks->all(),
+        'links' => $links->all()
+    ]);
+})->name('campaigns.api.data');
+
+Route::resource('task',TaskController::class);
+Route::resource('link',LinkController::class);

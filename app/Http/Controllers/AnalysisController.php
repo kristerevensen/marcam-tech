@@ -13,6 +13,10 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class AnalysisController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -23,71 +27,7 @@ class AnalysisController extends Controller
         return view('analysis.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Analysis  $analysis
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Analysis $analysis)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Analysis  $analysis
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Analysis $analysis)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Analysis  $analysis
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Analysis $analysis)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Analysis  $analysis
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Analysis $analysis)
-    {
-        //
-    }
+   
     public function channels_year($year)
     {
         $data['year'] = $year;
@@ -290,14 +230,17 @@ class AnalysisController extends Controller
     public function getPercentageChangeArray($array){
         $counter = 0;
         $count = count($array);
+        $changeArray = array();
         foreach($array as $item) {
             if($counter == 0){
 
             } else {
-                $previous = $counter - 1;
-                dd($item);
-                $decreaseValue = $item[$previous] - $item[$counter];
-                $changeArray[] = ($decreaseValue / $item[$counter-1]) * 100;
+                if($counter > 0) {
+                    $previous = $counter - 1;
+                    dd($item);
+                    $decreaseValue = $item[$previous] - $item[$counter];
+                    $changeArray[] = ($decreaseValue / $item[$counter-1]) * 100;
+                }
             }
             $counter++;
         }

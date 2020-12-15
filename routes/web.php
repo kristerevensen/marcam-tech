@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\WebsocketEvent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\AnalysisController;
@@ -33,6 +34,7 @@ use App\Http\Controllers\TaskController;
 */
 
 Route::get('/', function () {
+    broadcast(new WebsocketEvent('data'));
     return view('welcome');
 });
 
@@ -67,6 +69,7 @@ Route::get('/analysis/segments.html', [AnalysisController::class, 'segments'])->
 Route::get('/analysis/upload.html', [AnalysisController::class, 'upload'])->name('analysis.upload');
 Route::post('/analysis/import.html', [AnalysisController::class, 'import'])->name('analysis.import');
 
+Route::get('/campaigns/gantt.html', [CampaignsController::class, 'gantt'])->name('campaigns.gantt');
 
 Route::get('/campaigns.html', [CampaignsController::class, 'index'])->name('campaigns');
 Route::get('/campaigns/delete/{id}.html', [CampaignsController::class, 'delete'])->name('campaigns.delete');

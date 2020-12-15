@@ -43,7 +43,10 @@ class CampaignsController extends Controller
         return view('campaigns.index',$data);
     }
 
-
+    public function gantt()
+    {
+        return view('campaigns.gantt');
+    }
 
    /**
     * If not selected project->redirect 

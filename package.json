@@ -27,7 +27,9 @@
     },
     "dependencies": {
         "apexcharts": "^3.22.3",
+        "laravel-echo": "^1.9.0",
         "mdbootstrap": "^4.19.2",
+        "pusher-js": "^7.0.2",
         "vue": "^2.6.12",
         "vue-loader": "^15.5.1",
         "vue-template-compiler": "^2.5.21",

@@ -12,13 +12,14 @@
     @include('partials.favicon')
     @include('partials.fonts')
     @include('partials.css')
+    @yield('custom_head')
 
 </head>
 <body>
     <div class="main-wrapper">
 		<div class="horizontal-menu">
            @include('partials.topnav')
-            @guest
+            @guest 
             
             @else
             @include('partials.subnav')
@@ -37,5 +38,6 @@
     </div>
     @include('partials.javascripts')
      @yield('custom_scripts')
+     
 </body>
 </html>
