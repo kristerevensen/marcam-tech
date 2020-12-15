@@ -15,7 +15,7 @@ class CreateCampaignsLinksTable extends Migration
     {
         
         Schema::create('campaigns_links', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->timestamps();
             $table->text('landing_page');
             $table->string('link_token')->key();
@@ -27,6 +27,7 @@ class CreateCampaignsLinksTable extends Migration
             $table->string('content')->nullable();
             $table->string('target')->nullable();
             $table->text('tagged_url')->nullable();
+            $table->text('marcam')->nullable();
             $table->unsignedInteger('campaign_id');
             $table->text('custom_parameters')->nullable();
             $table->foreign('campaign_id')
