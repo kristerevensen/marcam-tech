@@ -194,6 +194,10 @@ class CampaignsController extends Controller
     {
         return view('campaigns.addcategory');
     }
+    public function new_category()
+    {
+        return view('campaigns.new_category');
+    }
     public function new_medium()
     {
         return view('campaigns.new_medium');

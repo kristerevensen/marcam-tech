@@ -16,6 +16,9 @@
         <div class="grid-margin stretch-card col-md-12">
             <div class="card">
                 <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+                        <h6 class="card-title">{{ __('New Content') }}</h6>
+                    </div>
                     <input type="hidden" name="project_token" id="" value="{{ session('selected_project')}}">
                     <input type="hidden" name="created_by" id="{{ Auth::id() }}">
                     @csrf

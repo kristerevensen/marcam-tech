@@ -17,7 +17,10 @@
                             <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
                                 <h6 class="card-title">{{ __('Categories') }}</h6>
                                 <div>
-                                    @include('partials.campaigns.addCategory')
+                                    <a href="{{ route('campaigns.new_category')}}"  class="btn btn-sm btn-success  btn-icon-text">
+                                        <i class="btn-icon-prepend" data-feather="plus"></i>
+                                        {{ __('New Category') }}
+                                    </a>
                                 </div>
                             </div>
                         <p class="card-description">{{ __('') }}</p>

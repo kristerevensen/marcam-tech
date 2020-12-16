@@ -119,6 +119,7 @@ Route::get('/campaigns/templates/delete/{id}', [CampaignsController::class, 'del
 
 Route::get('/campaigns/new.html', [CampaignsController::class, 'new'])->name('campaigns.new');
 Route::post('/campaigns/save.html', [CampaignsController::class, 'save'])->name('campaigns.save');
+Route::get('/campaigns/category/new.html', [CampaignsController::class,'new_category'])->name('campaigns.new_category');
 Route::post('/campaigns/category/save.html', [CampaignsController::class,'savecategory'])->name('campaignscategory.post');
 Route::post('/campaigns/category/store.html', [CampaignsController::class,'storecategory'])->name('campaignscategory.store');
 Route::get('/campaigns/category/delete/{id}', [CampaignsController::class,'deletecategory'])->name('campaignscategory.delete');
