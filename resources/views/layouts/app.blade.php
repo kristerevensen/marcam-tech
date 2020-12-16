@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    @include('partials.gtm_head')
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,6 +17,7 @@
 
 </head>
 <body id="app">
+ @include('partials.gtm_body')
     <div class="main-wrapper">
 		<div class="horizontal-menu">
            @include('partials.topnav')
