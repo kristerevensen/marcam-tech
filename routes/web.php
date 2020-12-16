@@ -20,8 +20,10 @@ use App\Http\Controllers\CampaignsController;
 use App\Http\Controllers\ExperimentsController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PublicPagesController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TaskController;
+use Symfony\Component\HttpKernel\Controller\ErrorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +44,7 @@ Auth::routes();
 Route::redirect('/home', '/projects.html', 301);
 
 Route::get('/projects.html', [HomeController::class, 'index'])->name('home'); //Projects list
+Route::get('/error/404.html', [PublicPagesController::class, 'error_404'])->name('404'); //
 Route::get('/keywords.html', [KeywordsController::class, 'index'])->name('keywords');
 Route::get('/pages.html', [PagesController::class, 'index'])->name('pages');
 Route::get('/competitors.html', [CompetitorsController::class, 'index'])->name('competitors');
