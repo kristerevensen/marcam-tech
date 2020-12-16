@@ -37,9 +37,40 @@ class CampaignsController extends Controller
     /**
      * Index Method
      **/
-    public function index(request $request) {
+    public function index(request $request,$days = 30) {
         $campaign = new Campaign();
-        $data['campaigns'] = $campaign->getCampaigns(session('selected_project'));
+        $session = session('selected_project');
+        $data['campaigns'] = $campaign->getCampaigns($session);
+        $data['campaigns_data'] = $campaign->get_last_30_days_campaigns_clicks($session);
+        $data['series'] = null;
+        //dd($data['campaigns_data']);
+        $iteration = 0;
+        foreach($data['campaigns_data'] as $key => $val){
+           //echo $val->name."<br>";
+            for($i = 0; $i < $days; $i++) {
+                $date = date("Y-m-d", strtotime('-'. $i .' days'));
+                $key = array_search($date,(array)$data['campaigns_data'][$iteration]);
+                if($key) {
+                    $dataDates[$val->name][$date] = $data['campaigns_data'][$iteration]->clickcount;
+                    $extra[$val->name][]= array(
+                        'X' => $date,
+                        'Y' => $data['campaigns_data'][$iteration]->clickcount
+                    );
+                } else {
+                    $dataDates[$val->name][$date] = 0;
+                    $extra[$val->name][]= array(
+                        'X' => $date,
+                        'Y' => 0
+                    );
+                }
+            }
+            $data['series'][$iteration]['name'] = $val->name;
+            $data['series'][$iteration]['last30daysRange'] = implode(',',array_keys($dataDates[$val->name]));
+            $data['series'][$iteration]['last30daysValues'] = implode(',',array_values($dataDates[$val->name]));
+            $data['series'][$iteration]['seriesData'] = $extra[$val->name];
+            $iteration++;
+        }
+ 
         return view('campaigns.index',$data);
     }
 
