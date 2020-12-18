@@ -16,9 +16,14 @@ class CreateChannelsTable extends Migration
         Schema::create('channels', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->string('analysis_token')->index();
             $table->integer('week')->nullable();
+            $table->integer('month')->nullable();
             $table->string('channel')->nullable();
             $table->string('channel_token')->nullable();
+            $table->string('import_type')->nullable();
+            $table->string('import_type_token')->index();
+            $table->string('import_name')->nullable();
             $table->integer('year')->nullable();
             $table->unsignedInteger('users')->nullable();
             $table->unsignedInteger('sessions')->nullable();
@@ -31,9 +36,13 @@ class CreateChannelsTable extends Migration
             $table->bigInteger('pagevalue')->nullable();
             $table->string('project_token');
             $table->foreign('project_token')
-            ->references('project_token')
-            ->on('projects')
-            ->onDelete('cascade');
+                ->references('project_token')
+                ->on('projects')
+                ->onDelete('cascade');
+            $table->foreign('analysis_token')
+                ->references('analysis_token')
+                ->on('analyses')
+                ->onDelete('cascade');
         });
     }
 

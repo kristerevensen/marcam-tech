@@ -68,10 +68,15 @@ Route::post('/projects/save.html', [HomeController::class, 'save'])->name('proje
 Route::put('/projects/update.html', [HomeController::class, 'update'])->name('projects.update');
 
 Route::get('/analysis.html', [AnalysisController::class, 'index'])->name('analysis');
-Route::get('/analysis/trends/{year}/{id}.html', [AnalysisController::class, 'channel_trends'])->name('analysis.channel.trends');
+Route::get('/analysis/weekly/trends/{year}/{id}.html', [AnalysisController::class, 'weekly_channel_trends'])->name('analysis.channel.trends.week');
+Route::get('/analysis/monthly/trends/{year}/{id}.html', [AnalysisController::class, 'monthly_channel_trends'])->name('analysis.channel.trends.month');
+Route::get('/analysis/yearly/trends/{year}/{id}.html', [AnalysisController::class, 'yearly_channel_trends'])->name('analysis.channel.trends.year');
+Route::get('/analysis/delete/{id}.html', [AnalysisController::class, 'delete_analysis'])->name('analysis.delete_analysis');
 Route::get('/analysis/year/{year}.html', [AnalysisController::class, 'channels_year'])->name('analysis.channel.year');
 Route::get('/analysis/pages.html', [AnalysisController::class, 'pages'])->name('analysis.pages');
+Route::get('/analysis/trends/delete.html', [AnalysisController::class, 'delete_trends'])->name('analysis.delete_trends');
 Route::get('/analysis/channels.html', [AnalysisController::class, 'channels'])->name('analysis.channels');
+Route::get('/analysis/channel/{id}.html', [AnalysisController::class, 'channel'])->name('analysis.channel');
 Route::get('/analysis/segments.html', [AnalysisController::class, 'segments'])->name('analysis.segments');
 Route::get('/analysis/upload.html', [AnalysisController::class, 'upload'])->name('analysis.upload');
 Route::post('/analysis/import.html', [AnalysisController::class, 'import'])->name('analysis.import');
@@ -85,6 +90,9 @@ Route::get('/campaigns/sources/new.html', [CampaignsController::class, 'new_sour
 Route::post('/campaigns/sources/save.html', [CampaignsController::class, 'save_source'])->name('campaigns.save_source');
 Route::post('/campaigns/source/save/ajax.html',[CampaignsController::class, 'source_save_ajax'])->name('campaigns.save_source_ajax');
 Route::get('/campaigns/sources/delete/{id}', [CampaignsController::class, 'source_delete'])->name('campaigns.source_delete');
+
+Route::get('/campaigns/bulk/new.html', [CampaignsController::class, 'new_bulk'])->name('campaigns.new_bulk');
+Route::get('/campaigns/bulk/save.html', [CampaignsController::class, 'save_bulk'])->name('campaigns.save_bulk');
 
 Route::get('/campaigns/mediums.html', [CampaignsController::class, 'mediums'])->name('campaigns.mediums');
 Route::get('/campaigns/mediums/new.html', [CampaignsController::class, 'new_medium'])->name('campaigns.new_medium');

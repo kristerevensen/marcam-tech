@@ -18,11 +18,73 @@ class Channel extends Model
        return DB::table('channels')->insert($rows);
     }
 
-    public function getAllChannels($id)
+    public function getAllChannelsFromToken($analysis_token)
     {
         return DB::table('channels')
-                ->groupBy('channel','year',)
-                ->having('project_token',$id)
+                ->select(DB::raw('id, created_at, channel,
+                    channel_token, year, avg(users) as users,
+                    avg(sessions) as sessions, avg(pageviews) as pageviews,
+                    avg(avgorder) as avgorder, avg(transactions) as transactions,
+                    avg(revenue) as revenue, avg(bouncerate) as bouncerate,
+                    avg(exitrate) as exitrate, avg(pagevalue) as pagevalue, project_token, analysis_token 
+                    '))
+                ->groupBy('year','channel')
+                ->where('project_token',session('selected_project'))
+                ->where('analysis_token',$analysis_token)
+                ->orderBy('year','desc')
+                ->orderBy('sessions','desc')
+                ->get();
+    }
+
+    public function get_yearly_channels()
+    {
+        return DB::table('channels')
+        ->select(DB::raw('id, created_at, channel,
+            channel_token, year, avg(users) as users,
+            avg(sessions) as sessions, avg(pageviews) as pageviews,
+            avg(avgorder) as avgorder, avg(transactions) as transactions,
+            avg(revenue) as revenue, avg(bouncerate) as bouncerate,
+            avg(exitrate) as exitrate, avg(pagevalue) as pagevalue, project_token, analysis_token 
+            '))
+        ->groupBy('year','channel')
+        ->where('project_token',session('selected_project'))
+        ->where('import_type','channels yearly')
+        ->orderBy('year','desc')
+        ->orderBy('sessions','desc')
+        ->get();
+    }
+
+    public function get_monthly_channels()
+    {
+        return DB::table('channels')
+        ->select(DB::raw('id, created_at, channel,
+            channel_token, year, avg(users) as users,
+            avg(sessions) as sessions, avg(pageviews) as pageviews,
+            avg(avgorder) as avgorder, avg(transactions) as transactions,
+            avg(revenue) as revenue, avg(bouncerate) as bouncerate,
+            avg(exitrate) as exitrate, avg(pagevalue) as pagevalue, project_token, analysis_token 
+            '))
+        ->groupBy('year','channel')
+        ->where('project_token',session('selected_project'))
+        ->where('import_type','channels monthly')
+        ->orderBy('year','desc')
+        ->orderBy('sessions','desc')
+        ->get();
+    }
+
+    public function get_weekly_channels()
+    {
+        return DB::table('channels')
+                ->select(DB::raw('id, created_at, channel,
+                    channel_token, year, avg(users) as users,
+                    avg(sessions) as sessions, avg(pageviews) as pageviews,
+                    avg(avgorder) as avgorder, avg(transactions) as transactions,
+                    avg(revenue) as revenue, avg(bouncerate) as bouncerate,
+                    avg(exitrate) as exitrate, avg(pagevalue) as pagevalue, project_token, analysis_token 
+                    '))
+                ->groupBy('year','channel')
+                ->where('project_token',session('selected_project'))
+                ->where('import_type','channels weekly')
                 ->orderBy('year','desc')
                 ->orderBy('sessions','desc')
                 ->get();
@@ -35,13 +97,25 @@ class Channel extends Model
                 ->pluck('channel');
     }
 
-    public function getChannelData($year,$channeltoken)
+    public function getChannelDataWeek($year,$channeltoken)
     {
         return DB::table('channels')    
                 ->groupBy('week')
                 ->groupBy('channel_token')
                 ->where('channel_token',$channeltoken)
                 ->where('year',$year)
+                ->where('import_type','channels weekly')
+                ->where('project_token',session('selected_project'))
+                ->get();
+    }
+    public function getChannelDataMonth($year,$channeltoken)
+    {
+        return DB::table('channels')    
+                ->groupBy('month')
+                ->groupBy('channel_token')
+                ->where('channel_token',$channeltoken)
+                ->where('year',$year)
+                ->where('import_type','channels monthly')
                 ->where('project_token',session('selected_project'))
                 ->get();
     }

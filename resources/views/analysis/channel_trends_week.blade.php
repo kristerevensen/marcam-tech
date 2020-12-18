@@ -6,14 +6,14 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('analysis')}}">{{ __('Analysis')}}</a></li>
         <li class="breadcrumb-item"><a href="{{ route('analysis.channels')}}">{{ __('Channels')}}</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Channel Trends </li>
+        <li class="breadcrumb-item active" aria-current="page">Weekly Channel Trends </li>
     </ol>
     </nav>
               
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">
-                  <span class="badge badge-light">{{ $channel_name}}</span>  channel trends for <span class="badge badge-secondary">{{ $selected_year}}</span>
+                  Weekly <span class="badge badge-light">{{ $channel_name}}</span>  channel trends for <span class="badge badge-secondary">{{ $selected_year}}</span>
                 </h4>
             </div>
             <div class="card-body">
@@ -24,7 +24,7 @@
         <div class="card" style="margin-top: 20px;">
           <div class="card-header">
               <h4 class="card-title">
-                <span class="badge badge-light">{{ $channel_name}}</span>  trend analysis for <span class="badge badge-secondary">{{ $selected_year}}</span>
+                Weekly <span class="badge badge-light">{{ $channel_name}}</span>  trend analysis for <span class="badge badge-secondary">{{ $selected_year}}</span>
               </h4>
           </div>
           <div class="card-body">
@@ -33,10 +33,10 @@
                   <thead>
                     <tr>
                       <th>Channel</th>
-                      <th>Slope</th>
+                      <th>Slope pr week</th>
                       <th>Intercept</th>
                       <th>St. deviation</th>
-                      <th>Average</th>
+                      <th>Avg. per week</th>
                       <th>Trend</th>
                     </tr>
                   </thead>
@@ -74,11 +74,11 @@
 @section('custom_scripts')
 
   <!-- plugin js for this page -->
-	<script src="../../../assets/vendors/apexcharts/apexcharts.min.js"></script>
+	<script src="{{ asset('assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
 	<!-- end plugin js for this page -->
 	<!-- inject:js -->
-	<script src="../../../assets/vendors/feather-icons/feather.min.js"></script>
-	<script src="../../../assets/js/template.js"></script>
+	<script src="{{ asset('assets/vendors/feather-icons/feather.min.js')}}"></script>
+	<script src="{{ asset('assets/js/template.js')}}"></script>
 	<!-- endinject -->
   
 <script>
@@ -230,7 +230,7 @@ var options = {
   },
   stroke: {
       width: 3,
-      curve: "smooth",
+      curve: "smooth", 
       lineCap: "round"
     },
    

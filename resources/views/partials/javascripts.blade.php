@@ -1,27 +1,27 @@
   <!-- core:js -->
-  <script src="../../../assets/vendors/core/core.js"></script>
+  <script src="{{ asset('assets/vendors/core/core.js')}}"></script>
 
-  <script src="../../../assets/vendors/feather-icons/feather.min.js"></script>
-  <script src="../../../assets/js/template.js"></script>
+  <script src="{{ asset('assets/vendors/feather-icons/feather.min.js')}}"></script>
+  <script src="{{ asset('assets/js/template.js')}}"></script>
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <!-- endinject -->
 
   <!-- plugin js for this page -->
-  <script src="../assets/vendors/chartjs/Chart.min.js"></script>
-  <script src="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-  <script src="../assets/vendors/apexcharts/apexcharts.min.js"></script>
-  <script src="../../../assets/vendors/jquery-validation/jquery.validate.min.js"></script>
+  <script src="{{ asset('assets/vendors/chartjs/Chart.min.js')}}"></script>
+  <script src="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+  <script src="{{ asset('ssets/vendors/apexcharts/apexcharts.min.js')}}"></script>
+  <script src="{{ asset('assets/vendors/jquery-validation/jquery.validate.min.js')}}"></script>
     <!-- end plugin js for this page -->
   
   <!-- custom js for this page -->
-  <script src="../assets/js/dashboard.js"></script>
-  <script src="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-  <script src="../../../assets/js/data-table.js"></script>
-  <script src="../../../assets/vendors/datatables.net/jquery.dataTables.js"></script>
-  <script src="../../../assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-  <script src="../../../assets/js/wizard.js"></script>
-  <script src="../../../assets/vendors/jquery-steps/jquery.steps.min.js"></script>
-  <script src="../../../assets/vendors/select2/select2.min.js"></script>
+  <script src="{{ asset('assets/js/dashboard.js')}}"></script>
+  <script src="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+  <script src="{{ asset('assets/js/data-table.js')}}"></script>
+  <script src="{{ asset('assets/vendors/datatables.net/jquery.dataTables.js')}}"></script>
+  <script src="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
+  <script src="{{ asset('assets/js/wizard.js')}}"></script>
+  <script src="{{ asset('assets/vendors/jquery-steps/jquery.steps.min.js')}}"></script>
+  <script src="{{ asset('assets/vendors/select2/select2.min.js')}}"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
   

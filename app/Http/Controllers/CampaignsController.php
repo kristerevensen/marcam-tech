@@ -221,6 +221,11 @@ class CampaignsController extends Controller
 
         return view('campaigns.new_link',$data);
     }
+    public function new_bulk(){
+        $templates = new Templates();
+        $data['templates'] = $templates->get_templates(session('selected_project'));
+        return view('campaigns.new_bulk');
+    }
     public function addcategory()
     {
         return view('campaigns.addcategory');
@@ -292,6 +297,10 @@ class CampaignsController extends Controller
     /*
     * Save methods
     */
+
+    public function save_bulk(Request $request){
+        dd($request);
+    }
     public function save(Request $request)
     {
         // dd($request);
