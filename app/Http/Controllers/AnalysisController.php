@@ -308,10 +308,13 @@ class AnalysisController extends Controller
             $data['regression']['avgorder']['totalchange'] = $this->getPercentageChange($data['lastyear'][0]['regression']['avgorder']['average'], $data['regression']['avgorder']['average']);
             $data['regression']['bouncerate']['totalchange'] = $this->getPercentageChange($data['lastyear'][0]['regression']['bouncerate']['average'], $data['regression']['bouncerate']['average']);
             $data['regression']['exitrate']['totalchange'] = $this->getPercentageChange($data['lastyear'][0]['regression']['exitrate']['average'], $data['regression']['exitrate']['average']);
-
+           // dd($data['sessions']);
+            //dd($this->getPercentageChangeArray($data['sessions']));
             //$data['regression']['sessions']['percentagechange'][] = $this->getPercentageChangeArray($data['sessions']);
             //dd($data['regression']['sessions']['percentagechange']);
         }
+
+        dd($this->getPercentageChangeArray($data['sessions']));
         
         $channel = new Channel();
         $channelName = $channel->getChannelNameFromToken($channeltoken);
@@ -383,22 +386,26 @@ class AnalysisController extends Controller
     }
     public function getPercentageChangeArray($array){
         $counter = 0;
+        $array = (array)$array;
         $count = count($array);
         $changeArray = array();
-        foreach($array as $item) {
+        
+        foreach($array as $key => $value) {
             if($counter == 0){
 
             } else {
                 if($counter > 0) {
                     $previous = $counter - 1;
-                    dd($item);
-                    $decreaseValue = $item[$previous] - $item[$counter];
-                    $changeArray[] = ($decreaseValue / $item[$counter-1]) * 100;
+                   
+                    //$changeArray[] = ($decreaseValue / $item[$counter-1]) * 100;
+                    $changeArray[] = $this->getPercentageChange($value[$previous],$value[$counter]);
+                    //dd($changeArray);
                 }
             }
             $counter++;
         }
        
+      
     
         return $changeArray;
     }
