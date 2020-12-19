@@ -387,33 +387,26 @@ class AnalysisController extends Controller
     public function getPercentageChangeArray($array){
         $counter = 0;
         $array = (array)$array;
+     
         $count = count($array);
         $changeArray = array();
-        
-        foreach($array as $key => $value) {
-            if($counter == 0){
 
-            } else {
-                if($counter > 0) {
-                    $previous = $counter - 1;
-                   
-                    //$changeArray[] = ($decreaseValue / $item[$counter-1]) * 100;
-                    $changeArray[] = $this->getPercentageChange($value[$previous],$value[$counter]);
-                    //dd($changeArray);
-                }
+        for ($i=0; $i < $count ; $i++) { 
+            
+            if($i > 0) {
+                $changeArray[] = $this->getPercentageChange((float)$array[$i-1],(float)$array[$i]);
             }
-            $counter++;
+            
         }
-       
-      
-    
+
         return $changeArray;
     }
 
     public function getPercentageChange($oldNumber, $newNumber){
-        $decreaseValue = $oldNumber - $newNumber;
+        //$decreaseValue = $oldNumber - $newNumber;
+        $increaseValue = $newNumber - $oldNumber;
     
-        return ($decreaseValue / $oldNumber) * 100;
+        return ($increaseValue / $oldNumber) * 100;
     }
     public function delete_analysis($id)
     {
