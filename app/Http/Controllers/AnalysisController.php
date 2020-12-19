@@ -297,31 +297,51 @@ class AnalysisController extends Controller
         
         if($year == date('Y')) {
             $data['lastyear'][] = $this->week_channel_trends_calculations($lastyear,$channeltoken);
-
-            $data['regression']['sessions']['totalchange'] = $this->getPercentageChange($data['lastyear'][0]['regression']['sessions']['total'], $data['regression']['sessions']['total']) ?: 0;
-            $data['regression']['pageviews']['totalchange'] = $this->getPercentageChange($data['lastyear'][0]['regression']['pageviews']['total'], $data['regression']['pageviews']['total']);
-            $data['regression']['users']['totalchange'] = $this->getPercentageChange($data['lastyear'][0]['regression']['users']['total'], $data['regression']['users']['total']);
-            $data['regression']['transactions']['totalchange'] = $this->getPercentageChange($data['lastyear'][0]['regression']['transactions']['total'], $data['regression']['transactions']['total']);
-            $data['regression']['revenue']['totalchange'] = $this->getPercentageChange($data['lastyear'][0]['regression']['revenue']['total'], $data['regression']['revenue']['total']);
-            $data['regression']['pagevalue']['totalchange'] = $this->getPercentageChange($data['lastyear'][0]['regression']['pagevalue']['total'], $data['regression']['pagevalue']['total']);
             
-            $data['regression']['avgorder']['totalchange'] = $this->getPercentageChange($data['lastyear'][0]['regression']['avgorder']['average'], $data['regression']['avgorder']['average']);
-            $data['regression']['bouncerate']['totalchange'] = $this->getPercentageChange($data['lastyear'][0]['regression']['bouncerate']['average'], $data['regression']['bouncerate']['average']);
-            $data['regression']['exitrate']['totalchange'] = $this->getPercentageChange($data['lastyear'][0]['regression']['exitrate']['average'], $data['regression']['exitrate']['average']);
-           // dd($data['sessions']);
-            //dd($this->getPercentageChangeArray($data['sessions']));
-            //$data['regression']['sessions']['percentagechange'][] = $this->getPercentageChangeArray($data['sessions']);
-            //dd($data['regression']['sessions']['percentagechange']);
-        }
+            $data['regression']['sessions']['change_slope'] = $this->get_percentchange_regression($data['sessions']);
+            $data['regression']['sessions']['change_slope'] = $data['regression']['sessions']['change_slope']['m'];
+            
+            $data['regression']['pageviews']['change_slope'] = $this->get_percentchange_regression($data['pageviews']); 
+            $data['regression']['pageviews']['change_slope'] = $data['regression']['pageviews']['change_slope']['m']; 
+            
+            $data['regression']['users']['change_slope'] =  $this->get_percentchange_regression($data['users']);
+            $data['regression']['users']['change_slope'] = $data['regression']['users']['change_slope']['m'];
 
-        dd($this->getPercentageChangeArray($data['sessions']));
-        
+            $data['regression']['transactions']['change_slope'] =  $this->get_percentchange_regression($data['transactions']);
+            $data['regression']['transactions']['change_slope'] = $data['regression']['transactions']['change_slope']['m'];
+            
+            $data['regression']['revenue']['change_slope'] =  $this->get_percentchange_regression($data['revenue']);
+            $data['regression']['revenue']['change_slope'] = $data['regression']['revenue']['change_slope']['m'];
+
+            $data['regression']['pagevalue']['change_slope'] =  $this->get_percentchange_regression($data['pagevalue']);
+            $data['regression']['pagevalue']['change_slope'] = $data['regression']['pagevalue']['change_slope']['m'];
+
+            $data['regression']['avgorder']['change_slope'] =  $this->get_percentchange_regression($data['avgorder']);
+            $data['regression']['avgorder']['change_slope'] = $data['regression']['avgorder']['change_slope']['m'];
+
+            $data['regression']['bouncerate']['change_slope'] =  $this->get_percentchange_regression($data['bouncerate']);
+            $data['regression']['bouncerate']['change_slope'] = $data['regression']['bouncerate']['change_slope']['m'];
+
+            $data['regression']['exitrate']['change_slope'] =  $this->get_percentchange_regression($data['exitrate']);
+            $data['regression']['exitrate']['change_slope'] = $data['regression']['exitrate']['change_slope']['m'];
+        }
+                 
         $channel = new Channel();
         $channelName = $channel->getChannelNameFromToken($channeltoken);
         $data['channel_name'] = $channelName[0];
         $data['selected_year'] = $year;
         return view('analysis.channel_trends_week',$data);
     }
+    public function get_percentchange_regression($array)
+    {
+        $changeArray = $this->getPercentageChangeArray($array);
+        $countArray = count($changeArray);
+        
+            for ($i=0; $i < $countArray; $i++) { 
+                    $counter[] = $i;
+            }
+        return $this->linear_regression($counter,$changeArray);
+     }
     public function monthly_channel_trends($year,$channeltoken)
     {
         

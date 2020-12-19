@@ -37,6 +37,7 @@
                       <th>Intercept</th>
                       <th>St. deviation</th>
                       <th>Avg. per week</th>
+                      <th>Perc. change slope</th>
                       <th>Trend</th>
                     </tr>
                   </thead>
@@ -48,6 +49,7 @@
                       <td>{{ number_format($value['b'],2) }}</td>
                       <td>{{ number_format($value['standard_deviation'],2)}}</td>
                       <td>{{ number_format($value['average'],2)}}</td>
+                      <td>{{ number_format($value['change_slope'],2)}}</td>
                       <td>
                         @if($value['m']>0)
                         <span class="badge badge-success"><i data-feather="arrow-up" class="icon-sm"></i></span>
