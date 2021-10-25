@@ -449,13 +449,16 @@ class CampaignsController extends Controller
         if($data->content != null) {
             $utm = $utm.'&utm_content='.strtolower($data->content);
         }
-        if(count($request->parameters) >0) {
-            foreach($request->parameters as $key => $value) {
-                if(!empty($value)) {
-                    $utm = strtolower($utm).'&'.strtolower($key).'='.strtolower($value);
+        if($request->parameters) {
+            if(count($request->parameters) >0) {
+                foreach($request->parameters as $key => $value) {
+                    if(!empty($value)) {
+                        $utm = strtolower($utm).'&'.strtolower($key).'='.strtolower($value);
+                    }
                 }
             }
         }
+        
         if($fragments) {
             $utm = $utm.'#'.$fragment;
         }
