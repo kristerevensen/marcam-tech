@@ -9,11 +9,7 @@
 </nav>
 
               
-    @if($series != null) 
-        <div id="row">
-            <div id="campaign_chart" ></div>
-        </div>
-    @endif
+  
             <div class="row">
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
@@ -77,36 +73,5 @@
 
 @endsection
 @section('custom_scripts')
-@if($series != null) 
-<script>
-  
-var campaign = {
-  chart: {
-    type: 'line',
-    height: '300'
-  },
-  stroke: {
-  curve: 'smooth',
-},
-  series: [
-@foreach($series as $serie)
-{
-    name: '{{ $serie['name']}}',
-    data: [@foreach($serie['seriesData'] as $key => $val) { 'x': new Date('{{ $val['X'] }}').getTime(), 'y': {{ $val['Y'] }} }, @endforeach]
-},
-@endforeach
-],
-  xaxis: {
-    type: 'datetime',
-    labels: {
-      format :'yyyy-mm-dd'
-    }
-  }
-}
 
-var campaignChart = new ApexCharts(document.querySelector("#campaign_chart"), campaign);
-
-campaignChart.render();
-</script>
-@endif;
 @endsection

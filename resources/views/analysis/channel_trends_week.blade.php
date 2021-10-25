@@ -76,11 +76,11 @@
 @section('custom_scripts')
 
   <!-- plugin js for this page -->
-	<script src="{{ asset('assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
+	<script src="{{ asset('assets/vendors/apexcharts/apexcharts.min.js') }}"></script>
 	<!-- end plugin js for this page -->
 	<!-- inject:js -->
-	<script src="{{ asset('assets/vendors/feather-icons/feather.min.js')}}"></script>
-	<script src="{{ asset('assets/js/template.js')}}"></script>
+	<script src="{{ asset('assets/vendors/feather-icons/feather.min.js') }}"></script>
+	<script src="{{ asset('assets/js/template.js') }}"></script>
 	<!-- endinject -->
   
 <script>

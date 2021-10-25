@@ -55,14 +55,18 @@ class HomeController extends Controller
 
     public function update(Request $request)
     {
+ 
         $data = Project::find($request->project_id);
         $data->project_name = $request->project_name;
         $data->location = $request->project_location;
         $data->language = $request->project_language;
         $data->description = $request->project_description;
         $data->url = $request->project_url;
-        $data->save();
-        redirect('home');
+        if($data->save()){
+            return redirect('home')->with('success','Project successfully updated.');
+        } else {
+            echo "no";
+        }
     }
     protected function token($var = null)
     {
@@ -93,7 +97,7 @@ class HomeController extends Controller
         $project->url = $request->project_url;
 
         $project->save();
-        return redirect('home')->with('success','Project successfully added.');;
+        return redirect('home')->with('success','Project successfully added.');
     }
 
     public function delete($id = null)

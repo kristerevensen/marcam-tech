@@ -65,7 +65,7 @@ Route::get('/projects/edit/{id}', [HomeController::class, 'edit'])->name('projec
 Route::get('/projects/select/{id}', [HomeController::class, 'select'])->name('projects.select');
 Route::get('/projects/deselect.html', [HomeController::class, 'deselect'])->name('projects.deselect');
 Route::post('/projects/save.html', [HomeController::class, 'save'])->name('projects.save');
-Route::put('/projects/update.html', [HomeController::class, 'update'])->name('projects.update');
+Route::post('/projects/update.html', [HomeController::class, 'update'])->name('projects.update'); 
 
 Route::get('/analysis.html', [AnalysisController::class, 'index'])->name('analysis');
 Route::get('/analysis/weekly/trends/{year}/{id}.html', [AnalysisController::class, 'weekly_channel_trends'])->name('analysis.channel.trends.week');
@@ -82,6 +82,7 @@ Route::get('/analysis/upload.html', [AnalysisController::class, 'upload'])->name
 Route::post('/analysis/import.html', [AnalysisController::class, 'import'])->name('analysis.import');
 
 Route::get('/campaigns/gantt.html', [CampaignsController::class, 'gantt'])->name('campaigns.gantt');
+//Route::get('/campaigns/gantt/{$id}.html', [CampaignsController::class, 'gantt'])->name('campaigns.view_gantt');
 
 Route::get('/campaigns.html', [CampaignsController::class, 'index'])->name('campaigns');
 Route::get('/campaigns/delete/{id}.html', [CampaignsController::class, 'delete'])->name('campaigns.delete');
@@ -105,6 +106,8 @@ Route::post('/campaigns/terms/save.html', [CampaignsController::class, 'save_ter
 Route::get('/campaigns/terms/delete/{id}', [CampaignsController::class, 'term_delete'])->name('campaigns.term_delete');
 
 Route::get('/campaigns/testing.html', [CampaignsController::class, 'testing'])->name('campaigns.testing');
+Route::get('/campaigns/view/{id}.html', [CampaignsController::class, 'view'])->name('campaigns.view');
+Route::get('/campaigns/edit/{id}.html', [CampaignsController::class, 'edit'])->name('campaigns.edit');
 
 Route::get('/campaigns/contents.html', [CampaignsController::class, 'contents'])->name('campaigns.contents');
 Route::get('/campaigns/contents/new.html', [CampaignsController::class, 'new_content'])->name('campaigns.new_content');

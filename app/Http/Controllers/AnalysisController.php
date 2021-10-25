@@ -30,6 +30,7 @@ class AnalysisController extends Controller
         return view('analysis.index',$data);
     }
 
+  
    
     public function channels_year($year)
     {
@@ -38,6 +39,9 @@ class AnalysisController extends Controller
     }
     public function channels()
     {
+        if(!session()->has('selected_project')){
+            redirect()->route('home')->with('info','Please select a project')->send();
+        }
         $chans = new Channel();
         $data['channels_weekly'] = $chans->get_weekly_channels();
         $data['channels_monthly'] = $chans->get_monthly_channels();
@@ -295,10 +299,11 @@ class AnalysisController extends Controller
         
         $lastyear = $year -1;
         
-        if($year == date('Y')) {
+        //if($year == date('Y')) {
             $data['lastyear'][] = $this->week_channel_trends_calculations($lastyear,$channeltoken);
             
             $data['regression']['sessions']['change_slope'] = $this->get_percentchange_regression($data['sessions']);
+            
             $data['regression']['sessions']['change_slope'] = $data['regression']['sessions']['change_slope']['m'];
             
             $data['regression']['pageviews']['change_slope'] = $this->get_percentchange_regression($data['pageviews']); 
@@ -324,7 +329,7 @@ class AnalysisController extends Controller
 
             $data['regression']['exitrate']['change_slope'] =  $this->get_percentchange_regression($data['exitrate']);
             $data['regression']['exitrate']['change_slope'] = $data['regression']['exitrate']['change_slope']['m'];
-        }
+       // }
                  
         $channel = new Channel();
         $channelName = $channel->getChannelNameFromToken($channeltoken);
@@ -335,6 +340,8 @@ class AnalysisController extends Controller
     public function get_percentchange_regression($array)
     {
         $changeArray = $this->getPercentageChangeArray($array);
+
+       
         $countArray = count($changeArray);
         
             for ($i=0; $i < $countArray; $i++) { 
@@ -349,7 +356,7 @@ class AnalysisController extends Controller
         
         $lastyear = $year -1;
         
-        if($year == date('Y')) {
+        //if($year == date('Y')) {
             $data['lastyear'][] = $this->month_channel_trends_calculations($lastyear,$channeltoken);
 
             $data['regression']['sessions']['totalchange'] = $this->getPercentageChange($data['lastyear'][0]['regression']['sessions']['total'], $data['regression']['sessions']['total']) ?: 0;
@@ -365,7 +372,7 @@ class AnalysisController extends Controller
 
             //$data['regression']['sessions']['percentagechange'][] = $this->getPercentageChangeArray($data['sessions']);
             //dd($data['regression']['sessions']['percentagechange']);
-        }
+       // }
         
         $channel = new Channel();
         $channelName = $channel->getChannelNameFromToken($channeltoken);
@@ -394,8 +401,6 @@ class AnalysisController extends Controller
             $data['regression']['bouncerate']['totalchange'] = $this->getPercentageChange($data['lastyear'][0]['regression']['bouncerate']['average'], $data['regression']['bouncerate']['average']);
             $data['regression']['exitrate']['totalchange'] = $this->getPercentageChange($data['lastyear'][0]['regression']['exitrate']['average'], $data['regression']['exitrate']['average']);
 
-            //$data['regression']['sessions']['percentagechange'][] = $this->getPercentageChangeArray($data['sessions']);
-            //dd($data['regression']['sessions']['percentagechange']);
         }
         
         $channel = new Channel();
