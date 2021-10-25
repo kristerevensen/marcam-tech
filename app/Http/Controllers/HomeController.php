@@ -35,7 +35,8 @@ class HomeController extends Controller
     {
         $data['projects'] = Project::all();
         return view('home',$data);
-    }
+    } 
+    
 
     /**
      * Show the application dashboard.

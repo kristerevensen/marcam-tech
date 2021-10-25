@@ -6,7 +6,7 @@
                     <i class="link-icon" data-feather="box"></i>
                     <span class="menu-title">{{__('Projects')}}</span>
                 </a>
-            </li>
+            </li>  
          
             @can('manage-keywords')
             <li class="nav-item">
