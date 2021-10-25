@@ -70,7 +70,7 @@ class CampaignsController extends Controller
             $data['series'][$iteration]['seriesData'] = $extra[$val->name];
             $iteration++;
         }
- 
+        //dd($data['series']);
         return view('campaigns.index',$data);
     }
 
@@ -116,7 +116,7 @@ class CampaignsController extends Controller
 
         return view('campaigns.testing',$data);
     }
-    public function view($id = null)
+    public function view($id = null, $days = 30)
     {
        // $data['data'] = Campaign::findOrFail($id);
         $campaign = Campaign::findOrFail($id);

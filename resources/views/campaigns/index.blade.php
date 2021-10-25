@@ -9,7 +9,7 @@
 </nav>
 
               
-    @if($series != null) 
+    @if($series) 
         <div id="row">
             <div id="campaign_chart" ></div>
         </div>

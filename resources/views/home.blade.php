@@ -1,19 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="">{{ __('Projects')}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">All </li>
+    </ol>
+   
+</nav>
 
-            <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
-                <div>
-                    <h4 class="mb-3 mb-md-0">{{ __('Projects') }}</h4>
-                </div>
-                @include('partials.projects.new')
-            </div>
 
             <div class="row">
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title">{{ __('Your Projects') }}</h6>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+                                <h6 class="card-title">{{ __('Your Projects') }}</h6>
+                                <div>
+                                    @include('partials.projects.new')
+                                </div>
+                            </div>
                         <p class="card-description">{{ __('') }}</p>
                             <div class="table-responsive">
                                 <table id="dataTableExample" class="table">
