@@ -120,10 +120,10 @@ Route::post('/campaigns/custom_parameters/save.html', [CampaignsController::clas
 Route::get('/campaigns/custom_parameters/delete/{id}', [CampaignsController::class, 'delete_custom_parameter'])->name('campaigns.delete_custom_parameter');
 
 Route::get('/campaigns/links.html', [CampaignsController::class, 'links'])->name('campaigns.links');
-Route::get('/campaigns/links/new/{id?}', [CampaignsController::class, 'new_link'])->name('campaigns.new_link');
+Route::get('/campaigns/links/new/{id?}.html', [CampaignsController::class, 'new_link'])->name('campaigns.new_link');
 Route::get('/campaigns/links/bulk.html', [CampaignsController::class, 'new_bulk'])->name('campaigns.new_bulk_links');
 Route::post('/campaigns/links/save.html', [CampaignsController::class, 'save_link'])->name('campaigns.save_link');
-Route::get('/campaigns/links/delete/{id}', [CampaignsController::class, 'delete_link'])->name('campaigns.delete_link');
+Route::get('/campaigns/links/delete/{id}.html', [CampaignsController::class, 'delete_link'])->name('campaigns.delete_link');
 
 Route::get('/campaigns/templates.html', [CampaignsController::class, 'templates'])->name('campaigns.templates');
 Route::get('/campaigns/templates/new.html', [CampaignsController::class, 'new_template'])->name('campaigns.new_template');

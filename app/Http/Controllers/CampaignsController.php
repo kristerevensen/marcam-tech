@@ -250,7 +250,7 @@ class CampaignsController extends Controller
         } else {
             $data['campaign_id'] = null;
         }
-        $pro = session('selected_project');
+        $selected_project = session('selected_project');
         $content = new Content();
         $sources = new Source();
         $mediums = new Medium();
@@ -258,12 +258,13 @@ class CampaignsController extends Controller
         $campaigns = new Campaign();
         $parameters = new CampaignsCustomParameter();
 
-        $data['sources'] = $sources->getSources($pro);
-        $data['mediums'] = $mediums->getMediums($pro);
-        $data['terms'] = $terms->getTerms($pro);
-        $data['contents'] = $content->getContents($pro);
-        $data['campaigns'] = $campaigns->getCampaigns($pro);
-        $data['parameters'] = $parameters->get_custom_parameters($pro);
+        $data['sources'] = $sources->getSources($selected_project);
+        $data['mediums'] = $mediums->getMediums($selected_project);
+        $data['terms'] = $terms->getTerms($selected_project);
+        $data['contents'] = $content->getContents($selected_project);
+        $data['campaigns'] = $campaigns->getCampaigns($selected_project);
+        $data['parameters'] = $parameters->get_custom_parameters($selected_project);
+        //dd($data['campaigns']);
 
         return view('campaigns.new_link',$data);
     }
@@ -398,19 +399,20 @@ class CampaignsController extends Controller
  
     public function save_link(Request $request)
     {
-        //dd($request);
+       // dd($request);
         $campaign  = new Campaign();
         $data = new CampaignsLinks();
         $data->link_token = $this->token();
         $data->landing_page = trim($request->landing_page);
         $data->project_token = session('selected_project');
         $campaignID = $request->set_campaign_id ?: $request->campaign;
-       
+        
         $campaign_name = $campaign->get_campaign_name($campaignID);
+       
         $campaign_name = $campaign_name[0];
         $campaign_name = str_replace( "-", " ", $campaign_name);
         $campaign_name = preg_replace('/\s+/', '_', $campaign_name);
-
+        
         $data->campaign_name = strtolower($campaign_name);
         $data->source = strtolower($request->source);
         $data->medium = strtolower($request->medium);
@@ -419,7 +421,7 @@ class CampaignsController extends Controller
         $data->target = strtolower($request->target);
         $data->campaign_id = strtolower($campaignID);
         $data->custom_parameters = serialize($request->parameters);
-
+        
         $url = trim($request->landing_page);
 
         $domain = "";
@@ -430,7 +432,7 @@ class CampaignsController extends Controller
         $question = false;
         $utm = "";
         $fragments = false;
-
+        
         if(strpos($url,'#')) {
             $exploded = explode('#',$url);
             $url = $exploded[0];
@@ -445,6 +447,7 @@ class CampaignsController extends Controller
         } else {
             $domain = $url;
         }
+        
         if($question) {
             $utm = strtolower($domain).strtolower($query).'&utm_campaign='.$data->campaign_name;
         } else {
@@ -462,6 +465,7 @@ class CampaignsController extends Controller
         if($data->content != null) {
             $utm = $utm.'&utm_content='.strtolower($data->content);
         }
+        
         if($request->parameters) {
             if(count($request->parameters) >0) {
                 foreach($request->parameters as $key => $value) {
@@ -477,7 +481,7 @@ class CampaignsController extends Controller
         }
         $data->tagged_url = $utm;
         $data->marcam = "https://marc.am/".$data->link_token;
-
+        
         if($data->save()) {
             return redirect()->route('campaigns.links')->with('success','The Link was successfully added');
         } else {

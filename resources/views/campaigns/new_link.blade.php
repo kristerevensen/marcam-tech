@@ -43,7 +43,7 @@
                         <label for="campaign">{{ __('Campaign')}} <a href="{{ route('campaigns.new') }}">New Campaign</a></label>
                         <select name="campaign" id="">
                             @foreach($campaigns as $campaign)
-                                <option value="{{ $campaign->id }}" {{ ($campaign_id == $campaign->id) ? 'selected' : null}}>{{ $campaign->campaign_name}}</option>
+                                <option value="{{ $campaign->campaign_id }}" {{ ($campaign->campaign_id == $campaign_id) ? 'selected' : null}}>{{ $campaign->campaign_name}}</option>
                             @endforeach
                         </select>
                     </div>
