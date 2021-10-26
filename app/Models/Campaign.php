@@ -39,7 +39,7 @@ class Campaign extends Model
     public function getCampaign($token,$id)
     {
         return DB::table('campaigns')
-                ->select(DB::raw('*,users.name as user_name'))
+                ->select(DB::raw('*,users.name as user_name, campaigns.id as campaign_id'))
                 ->leftJoin('users', 'users.id','=','campaigns.created_by')
                 ->where('project_token',$token)
                 ->where('campaigns.id',$id)
