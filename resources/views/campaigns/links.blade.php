@@ -33,9 +33,10 @@
                                     <thead>
                                         <tr>
                                             <th class="wd-10p">{{ __('Created') }}</th>
-                                            <th class="wd-20p">{{ __('URL') }}</th>
+                                            <th class="wd-10p">{{ __('URL') }}</th>
                                             <th class="wd-20p">{{ __('Campaign') }}</th>
                                             <th class="wd-20p">{{ __('Marcam URL')}}</th>
+                                            <th class="wd-10p">{{ __('Clicks')}}</th>
                                             <th class="wd-10p">{{ __('Action') }}</th>
                                         </tr>
                                         </thead>
@@ -46,7 +47,7 @@
                                             <td>{{ $link->landing_page }}</td>
                                             <td>{{ $link->campaign_name }}</td>
                                             <td><a href="{{ $link->marcam}}" target="_blank">{{ $link->marcam }}</a></td>
-                                            
+                                            <td>{{ $link->nrclicks }}</td>
                                                 <td>
                                                     <a class="dropdown-item" onclick="javascript: return confirm('Are you sure?');" href="{{ ('/campaigns/links/delete/'.$link->id) }}" ><i data-feather="x-circle"></i></a>  
                                                 </td>

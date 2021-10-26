@@ -9,7 +9,7 @@
 </nav>
 
               
-    @if($series) 
+    @if($series != null) 
         <div id="row">
             <div id="campaign_chart" ></div>
         </div>
@@ -26,8 +26,6 @@
                                 </div>
                             </div>
 
-
-                           
                         <p class="card-description">{{ __('') }}</p>
                             <div class="table-responsive">
                                 <table id="dataTableExample" class="table">

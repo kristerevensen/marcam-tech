@@ -9,7 +9,7 @@
   <!-- plugin js for this page -->
   <script src="{{ asset('assets/vendors/chartjs/Chart.min.js')}}"></script>
   <script src="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
-  <script src="{{ asset('ssets/vendors/apexcharts/apexcharts.min.js')}}"></script>
+  <script src="{{ asset('assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
   <script src="{{ asset('assets/vendors/jquery-validation/jquery.validate.min.js')}}"></script>
     <!-- end plugin js for this page -->
   

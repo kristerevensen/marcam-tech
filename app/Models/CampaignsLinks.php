@@ -21,7 +21,19 @@ class CampaignsLinks extends Model
     public function get_links($project_token)
     {
         return DB::table('campaigns_links')
+                ->select(DB::raw('*,COUNT(clicks.link_token) as nrclicks'))
+                ->leftJoin('clicks', 'campaigns_links.link_token','=','clicks.link_token')
                 ->where('project_token',$project_token)
+                ->get();
+    }
+
+    public function get_campaign_links($project_token,$campaign_id)
+    {
+        return DB::table('campaigns_links')
+                ->select(DB::raw('*,COUNT(clicks.link_token) as nrclicks'))
+                ->leftJoin('clicks', 'campaigns_links.link_token','=','clicks.link_token')
+                ->where('project_token',$project_token)
+                ->where('campaigns_links.campaign_id',$campaign_id)
                 ->get();
     }
 }

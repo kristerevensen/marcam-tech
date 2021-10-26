@@ -121,13 +121,27 @@ class CampaignsController extends Controller
        // $data['data'] = Campaign::findOrFail($id);
         $campaign = Campaign::findOrFail($id);
         $session = session('selected_project');
+
         $data['campaigns'] = $campaign->getCampaigns($session);
         $data['campaigns_data'] = $campaign->get_last_30_days_campaigns_clicks($session);
+        $data['campaign_name'] = $data['campaigns_data'][0]->name;
+        
         $data['series'] = null;
-        //dd($data['campaigns_data']);
+        
         $iteration = 0;
+
+        /*
+         * Get links for Campaign
+         */
+        $links = new CampaignsLinks();
+        $data['links'] = $links->get_campaign_links(session('selected_project'),$id);
+
+
+        /*
+        * Data Series for Chart
+        */
         foreach($data['campaigns_data'] as $key => $val){
-           //echo $val->name."<br>";
+           
             for($i = 0; $i < $days; $i++) {
                 $date = date("Y-m-d", strtotime('-'. $i .' days'));
                 $key = array_search($date,(array)$data['campaigns_data'][$iteration]);
@@ -145,6 +159,7 @@ class CampaignsController extends Controller
                     );
                 }
             }
+
             $data['series'][$iteration]['name'] = $val->name;
             $data['series'][$iteration]['last30daysRange'] = implode(',',array_keys($dataDates[$val->name]));
             $data['series'][$iteration]['last30daysValues'] = implode(',',array_values($dataDates[$val->name]));
