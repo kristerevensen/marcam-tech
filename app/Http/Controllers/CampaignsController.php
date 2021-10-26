@@ -117,15 +117,17 @@ class CampaignsController extends Controller
     public function view($id = null, $days = 30)
     {
 
+        
         $campaign = new Campaign();
         $session = session('selected_project');
-
+        
         $data['campaigns'] = $campaign->getCampaign($session,$id);
         $data['campaigns_data'] = $campaign->get_last_30_days_campaigns_clicks($session);
-        $data['campaign_name'] = $data['campaigns_data'][0]->name;
         
+        $data['campaign_name'] = $data['campaigns']->campaign_name;
+       
         $data['series'] = null;
-        
+        //dd($data);
         $iteration = 0;
 
         /*

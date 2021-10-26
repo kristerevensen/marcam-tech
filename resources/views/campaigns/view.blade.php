@@ -7,11 +7,11 @@
         <li class="breadcrumb-item">{{ $campaign_name }}</li>
     </ol>
 </nav>
-            @if($series != null) 
+           
             <div id="row">
                 <div id="campaign_chart" ></div>
             </div>
-            @endif
+            
    
 
             <div class="row">

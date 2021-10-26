@@ -64,14 +64,19 @@ class Campaign extends Model
                 ->pluck('campaign_name');
     }
 
-    public function get_last_30_days_campaigns_clicks($id){
+    public function get_last_30_days_campaigns_clicks($session){
+        
         return DB::table('clicks')
-                    ->select(DB::raw('count(clicks.created_at) as clickcount, cast(clicks.created_at as DATE) as date, campaigns.campaign_name as name, campaigns.id as campaignID')) // count(clicks.id) as clicks, cast(clicks.created_at as DATE) as date
+                    ->select(DB::raw('
+                        count(clicks.created_at) as clickcount, 
+                        cast(clicks.created_at as DATE) as date, 
+                        campaigns.campaign_name as name, 
+                        campaigns.id as campaignID')) // count(clicks.id) as clicks, cast(clicks.created_at as DATE) as date
                     ->leftJoin('campaigns_links', 'campaigns_links.link_token','=','clicks.link_token')
                     ->leftJoin('campaigns', 'campaigns.id','=','campaigns_links.campaign_id')
-                    ->where('campaigns.project_token',$id)
-                    ->groupBy('date','campaigns.id')
-                    //->orderBy('DATE','ASC')
+                    ->where('campaigns.project_token',$session)
+                    ->groupBy('date')
+                    ->orderBy('DATE','DESC')
                     ->get();
     }
 }

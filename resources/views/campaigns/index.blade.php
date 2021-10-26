@@ -55,11 +55,11 @@
                                                         
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="{{ route('campaigns.view',$campaign->id) }}">{{ __('View') }}</a>
-                                                    <a class="dropdown-item" href="{{ route('campaigns.new_link',$campaign->id) }}">{{ __('New link') }}</a>
+                                                    <a class="dropdown-item" href="{{ route('campaigns.view',$campaign->campaign_id) }}">{{ __('View') }}</a>
+                                                    <a class="dropdown-item" href="{{ route('campaigns.new_link',$campaign->campaign_id) }}">{{ __('New link') }}</a>
                                                     <a class="dropdown-item" href="">{{ __('Multiple Links') }}</a>
-                                                    <a class="dropdown-item" href="{{ route('campaigns.edit',$campaign->id) }}">{{ __('Edit') }}</a>
-                                                    <a class="dropdown-item" href="{{ route('campaigns.delete',$campaign->id)}}" onclick="javascript: return confirm('{{ __('Are you sure?') }}')">Delete</a>
+                                                    <a class="dropdown-item" href="{{ route('campaigns.edit',$campaign->campaign_id) }}">{{ __('Edit') }}</a>
+                                                    <a class="dropdown-item" href="{{ route('campaigns.delete',$campaign->campaign_id)}}" onclick="javascript: return confirm('{{ __('Are you sure?') }}')">Delete</a>
                                                     </div>
                                                 </div>    
                                             </td>
