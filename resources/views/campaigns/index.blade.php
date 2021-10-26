@@ -51,7 +51,7 @@
                                             <td>{{ $campaign->user_name }}</td>
                                             <td>
                                                 <div class="dropdown">
-                                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <button class="btn btn-xs btn-inverse-light btn-outline-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

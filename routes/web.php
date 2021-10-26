@@ -108,6 +108,7 @@ Route::get('/campaigns/terms/delete/{id}', [CampaignsController::class, 'term_de
 Route::get('/campaigns/testing.html', [CampaignsController::class, 'testing'])->name('campaigns.testing');
 Route::get('/campaigns/view/{id}.html', [CampaignsController::class, 'view'])->name('campaigns.view');
 Route::get('/campaigns/edit/{id}.html', [CampaignsController::class, 'edit'])->name('campaigns.edit');
+Route::post('/campaigns/update/{id}.html', [CampaignsController::class, 'update'])->name('campaigns.update');
 
 Route::get('/campaigns/contents.html', [CampaignsController::class, 'contents'])->name('campaigns.contents');
 Route::get('/campaigns/contents/new.html', [CampaignsController::class, 'new_content'])->name('campaigns.new_content');
@@ -124,6 +125,7 @@ Route::get('/campaigns/links/new/{id?}.html', [CampaignsController::class, 'new_
 Route::get('/campaigns/links/bulk.html', [CampaignsController::class, 'new_bulk'])->name('campaigns.new_bulk_links');
 Route::post('/campaigns/links/save.html', [CampaignsController::class, 'save_link'])->name('campaigns.save_link');
 Route::get('/campaigns/links/delete/{id}.html', [CampaignsController::class, 'delete_link'])->name('campaigns.delete_link');
+Route::get('/campaigns/links/view/{id}.html', [CampaignsController::class, 'view_link'])->name('campaigns.view_link');
 
 Route::get('/campaigns/templates.html', [CampaignsController::class, 'templates'])->name('campaigns.templates');
 Route::get('/campaigns/templates/new.html', [CampaignsController::class, 'new_template'])->name('campaigns.new_template');

@@ -49,7 +49,15 @@
                                             <td><a href="{{ $link->marcam}}" target="_blank">{{ $link->marcam }}</a></td>
                                             <td>{{ $link->nrclicks }}</td>
                                                 <td>
-                                                    <a class="dropdown-item" onclick="javascript: return confirm('Are you sure?');" href="{{ ('/campaigns/links/delete/'.$link->linkID) }}" ><i data-feather="x-circle"></i></a>  
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-xs btn-inverse-light btn-outline-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        </button>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                            <a class="dropdown-item" href="{{ ('/campaigns/links/view/'.$link->linkID) }}">View</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a class="dropdown-item" href="{{ ('/campaigns/links/delete/'.$link->linkID) }}" onclick="javascript: return confirm('Are you sure?');">Delete</a>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             @endforeach

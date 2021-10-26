@@ -313,16 +313,23 @@ class CampaignsController extends Controller
     /*
     * Update methods
     */
-    public function update(Request $request)
+    public function update($id,Request $request)
     {
-        $camp = Campaign::find($request->campaign_id);
+    
+        $camp = Campaign::find($id);
         $camp->campaign_name = $request->campaign_name;
         $camp->campaign_spend = $request->campaign_spend;
         $camp->start = $request->start;
         $camp->end = $request->end;
+        $camp->status = $request->campaign_status;
+        $camp->category = $request->campaign_category;
+        $camp->template = $request->campaign_template;
+        $camp->model = $request->model;
+        $camp->reporting = $request->campaign_reportings;
         $camp->created_by = Auth::id();
-        $res = $camp->save();
-    if($res){
+        $camp->project_token = session('selected_project');
+        
+        if($camp->save()){
             redirect()->route('campaigns')->with('success', 'The campaign was successfully updated.');
         } else {
             redirect()->route('campaigns')->with('error', 'Error! The campaign could not be updated.');
@@ -330,18 +337,21 @@ class CampaignsController extends Controller
     }
 
 
-
     /*
     * Edit methods
     */
     public function edit($id = null)
     {
-        $data['data'] = Campaign::findOrFail($id);
+        
+        $data['categories'] = CampaignsCategory::all();
+        $data['selected_project'] = session('selected_project');
+        
+        $campaign = new Campaign();
+        $data['data'] = $campaign->getCampaign($data['selected_project'],$id);
+        
         return view('campaigns.edit',$data);
     }
   
-  
-   
 
     /*
     * Save methods

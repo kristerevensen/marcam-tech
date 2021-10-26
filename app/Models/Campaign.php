@@ -14,6 +14,19 @@ class Campaign extends Model
     use HasFactory;
 
     protected $table ="campaigns"; 
+    protected $fillable = [
+        'campaign_name', 
+        'campaign_spend', 
+        'start', 
+        'end', 
+        'status', 
+        'category', 
+        'template', 
+        'model', 
+        'reporting', 
+        'created_by', 
+        'project_token'
+    ];
 
     
     public function CampaignsLinks()
@@ -39,7 +52,7 @@ class Campaign extends Model
     public function getCampaign($token,$id)
     {
         return DB::table('campaigns')
-                ->select(DB::raw('*,users.name as user_name, campaigns.id as campaign_id'))
+                ->select(DB::raw('*,users.name as user_name, campaigns.id as campaign_id, campaigns.description as description'))
                 ->leftJoin('users', 'users.id','=','campaigns.created_by')
                 ->where('project_token',$token)
                 ->where('campaigns.id',$id)
