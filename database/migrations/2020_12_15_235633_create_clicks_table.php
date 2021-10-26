@@ -24,9 +24,7 @@ class CreateClicksTable extends Migration
           
         });
 
-        Schema::table('clicks', function (Blueprint $table) {
-            $table->foreign('link_token')->references('link_token')->on('campaigns_links')->onDelete('cascade');
-        });
+        
     }
 
     /**
@@ -36,9 +34,7 @@ class CreateClicksTable extends Migration
      */
     public function down()
     {
-        Schema::table('clicks', function (Blueprint $table){
-            $table->dropForeign('clicks_link_token_foreign');
-        });
+        
         Schema::dropIfExists('clicks');
     }
 }
