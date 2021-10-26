@@ -43,7 +43,7 @@ class Campaign extends Model
                 ->leftJoin('users', 'users.id','=','campaigns.created_by')
                 ->where('project_token',$token)
                 ->where('campaigns.id',$id)
-                ->get();
+                ->first();
     }
 
     public function getCampaigns($id)
