@@ -13,8 +13,8 @@ class CreateCampaignLinksForeignKeys extends Migration
      */
     public function up()
     {
-         Schema::table('campaigns_links', function (Blueprint $table) {
-             $table->foreign('campaign_id')->references('id')->on('campaigns')->onDelete('cascade');
+        Schema::table('campaigns_links', function (Blueprint $table) {
+            $table->foreign('campaign_id')->references('id')->on('campaigns')->onDelete('cascade');
         });
     }
 
@@ -26,7 +26,7 @@ class CreateCampaignLinksForeignKeys extends Migration
     public function down()
     {
         
-        Schema::table('role_user', function (Blueprint $table){
+        Schema::table('campaigns_links', function (Blueprint $table){
             $table->dropForeign('campaigns_links_campaign_id_foreign');
         });
     }

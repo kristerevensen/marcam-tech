@@ -23,10 +23,7 @@ class CreateCampaignCategoryTable extends Migration
                     ->references('project_token')
                     ->on('projects')
                     ->onDelete('cascade');
-            $table->foreign('campaign_token')
-                    ->references('campaign_token')
-                    ->on('campaigns')
-                    ->onDelete('cascade');
+            
         });
     }
 
