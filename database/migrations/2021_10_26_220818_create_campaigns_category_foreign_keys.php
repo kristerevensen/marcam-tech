@@ -15,8 +15,12 @@ class CreateCampaignsCategoryForeignKeys extends Migration
     {
         Schema::table('campaigns_category', function (Blueprint $table) {
             $table->foreign('project_token')->references('project_token')->on('projects')->onDelete('cascade');
+           
+        });
+        Schema::table('campaigns_category', function (Blueprint $table) {
             $table->foreign('campaign_token')->references('campaign_token')->on('campaigns')->onDelete('cascade');
         });
+       
     }
 
     /**
