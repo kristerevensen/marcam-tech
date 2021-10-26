@@ -19,7 +19,7 @@ class CreateCampaignsTable extends Migration
             $table->string('campaign_name');
             $table->float('campaign_spend')->nullable();
             $table->string('project_token')->key(); //token
-            $table->string('campaign_token')->key(); //token
+            $table->string('campaign_token')->key()->unique(); //token
             $table->integer('created_by'); //user_id
             $table->string('template')->nullable(); //template id
             $table->string('category')->nullable(); 
