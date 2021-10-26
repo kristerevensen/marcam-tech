@@ -122,7 +122,7 @@ class CampaignsController extends Controller
         $session = session('selected_project');
         
         $data['campaigns'] = $campaign->getCampaign($session,$id);
-        $data['campaigns_data'] = $campaign->get_last_30_days_campaigns_clicks($session);
+        $data['campaigns_data'] = $campaign->get_campaign_clicks($session,$id);
         
         $data['campaign_name'] = $data['campaigns']->campaign_name;
        
