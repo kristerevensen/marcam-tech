@@ -30,10 +30,7 @@ class CreateCampaignsLinksTable extends Migration
             $table->text('marcam')->nullable();
             $table->unsignedInteger('campaign_id')->key();
             $table->text('custom_parameters')->nullable();
-            $table->foreign('campaign_id')
-                    ->references('id')
-                    ->on('campaigns')
-                    ->onDelete('cascade');
+            
         
         });
     }
