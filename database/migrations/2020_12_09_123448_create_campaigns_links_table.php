@@ -18,7 +18,7 @@ class CreateCampaignsLinksTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->text('landing_page');
-            $table->string('link_token')->key();
+            $table->string('link_token')->index();
             $table->string('project_token')->key();
             $table->text('campaign_name')->nullable();
             $table->string('source')->nullable();

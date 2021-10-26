@@ -23,7 +23,9 @@ class CreateClicksTable extends Migration
             $table->timestamps();
           
         });
-
+        Schema::table('clicks', function(Blueprint $table){
+            $table->index('link_token');
+        });
         
     }
 
