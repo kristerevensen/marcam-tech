@@ -10,6 +10,19 @@ use app\models\Campaign;
 class Project extends Model
 {
     use HasFactory;
+
+    protected $table ="projects"; 
+    protected $fillable = [
+        'id', 
+        'created_at', 
+        'updated_at', 
+        'project_name', 
+        'project_token', 
+        'url', 
+        'description', 
+        'location', 
+        'language'
+    ];
     
     public function Campaign()
     {

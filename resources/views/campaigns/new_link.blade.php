@@ -53,10 +53,17 @@
                     <div class="form-group col-12">
                         <label for="source">{{ __('Sources')}} <a href="{{ route('campaigns.new_source') }}">New Source</a></label>
                         <select name="source" id="">
+                            <option value="Google">Google</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Twitter">Twitter</option>
+                            <option value="SnapChat">SnapChat</option>
+                            <option value="LinkedIn">LinkedIn</option>
                             @foreach($sources as $source)
                                 <option value="{{ $source->source }}">{{ $source->source}}</option>
                             @endforeach
                         </select>
+                        The referrer (e.g. google, newsletter)
                     </div>
                 </div>
 
@@ -64,10 +71,15 @@
                     <div class="form-group col-12">
                         <label for="medium">{{ __('Medium')}} <a href="{{ route('campaigns.new_medium') }}">New Medium</a></label>
                         <select name="medium" id="">
+                            <option value="Banner">Banner</option>
+                            <option value="CPC ">CPC</option>
+                            <option value="Email">Email</option>
+                            <option value="Organic">Organic</option>
                             @foreach($mediums as $medium)
                                 <option value="{{ $medium->medium }}">{{ $medium->medium}}</option>
                             @endforeach
                         </select>
+                        Marketing medium (e.g. cpc, banner, email)
                     </div>
                 </div>
                 <div class="grid-margin stretch-card col-md-3">
@@ -78,6 +90,7 @@
                                 <option value="{{ $content->content }}">{{ $content->content}}</option>
                             @endforeach
                         </select>
+                        Use to differentiate ads
                     </div>
                 </div>
 
@@ -89,6 +102,7 @@
                                 <option value="{{ $term->term }}">{{ $term->term}}</option>
                             @endforeach
                         </select>
+                        Identify the paid keywords
                     </div>
                 </div>
             </div>

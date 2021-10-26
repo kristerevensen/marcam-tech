@@ -19,7 +19,7 @@ class CreateCampaignsLinksTable extends Migration
             $table->timestamps();
             $table->text('landing_page');
             $table->string('link_token')->index();
-            $table->string('project_token');
+            $table->string('project_token')->key();
             $table->text('campaign_name')->nullable();
             $table->string('source')->nullable();
             $table->string('medium')->nullable();
@@ -28,7 +28,7 @@ class CreateCampaignsLinksTable extends Migration
             $table->string('target')->nullable();
             $table->text('tagged_url')->nullable();
             $table->text('marcam')->nullable();
-            $table->unsignedInteger('campaign_id');
+            $table->unsignedInteger('campaign_id')->key();
             $table->text('custom_parameters')->nullable();
             $table->foreign('campaign_id')
                     ->references('id')

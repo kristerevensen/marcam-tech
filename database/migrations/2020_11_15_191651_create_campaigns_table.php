@@ -18,7 +18,8 @@ class CreateCampaignsTable extends Migration
             $table->timestamps();
             $table->string('campaign_name');
             $table->float('campaign_spend')->nullable();
-            $table->string('project_token'); //token
+            $table->string('project_token')->key(); //token
+            $table->string('campaign_token')->key(); //token
             $table->integer('created_by'); //user_id
             $table->string('template')->nullable(); //template id
             $table->string('category')->nullable(); 

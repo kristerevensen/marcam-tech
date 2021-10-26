@@ -16,6 +16,7 @@ use App\Models\CampaignsLinks;
 use App\Models\Link;
 use App\Models\Template;
 use App\Models\Templates;
+use Illuminate\Support\Facades\Crypt;
 use Mockery\Generator\Parameter;
 
 class CampaignsController extends Controller
@@ -122,6 +123,7 @@ class CampaignsController extends Controller
         $session = session('selected_project');
         
         $data['campaigns'] = $campaign->getCampaign($session,$id);
+        $data['campaign_id'] = $id;
         $data['campaigns_data'] = $campaign->get_campaign_clicks($session,$id);
         
         $data['campaign_name'] = $data['campaigns']->campaign_name;
@@ -171,7 +173,7 @@ class CampaignsController extends Controller
     }
     public function templates($id = null)
     {
-        $templates = new Templates();
+        $templates = new Template();
         $data['templates'] = $templates->get_templates(session('selected_project'));
         return view('campaigns.templates',$data);
     }
@@ -271,7 +273,7 @@ class CampaignsController extends Controller
         return view('campaigns.new_link',$data);
     }
     public function new_bulk(){
-        $templates = new Templates();
+        $templates = new Template();
         $data['templates'] = $templates->get_templates(session('selected_project'));
         return view('campaigns.new_bulk');
     }
@@ -375,6 +377,7 @@ class CampaignsController extends Controller
         $camp->model = $request->model;
         $camp->reporting = $request->campaign_reportings;
         $camp->created_by = Auth::id();
+        $camp->campaign_token = Crypt::encryptString($request->token);
         $camp->project_token = session('selected_project');
         $res = $camp->save();
         if($res){
@@ -496,9 +499,9 @@ class CampaignsController extends Controller
         $data->marcam = "https://marc.am/".$data->link_token;
         
         if($data->save()) {
-            return redirect()->route('campaigns.links')->with('success','The Link was successfully added');
+            return redirect()->route('campaigns.view',$campaignID)->with('success','The Link was successfully added');
         } else {
-            return redirect()->route('campaigns.links')->with('error','Error! The Link was not added');
+            return redirect()->route('campaigns.view',$campaignID)->with('error','Error! The Link was not added');
         }
     }
     public function save_term(Request $request)
@@ -684,13 +687,13 @@ class CampaignsController extends Controller
     }
     public function delete_link($id)
     {
-        // dd($request);
+       // dd($id);
         $data = CampaignsLinks::findOrFail($id);
         $res = $data->delete();
         if($res){
-            return redirect()->route('campaigns.links')->with('success','The Link was successfully deleted.')->send();
+            return redirect()->back()->with('success','The Link was successfully deleted.')->send();
         } else {
-            return redirect()->route('campaigns.links')->with('success','Error. Could not delete the link')->send();
+            return redirect()->back()->with('success','Error. Could not delete the link')->send();
         } 
     }
     public function delete_template($id)

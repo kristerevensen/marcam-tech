@@ -17,6 +17,7 @@ class Campaign extends Model
     protected $fillable = [
         'campaign_name', 
         'campaign_spend', 
+        'campaign_token',
         'description', 
         'start', 
         'end', 
@@ -34,15 +35,20 @@ class Campaign extends Model
     {
         return $this->hasMany(CampaignsLinks::class);
     }
-    public function Clicks()
+
+    public function Project()
     {
-        return $this->belongsTo(Clicks::class);
+        return $this->belongsTo(Project::class);
     }
+    
+   
   
 
     public function delete_campaign($id)
     {
-        $data = DB::table('campaigns')->where('project_token', $id);
+        $data = DB::table('campaigns')
+                ->where('project_token', session('selected_project'))
+                ->where('id',$id);
         if($data->delete()){
             return true;
         } else {
@@ -57,6 +63,7 @@ class Campaign extends Model
                 ->leftJoin('users', 'users.id','=','campaigns.created_by')
                 ->where('project_token',$token)
                 ->where('campaigns.id',$id)
+                ->groupBy('campaigns.id')
                 ->first();
     }
 

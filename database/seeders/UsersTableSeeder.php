@@ -44,7 +44,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $krister = User::create([
-            'name' => 'Krister M. Ross',
+            'name' => 'Krister Ross',
             'email' => 'krister.ross.evensen@gmail.com',
             'password' => Hash::make('Eo(70BerL<')
         ]);

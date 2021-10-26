@@ -21,7 +21,7 @@
 
                             <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
                                 <h6 class="card-title">{{ $campaign_name }} {{ __('links')}}</h6>
-                                <a href="{{ route('campaigns.new_link') }}" class="btn btn-sm btn-success  btn-icon-text">
+                                <a href="{{ route('campaigns.new_link',$campaign_id) }}" class="btn btn-sm btn-success  btn-icon-text">
                                     <i class="btn-icon-prepend" data-feather="plus"></i>
                                     {{ __('New Link') }}
                                 </a>
@@ -51,7 +51,7 @@
                                             <td><a href="{{ $link->marcam}}" target="_blank">{{ $link->marcam }}</a></td>
                                             <td>{{ $link->nrclicks }}</td>
                                                 <td>
-                                                    <a class="dropdown-item" onclick="javascript: return confirm('Are you sure?');" href="{{ ('/campaigns/links/delete/'.$link->id) }}" ><i data-feather="x-circle"></i></a>  
+                                                    <a class="dropdown-item" onclick="javascript: return confirm('Are you sure?');" href="{{ route('campaigns.delete_link', $link->linkID) }}" ><i data-feather="x-circle"></i></a>  
                                                 </td>
                                             </tr>
                                             @endforeach

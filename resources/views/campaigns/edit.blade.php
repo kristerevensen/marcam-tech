@@ -8,7 +8,7 @@
     </ol>
 </nav>
             
-            <form action="{{ route('campaigns.update', $data->campaign_id)}}" method="post" id="campaigns_new" class="validate">
+            <form action="{{ route('campaigns.update', $data->campaign_id)}}" method="post" id="campaigns_new" class="validate"> 
                 @csrf
             <div class="row">
                         <div class="grid-margin stretch-card col-md-8">

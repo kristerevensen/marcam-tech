@@ -36,5 +36,16 @@ class ProjectsTableSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
+
+        DB::table('projects')->insert([
+            'project_name' => 'Skogluft',
+            'project_token' => 'skg123',
+            'url' => 'https://www.skogluft.com',
+            'language' => 'NO',
+            'location' => 'Norway',
+            'description' => 'Skogluft.com.',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
     }
 }
