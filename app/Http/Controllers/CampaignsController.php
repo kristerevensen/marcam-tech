@@ -399,14 +399,14 @@ class CampaignsController extends Controller
  
     public function save_link(Request $request)
     {
-       // dd($request);
+        //dd($request);
         $campaign  = new Campaign();
         $data = new CampaignsLinks();
         $data->link_token = $this->token();
         $data->landing_page = trim($request->landing_page);
         $data->project_token = session('selected_project');
-        $campaignID = $request->set_campaign_id ?: $request->campaign;
-        
+        $campaignID = $request->campaign;
+       
         $campaign_name = $campaign->get_campaign_name($campaignID);
        
         $campaign_name = $campaign_name[0];
@@ -421,7 +421,7 @@ class CampaignsController extends Controller
         $data->target = strtolower($request->target);
         $data->campaign_id = strtolower($campaignID);
         $data->custom_parameters = serialize($request->parameters);
-        
+        //dd($data);
         $url = trim($request->landing_page);
 
         $domain = "";
