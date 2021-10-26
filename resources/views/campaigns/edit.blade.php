@@ -92,7 +92,7 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="campaign_description">{{ __('Campaign Description') }}</label>
-                                        <textarea name="campaign_description" id="campaign_description" cols="30" rows="10" class="form-control col-12">{{ ($data->description) }}</textarea>
+                                        <textarea name="description" id="campaign_description" cols="30" rows="10" class="form-control col-12">{{ ($data->description) }}</textarea>
                                     </div>
                                 </div>
                             </div>

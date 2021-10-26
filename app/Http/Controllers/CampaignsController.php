@@ -320,6 +320,7 @@ class CampaignsController extends Controller
         $camp->campaign_name = $request->campaign_name;
         $camp->campaign_spend = $request->campaign_spend;
         $camp->start = $request->start;
+        $camp->description = $request->description;
         $camp->end = $request->end;
         $camp->status = $request->campaign_status;
         $camp->category = $request->campaign_category;
@@ -330,9 +331,9 @@ class CampaignsController extends Controller
         $camp->project_token = session('selected_project');
         
         if($camp->save()){
-            redirect()->route('campaigns')->with('success', 'The campaign was successfully updated.');
+            redirect()->route('campaigns')->with('success', 'The campaign was successfully updated.')->send();
         } else {
-            redirect()->route('campaigns')->with('error', 'Error! The campaign could not be updated.');
+            redirect()->route('campaigns')->with('error', 'Error! The campaign could not be updated.')->send();
         }
     }
 
