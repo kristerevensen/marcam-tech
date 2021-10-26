@@ -48,21 +48,21 @@
                                             <td>{{ number_format($campaign->campaign_spend) }}</td>
                                             <td>{{ date_format (new DateTime($campaign->start), 'jS M Y') }}</td>
                                             <td>{{ date_format (new DateTime($campaign->end), 'jS M Y') }}</td>
-                                            <td>{{ $campaign->created_by }}<td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            
-                                                        </button>
-                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item" href="{{ route('campaigns.view',$campaign->id) }}">{{ __('View') }}</a>
-                                                        <a class="dropdown-item" href="{{ route('campaigns.new_link',$campaign->id) }}">{{ __('New link') }}</a>
-                                                        <a class="dropdown-item" href="">{{ __('Multiple Links') }}</a>
-                                                        <a class="dropdown-item" href="{{ route('campaigns.edit',$campaign->id) }}">{{ __('Edit') }}</a>
-                                                        <a class="dropdown-item" href="{{ route('campaigns.delete',$campaign->id)}}" onclick="javascript: return confirm('{{ __('Are you sure?') }}')">Delete</a>
-                                                        </div>
-                                                    </div>    
-                                                </td>
+                                            <td>{{ $campaign->user_name }}</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="{{ route('campaigns.view',$campaign->id) }}">{{ __('View') }}</a>
+                                                    <a class="dropdown-item" href="{{ route('campaigns.new_link',$campaign->id) }}">{{ __('New link') }}</a>
+                                                    <a class="dropdown-item" href="">{{ __('Multiple Links') }}</a>
+                                                    <a class="dropdown-item" href="{{ route('campaigns.edit',$campaign->id) }}">{{ __('Edit') }}</a>
+                                                    <a class="dropdown-item" href="{{ route('campaigns.delete',$campaign->id)}}" onclick="javascript: return confirm('{{ __('Are you sure?') }}')">Delete</a>
+                                                    </div>
+                                                </div>    
+                                            </td>
                                             </tr>
                                             @endforeach
                                     </tbody>

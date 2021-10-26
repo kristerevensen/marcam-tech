@@ -41,12 +41,11 @@ class CampaignsController extends Controller
         $campaign = new Campaign();
         $session = session('selected_project');
         $data['campaigns'] = $campaign->getCampaigns($session);
+        dd($data['campaigns']);
         $data['campaigns_data'] = $campaign->get_last_30_days_campaigns_clicks($session);
         $data['series'] = null;
-        //dd($data['campaigns_data']);
         $iteration = 0;
         foreach($data['campaigns_data'] as $key => $val){
-           //echo $val->name."<br>";
             for($i = 0; $i < $days; $i++) {
                 $date = date("Y-m-d", strtotime('-'. $i .' days'));
                 $key = array_search($date,(array)$data['campaigns_data'][$iteration]);
@@ -70,7 +69,6 @@ class CampaignsController extends Controller
             $data['series'][$iteration]['seriesData'] = $extra[$val->name];
             $iteration++;
         }
-        //dd($data['series']);
         return view('campaigns.index',$data);
     }
 
@@ -118,11 +116,11 @@ class CampaignsController extends Controller
     }
     public function view($id = null, $days = 30)
     {
-       // $data['data'] = Campaign::findOrFail($id);
-        $campaign = Campaign::findOrFail($id);
+
+        $campaign = new Campaign();
         $session = session('selected_project');
 
-        $data['campaigns'] = $campaign->getCampaigns($session);
+        $data['campaigns'] = $campaign->getCampaign($session,$id);
         $data['campaigns_data'] = $campaign->get_last_30_days_campaigns_clicks($session);
         $data['campaign_name'] = $data['campaigns_data'][0]->name;
         

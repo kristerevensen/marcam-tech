@@ -36,9 +36,21 @@ class Campaign extends Model
         }
     }
 
+    public function getCampaign($token,$id)
+    {
+        return DB::table('campaigns')
+                ->select(DB::raw('*,users.name as user_name'))
+                ->leftJoin('users', 'users.id','=','campaigns.created_by')
+                ->where('project_token',$token)
+                ->where('campaigns.id',$id)
+                ->get();
+    }
+
     public function getCampaigns($id)
     {
         return DB::table('campaigns')
+                ->select(DB::raw('*,users.name as user_name'))
+                ->leftJoin('users', 'users.id','=','campaigns.created_by')
                 ->where('project_token',$id)
                 ->get();
     }
