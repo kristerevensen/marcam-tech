@@ -19,7 +19,7 @@ class CreateClicksTable extends Migration
             $table->string('referrer')->nullable();
             $table->string('ip')->nullable();
             $table->string('platform')->nullable();
-            $table->string('link_token')->key();
+            $table->string('link_token')->index();
             $table->timestamps();
           
         });
