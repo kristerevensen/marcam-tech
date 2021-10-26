@@ -15,8 +15,8 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('projects')->truncate();
-        
+        //DB::table('projects')->truncate();
+
         DB::table('projects')->insert([
             'project_name' => 'OneCall',
             'project_token' => 'ABC123',
