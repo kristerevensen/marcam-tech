@@ -14,7 +14,7 @@ class CreateTemplatesTableForeignKeys extends Migration
     public function up()
     {
         Schema::table('campaigns_templates', function (Blueprint $table) {
-            $table->foreign('campaign_token')->references('id')->on('campaigns')->onDelete('cascade');
+            $table->foreign('campaign_token')->references('campaign_token')->on('campaigns')->onDelete('cascade');
         });
     }
 
