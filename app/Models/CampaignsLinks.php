@@ -21,7 +21,7 @@ class CampaignsLinks extends Model
     public function get_links($project_token)
     {
         return DB::table('campaigns_links')
-                ->select(DB::raw('*,COUNT(clicks.link_token) as nrclicks'))
+                ->select(DB::raw('*,COUNT(clicks.link_token) as nrclicks, campaigns_links.id as linkID'))
                 ->leftJoin('clicks', 'campaigns_links.link_token','=','clicks.link_token')
                 ->where('project_token',$project_token)
                 ->groupBy('campaigns_links.id')

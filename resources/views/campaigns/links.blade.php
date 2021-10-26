@@ -49,7 +49,7 @@
                                             <td><a href="{{ $link->marcam}}" target="_blank">{{ $link->marcam }}</a></td>
                                             <td>{{ $link->nrclicks }}</td>
                                                 <td>
-                                                    <a class="dropdown-item" onclick="javascript: return confirm('Are you sure?');" href="{{ ('/campaigns/links/delete/'.$link->id) }}" ><i data-feather="x-circle"></i></a>  
+                                                    <a class="dropdown-item" onclick="javascript: return confirm('Are you sure?');" href="{{ ('/campaigns/links/delete/'.$link->linkID) }}" ><i data-feather="x-circle"></i></a>  
                                                 </td>
                                             </tr>
                                             @endforeach
