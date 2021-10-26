@@ -19,11 +19,6 @@ class CreateCampaignCategoryTable extends Migration
             $table->string('campaign_token')->key();
             $table->string('name');
             $table->timestamps();
-            $table->foreign('project_token')
-                    ->references('project_token')
-                    ->on('projects')
-                    ->onDelete('cascade');
-            
         });
     }
 
