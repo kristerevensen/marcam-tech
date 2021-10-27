@@ -35,6 +35,7 @@
                                     <thead>
                                         <tr>
                                             <th class="wd-10p">{{ __('Created') }}</th>
+                                            <th class="wd-10p">{{ __('Source') }}</th>
                                             <th class="wd-10p">{{ __('URL') }}</th>
                                             <th class="wd-20p">{{ __('Campaign') }}</th>
                                             <th class="wd-20p">{{ __('Marcam URL')}}</th>
@@ -45,7 +46,8 @@
                                         <tbody>
                                             @foreach($links as $link)
                                             <tr>
-                                            <td>{{ date_format (new DateTime($link->created_at), 'jS M Y') }}</td>
+                                            <td>{{ date_format (new DateTime($link->created_at), 'jS M y') }}</td>
+                                            <td>{{ $link->source }}</td>
                                             <td>{{ $link->landing_page }}</td>
                                             <td>{{ $link->campaign_name }}</td>
                                             <td><a href="{{ $link->marcam}}" target="_blank">{{ $link->marcam }}</a></td>
