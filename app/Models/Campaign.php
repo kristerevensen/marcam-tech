@@ -97,7 +97,7 @@ class Campaign extends Model
                     ->leftJoin('campaigns', 'campaigns.id','=','campaigns_links.campaign_id')
                     ->where('campaigns.project_token',$session)
                     ->where('campaigns.id',$id)
-                    ->groupBy('clicks.id')
+                    ->groupBy('clicks.link_token','DATE')
                     ->orderBy('DATE','DESC')
                     ->get();
     }
