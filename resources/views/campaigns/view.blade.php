@@ -83,7 +83,7 @@ var campaign = {
   series: [
 @foreach($series as $serie)
 {
-   // name: '{{ $serie['name']}}',
+    name: '{{ $serie['source']}}',
     data: [@foreach($serie['seriesData'] as $key => $val) { 'x': new Date('{{ $val['X'] }}').getTime(), 'y': {{ $val['Y'] }} }, @endforeach]
 },
 @endforeach
