@@ -106,7 +106,7 @@ class Campaign extends Model
         
         return DB::table('clicks')
                     ->select(DB::raw('
-                        count(clicks.created_at) as clickcount, 
+                        count(clicks.link_token) as clickcount, 
                         cast(clicks.created_at as DATE) as date, 
                         campaigns.campaign_name as name, 
                         campaigns.id as campaignID')) // count(clicks.id) as clicks, cast(clicks.created_at as DATE) as date

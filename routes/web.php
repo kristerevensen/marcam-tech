@@ -6,10 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\AnalysisController;
 use App\Http\Controllers\ApiController;
-use App\Http\Controllers\GanttController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\KeywordsController;
+use App\Http\Controllers\Keywords\KeywordController;
 use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\CompetitorsController;
 use App\Http\Controllers\RankingController;
@@ -45,7 +44,7 @@ Route::redirect('/home', '/projects.html', 301);
 
 Route::get('/projects.html', [HomeController::class, 'index'])->name('home'); //Projects list
 Route::get('/error/404.html', [PublicPagesController::class, 'error_404'])->name('404'); //
-Route::get('/keywords.html', [KeywordsController::class, 'index'])->name('keywords');
+Route::get('/keywords.html', [KeywordController::class, 'index'])->name('keywords');
 Route::get('/pages.html', [PagesController::class, 'index'])->name('pages');
 Route::get('/competitors.html', [CompetitorsController::class, 'index'])->name('competitors');
 Route::get('/ranking.html', [RankingController::class, 'index'])->name('ranking');

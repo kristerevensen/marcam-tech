@@ -31,8 +31,8 @@ class CampaignsController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->selected();
     }
-  
 
 
     /**
@@ -83,9 +83,12 @@ class CampaignsController extends Controller
     **/
     public function selected()
     {
-        if(!session('selected_project')) {
-            redirect()->route('home')->with('info', 'You need to select a project')->send();
+        if(auth()->user()) {
+            if(!session('selected_project')) {
+                redirect()->route('home')->with('info', 'You need to select a project')->send(); 
+            }
         }
+        
     }
 
     /*

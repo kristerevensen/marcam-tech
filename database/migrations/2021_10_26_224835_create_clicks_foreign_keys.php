@@ -15,7 +15,7 @@ class CreateClicksForeignKeys extends Migration
     {
        
         Schema::table('clicks', function (Blueprint $table) {
-            $table->foreign('link_token')->references('link_token')->on('campaigns_links')->onDelete('cascade');
+            $table->foreign('clicks_link_token')->references('link_token')->on('campaigns_links')->onDelete('cascade');
         });
     }
 
