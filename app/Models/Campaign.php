@@ -108,13 +108,14 @@ class Campaign extends Model
         return DB::table('clicks')
                     ->select(DB::raw('
                         count(clicks.link_token) as clickcount, 
-                        cast(clicks.created_at as DATE), 
+                        date(clicks.created_at) as DATE, 
                         campaigns.campaign_name as name, 
                         campaigns.id as campaignID')) // count(clicks.id) as clicks, cast(clicks.created_at as DATE) as date
                     ->leftJoin('campaigns_links', 'campaigns_links.link_token','=','clicks.link_token')
                     ->leftJoin('campaigns', 'campaigns.id','=','campaigns_links.campaign_id')
                     ->where('campaigns.project_token',$session)
-                    ->groupBy('date')
+                    ->where('campaigns.id',$id)
+                    ->groupBy('DATE')
                     ->orderBy('DATE','DESC')
                     ->get();
     }
